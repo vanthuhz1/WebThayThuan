@@ -1,0 +1,127 @@
+D:\CNTT\HK 2025\BaiTapThayThuan\RestFull_Api_WebBanHang\Backend_WebBanHang\bin\Debug\net8.0\appsettings.Development.json
+D:\CNTT\HK 2025\BaiTapThayThuan\RestFull_Api_WebBanHang\Backend_WebBanHang\bin\Debug\net8.0\appsettings.json
+D:\CNTT\HK 2025\BaiTapThayThuan\RestFull_Api_WebBanHang\Backend_WebBanHang\bin\Debug\net8.0\Backend_WebBanHang.staticwebassets.endpoints.json
+D:\CNTT\HK 2025\BaiTapThayThuan\RestFull_Api_WebBanHang\Backend_WebBanHang\bin\Debug\net8.0\Backend_WebBanHang.exe
+D:\CNTT\HK 2025\BaiTapThayThuan\RestFull_Api_WebBanHang\Backend_WebBanHang\bin\Debug\net8.0\Backend_WebBanHang.deps.json
+D:\CNTT\HK 2025\BaiTapThayThuan\RestFull_Api_WebBanHang\Backend_WebBanHang\bin\Debug\net8.0\Backend_WebBanHang.runtimeconfig.json
+D:\CNTT\HK 2025\BaiTapThayThuan\RestFull_Api_WebBanHang\Backend_WebBanHang\bin\Debug\net8.0\Backend_WebBanHang.dll
+D:\CNTT\HK 2025\BaiTapThayThuan\RestFull_Api_WebBanHang\Backend_WebBanHang\bin\Debug\net8.0\Backend_WebBanHang.pdb
+D:\CNTT\HK 2025\BaiTapThayThuan\RestFull_Api_WebBanHang\Backend_WebBanHang\bin\Debug\net8.0\Microsoft.OpenApi.dll
+D:\CNTT\HK 2025\BaiTapThayThuan\RestFull_Api_WebBanHang\Backend_WebBanHang\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\CNTT\HK 2025\BaiTapThayThuan\RestFull_Api_WebBanHang\Backend_WebBanHang\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\CNTT\HK 2025\BaiTapThayThuan\RestFull_Api_WebBanHang\Backend_WebBanHang\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\CNTT\HK 2025\BaiTapThayThuan\RestFull_Api_WebBanHang\Backend_WebBanHang\obj\Debug\net8.0\Backend_WebBanHang.csproj.AssemblyReference.cache
+D:\CNTT\HK 2025\BaiTapThayThuan\RestFull_Api_WebBanHang\Backend_WebBanHang\obj\Debug\net8.0\Backend_WebBanHang.GeneratedMSBuildEditorConfig.editorconfig
+D:\CNTT\HK 2025\BaiTapThayThuan\RestFull_Api_WebBanHang\Backend_WebBanHang\obj\Debug\net8.0\Backend_WebBanHang.AssemblyInfoInputs.cache
+D:\CNTT\HK 2025\BaiTapThayThuan\RestFull_Api_WebBanHang\Backend_WebBanHang\obj\Debug\net8.0\Backend_WebBanHang.AssemblyInfo.cs
+D:\CNTT\HK 2025\BaiTapThayThuan\RestFull_Api_WebBanHang\Backend_WebBanHang\obj\Debug\net8.0\Backend_WebBanHang.csproj.CoreCompileInputs.cache
+D:\CNTT\HK 2025\BaiTapThayThuan\RestFull_Api_WebBanHang\Backend_WebBanHang\obj\Debug\net8.0\Backend_WebBanHang.MvcApplicationPartsAssemblyInfo.cs
+D:\CNTT\HK 2025\BaiTapThayThuan\RestFull_Api_WebBanHang\Backend_WebBanHang\obj\Debug\net8.0\Backend_WebBanHang.MvcApplicationPartsAssemblyInfo.cache
+D:\CNTT\HK 2025\BaiTapThayThuan\RestFull_Api_WebBanHang\Backend_WebBanHang\obj\Debug\net8.0\scopedcss\bundle\Backend_WebBanHang.styles.css
+D:\CNTT\HK 2025\BaiTapThayThuan\RestFull_Api_WebBanHang\Backend_WebBanHang\obj\Debug\net8.0\staticwebassets.build.json
+D:\CNTT\HK 2025\BaiTapThayThuan\RestFull_Api_WebBanHang\Backend_WebBanHang\obj\Debug\net8.0\staticwebassets.development.json
+D:\CNTT\HK 2025\BaiTapThayThuan\RestFull_Api_WebBanHang\Backend_WebBanHang\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+D:\CNTT\HK 2025\BaiTapThayThuan\RestFull_Api_WebBanHang\Backend_WebBanHang\obj\Debug\net8.0\staticwebassets\msbuild.Backend_WebBanHang.Microsoft.AspNetCore.StaticWebAssets.props
+D:\CNTT\HK 2025\BaiTapThayThuan\RestFull_Api_WebBanHang\Backend_WebBanHang\obj\Debug\net8.0\staticwebassets\msbuild.Backend_WebBanHang.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+D:\CNTT\HK 2025\BaiTapThayThuan\RestFull_Api_WebBanHang\Backend_WebBanHang\obj\Debug\net8.0\staticwebassets\msbuild.build.Backend_WebBanHang.props
+D:\CNTT\HK 2025\BaiTapThayThuan\RestFull_Api_WebBanHang\Backend_WebBanHang\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Backend_WebBanHang.props
+D:\CNTT\HK 2025\BaiTapThayThuan\RestFull_Api_WebBanHang\Backend_WebBanHang\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Backend_WebBanHang.props
+D:\CNTT\HK 2025\BaiTapThayThuan\RestFull_Api_WebBanHang\Backend_WebBanHang\obj\Debug\net8.0\staticwebassets.pack.json
+D:\CNTT\HK 2025\BaiTapThayThuan\RestFull_Api_WebBanHang\Backend_WebBanHang\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+D:\CNTT\HK 2025\BaiTapThayThuan\RestFull_Api_WebBanHang\Backend_WebBanHang\obj\Debug\net8.0\Backend_.94DFF5B8.Up2Date
+D:\CNTT\HK 2025\BaiTapThayThuan\RestFull_Api_WebBanHang\Backend_WebBanHang\obj\Debug\net8.0\Backend_WebBanHang.dll
+D:\CNTT\HK 2025\BaiTapThayThuan\RestFull_Api_WebBanHang\Backend_WebBanHang\obj\Debug\net8.0\refint\Backend_WebBanHang.dll
+D:\CNTT\HK 2025\BaiTapThayThuan\RestFull_Api_WebBanHang\Backend_WebBanHang\obj\Debug\net8.0\Backend_WebBanHang.pdb
+D:\CNTT\HK 2025\BaiTapThayThuan\RestFull_Api_WebBanHang\Backend_WebBanHang\obj\Debug\net8.0\Backend_WebBanHang.genruntimeconfig.cache
+D:\CNTT\HK 2025\BaiTapThayThuan\RestFull_Api_WebBanHang\Backend_WebBanHang\obj\Debug\net8.0\ref\Backend_WebBanHang.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\obj\Debug\net8.0\Backend_WebBanHang.csproj.AssemblyReference.cache
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\obj\Debug\net8.0\Backend_WebBanHang.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\obj\Debug\net8.0\Backend_WebBanHang.AssemblyInfoInputs.cache
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\obj\Debug\net8.0\Backend_WebBanHang.AssemblyInfo.cs
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\obj\Debug\net8.0\Backend_WebBanHang.csproj.CoreCompileInputs.cache
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\obj\Debug\net8.0\Backend_WebBanHang.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\obj\Debug\net8.0\Backend_WebBanHang.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\obj\Debug\net8.0\Backend_WebBanHang.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\obj\Debug\net8.0\refint\Backend_WebBanHang.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\obj\Debug\net8.0\Backend_WebBanHang.pdb
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Backend_WebBanHang.staticwebassets.endpoints.json
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\appsettings.json
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Backend_WebBanHang.exe
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Backend_WebBanHang.deps.json
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Backend_WebBanHang.runtimeconfig.json
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Backend_WebBanHang.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Backend_WebBanHang.pdb
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Azure.Core.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Azure.Identity.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\System.ClientModel.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\System.Drawing.Common.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\System.Formats.Asn1.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\System.IO.Pipelines.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\System.Memory.Data.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\System.Runtime.Caching.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\System.Security.Permissions.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\System.Text.Encodings.Web.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\System.Text.Json.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\System.Windows.Extensions.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\obj\Debug\net8.0\scopedcss\bundle\Backend_WebBanHang.styles.css
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\obj\Debug\net8.0\staticwebassets\msbuild.Backend_WebBanHang.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\obj\Debug\net8.0\staticwebassets\msbuild.Backend_WebBanHang.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\obj\Debug\net8.0\staticwebassets\msbuild.build.Backend_WebBanHang.props
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Backend_WebBanHang.props
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Backend_WebBanHang.props
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\obj\Debug\net8.0\Backend_.94DFF5B8.Up2Date
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\obj\Debug\net8.0\Backend_WebBanHang.genruntimeconfig.cache
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\obj\Debug\net8.0\ref\Backend_WebBanHang.dll
+C:\Users\Admin\OneDrive\Desktop\wevcuoiki\backend\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
