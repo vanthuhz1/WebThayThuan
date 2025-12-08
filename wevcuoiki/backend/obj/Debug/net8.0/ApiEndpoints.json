@@ -58,6 +58,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Backend_WebBanHang.Controllers.BannersController",
+    "Method": "GetPublicBanners",
+    "RelativePath": "api/Banners/public",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Backend_WebBanHang.Controllers.CartsController",
     "Method": "GetMyCart",
     "RelativePath": "api/Carts",
@@ -131,115 +141,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Backend_WebBanHang.Controllers.CategoriesController",
-    "Method": "GetAll",
-    "RelativePath": "api/Categories",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "parentId",
-        "Type": "System.Nullable\u00601[[System.Int64, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": false
-      },
-      {
-        "Name": "status",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Backend_WebBanHang.Controllers.CategoriesController",
-    "Method": "Create",
-    "RelativePath": "api/Categories",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "model",
-        "Type": "Backend_WebBanHang.DTOs.Categories.CategoryDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Backend_WebBanHang.Controllers.CategoriesController",
-    "Method": "GetById",
-    "RelativePath": "api/Categories/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int64",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Backend_WebBanHang.Controllers.CategoriesController",
-    "Method": "Update",
-    "RelativePath": "api/Categories/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int64",
-        "IsRequired": true
-      },
-      {
-        "Name": "model",
-        "Type": "Backend_WebBanHang.DTOs.Categories.CategoryDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Backend_WebBanHang.Controllers.CategoriesController",
-    "Method": "Delete",
-    "RelativePath": "api/Categories/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int64",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Backend_WebBanHang.Controllers.CategoriesController",
-    "Method": "GetTree",
-    "RelativePath": "api/Categories/tree",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "status",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Backend_WebBanHang.Controllers.DiscountCodesController",
-    "Method": "GetAll",
-    "RelativePath": "api/DiscountCodes",
+    "ContainingType": "Backend_WebBanHang.Controllers.NavigationController",
+    "Method": "GetNavigation",
+    "RelativePath": "api/Navigation/nav",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -247,93 +151,8 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Backend_WebBanHang.Controllers.DiscountCodesController",
-    "Method": "Create",
-    "RelativePath": "api/DiscountCodes",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "model",
-        "Type": "Backend_WebBanHang.DTOs.DiscountCodes.DiscountCodeDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Backend_WebBanHang.Controllers.DiscountCodesController",
-    "Method": "GetById",
-    "RelativePath": "api/DiscountCodes/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int64",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Backend_WebBanHang.Controllers.DiscountCodesController",
-    "Method": "Update",
-    "RelativePath": "api/DiscountCodes/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int64",
-        "IsRequired": true
-      },
-      {
-        "Name": "model",
-        "Type": "Backend_WebBanHang.DTOs.DiscountCodes.DiscountCodeDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Backend_WebBanHang.Controllers.DiscountCodesController",
-    "Method": "Delete",
-    "RelativePath": "api/DiscountCodes/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int64",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Backend_WebBanHang.Controllers.DiscountCodesController",
-    "Method": "ValidateCode",
-    "RelativePath": "api/DiscountCodes/validate",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "code",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "Backend_WebBanHang.Controllers.ProductsController",
-    "Method": "GetAll",
+    "Method": "GetAllForm",
     "RelativePath": "api/Products",
     "HttpMethod": "GET",
     "IsController": true,
@@ -444,6 +263,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend_WebBanHang.Controllers.ProductsController",
+    "Method": "GetAllNoPaging",
+    "RelativePath": "api/Products/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   }
 ]

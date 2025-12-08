@@ -25,5 +25,6 @@ namespace Backend_WebBanHang.Data
         public DbSet<Wishlist> Wishlists { get; set; }
         public DbSet<WishlistItem> WishlistItems { get; set; }
         public DbSet<Blog> Blogs { get; set; }
+        public DbSet<Banner> Banners { get; set; }
     }
 }

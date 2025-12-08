@@ -1,0 +1,17 @@
+/* ============================================
+   CUSTOM STYLES - Additional overrides only
+   ============================================ */
+/* 
+   NOTE: Base styles, containers, and utilities are defined in index.css
+   This file should only contain additional custom styles that don't conflict
+   with index.css or Tailwind CSS.
+   
+   Removed duplicate styles to prevent CSS conflicts:
+   - Base styles (*, body) -> moved to index.css
+   - Container styles -> moved to index.css  
+   - Utility classes (d-flex, etc.) -> moved to index.css
+   - Bootstrap grid fixes -> moved to index.css
+   - Responsive utilities -> moved to index.css
+   - .hidden override removed (conflicts with Tailwind)
+*/
+

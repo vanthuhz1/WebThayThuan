@@ -20,16 +20,13 @@ namespace Backend_WebBanHang.Models
         [Column("slug")]
         public string Slug { get; set; } = null!;
 
-        [Column("description")]
-        public string? Description { get; set; }
-
-        [Column("position")]
-        public int? Position { get; set; }
-
         [Column("status")]
         public string? Status { get; set; }
 
         [Column("created_at")]
         public DateTime? CreatedAt { get; set; }
+
+        [Column("img")]
+        public string? img { get; set; }
     }
 }

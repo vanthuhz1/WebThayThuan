@@ -6,8 +6,8 @@
         public long? ParentIdCategories { get; set; }
         public string Name { get; set; } = null!;
         public string Slug { get; set; } = null!;
-        public string? Description { get; set; }
-        public int? Position { get; set; }
+        
         public string? Status { get; set; }
+        public string? CategoryImage { get; set; }
     }
 }

@@ -9,5 +9,10 @@
         public decimal? SalePrice { get; set; }
         public long IdCategories { get; set; }
         public string? ThumbnailUrl { get; set; }
+        public double? AverageRating { get; set; }
+        public int ReviewCount { get; set; }
+        public string? ShortDescription { get; set; }
+        public List<string> AvailableColors { get; set; } = new();
+        public List<string> AvailableSizes { get; set; } = new();
     }
 }

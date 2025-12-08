@@ -19,12 +19,53 @@ namespace Backend_WebBanHang.Controllers
         {
             _context = context;
         }
+        //getallpro
+        [AllowAnonymous]
+        [HttpGet("all")]
+        public async Task<IActionResult> GetAllNoPaging()
+        {
+            var items = await _context.Products
+                .AsNoTracking()
+                .OrderByDescending(p => p.CreatedAt)
+                .Select(p => new
+                {
+                    p.IdProducts,
+                    p.IdCategories,
+                    p.Name,
+                    p.Slug,
+                    p.ShortDescription,
+                    p.Description,
+                    p.Sku,
+                    p.Price,
+                    p.SalePrice,
+                    p.StockQuantity,
+                    p.Status,
+                    p.CreatedAt,
+                    p.UpdatedAt,
+                    ThumbnailUrl = _context.ProductImages
+                        .Where(i => i.IdProducts == p.IdProducts)
+                        .OrderByDescending(i => i.IsPrimary)
+                        .ThenBy(i => i.Position)
+                        .Select(i => i.Url)
+                        .FirstOrDefault(),
+                    AverageRating = _context.ProductReviews
+                        .Where(r => r.IdProducts == p.IdProducts && r.Status == "active")
+                        .Select(r => (double?)r.Rating)
+                        .Average(),
+                    ReviewCount = _context.ProductReviews
+                        .Where(r => r.IdProducts == p.IdProducts && r.Status == "active")
+                        .Count()
+                })
+                .ToListAsync();
+
+            return Ok(items);
+        }
 
         // GET: api/Products
         // ?page=1&pageSize=12&keyword=ao&categoryId=1&minPrice=100000&maxPrice=500000&sort=price_asc
         [AllowAnonymous]
         [HttpGet]
-        public async Task<IActionResult> GetAll(
+        public async Task<IActionResult> GetAllForm(
             [FromQuery] int page = 1,
             [FromQuery] int pageSize = 12,
             [FromQuery] string? keyword = null,
@@ -98,13 +139,41 @@ namespace Backend_WebBanHang.Controllers
                     Price = p.Price,
                     SalePrice = p.SalePrice,
                     IdCategories = p.IdCategories,
+                    ShortDescription = p.ShortDescription,
                     ThumbnailUrl = _context.ProductImages
                         .Where(i => i.IdProducts == p.IdProducts && i.IsPrimary == true)
                         .OrderBy(i => i.Position)
                         .Select(i => i.Url)
-                        .FirstOrDefault()
+                        .FirstOrDefault(),
+                    AverageRating = _context.ProductReviews
+                        .Where(r => r.IdProducts == p.IdProducts && r.Status == "active")
+                        .Select(r => (double?)r.Rating)
+                        .Average(),
+                    ReviewCount = _context.ProductReviews
+                        .Where(r => r.IdProducts == p.IdProducts && r.Status == "active")
+                        .Count()
                 })
                 .ToListAsync();
+
+            // Populate AvailableColors and AvailableSizes
+            foreach (var item in items)
+            {
+                var variants = await _context.ProductVariants
+                    .Where(v => v.IdProducts == item.IdProducts)
+                    .ToListAsync();
+
+                item.AvailableColors = variants
+                    .Where(v => !string.IsNullOrEmpty(v.Color))
+                    .Select(v => v.Color!)
+                    .Distinct()
+                    .ToList();
+
+                item.AvailableSizes = variants
+                    .Where(v => !string.IsNullOrEmpty(v.Size))
+                    .Select(v => v.Size!)
+                    .Distinct()
+                    .ToList();
+            }
 
             var result = new PagedResult<ProductListItemDto>
             {
@@ -127,7 +196,81 @@ namespace Backend_WebBanHang.Controllers
                 .FirstOrDefaultAsync(p => p.IdProducts == id);
 
             if (product == null) return NotFound();
-            return Ok(product);
+
+            // Lấy category name
+            var category = await _context.Categories
+                .FirstOrDefaultAsync(c => c.IdCategories == product.IdCategories);
+
+            // Lấy images
+            var images = await _context.ProductImages
+                .Where(i => i.IdProducts == id)
+                .OrderByDescending(i => i.IsPrimary)
+                .ThenBy(i => i.Position)
+                .Select(i => new DTOs.Products.ProductImageDto
+                {
+                    IdProductImages = i.IdProductImages,
+                    Url = i.Url,
+                    IsPrimary = i.IsPrimary,
+                    Position = i.Position
+                })
+                .ToListAsync();
+
+            // Lấy variants
+            var variants = await _context.ProductVariants
+                .Where(v => v.IdProducts == id)
+                .Select(v => new DTOs.Products.ProductVariantDto
+                {
+                    IdProductVariants = v.IdProductVariants,
+                    Sku = v.Sku,
+                    Size = v.Size,
+                    Color = v.Color,
+                    StockQuantity = v.StockQuantity,
+                    Price = v.Price,
+                    SalePrice = v.SalePrice,
+                    Status = v.Status
+                })
+                .ToListAsync();
+
+            // Tính average rating
+            var averageRating = await _context.ProductReviews
+                .Where(r => r.IdProducts == id && r.Status == "active")
+                .Select(r => (double?)r.Rating)
+                .AverageAsync();
+
+            var reviewCount = await _context.ProductReviews
+                .Where(r => r.IdProducts == id && r.Status == "active")
+                .CountAsync();
+
+            // Tính số lượng đã bán (từ order_items thông qua product_variants)
+            var soldQuantity = await (from oi in _context.OrderItems
+                                     join v in _context.ProductVariants on oi.IdProductVariants equals v.IdProductVariants
+                                     join o in _context.Orders on oi.IdOrders equals o.IdOrders
+                                     where v.IdProducts == id && o.Status != "cancelled"
+                                     select oi.Quantity)
+                                     .SumAsync();
+
+            var dto = new DTOs.Products.ProductDetailsDto
+            {
+                IdProducts = product.IdProducts,
+                Name = product.Name,
+                Slug = product.Slug,
+                ShortDescription = product.ShortDescription,
+                Description = product.Description,
+                Sku = product.Sku,
+                Price = product.Price,
+                SalePrice = product.SalePrice,
+                StockQuantity = product.StockQuantity,
+                Status = product.Status,
+                IdCategories = product.IdCategories,
+                CategoryName = category?.Name,
+                AverageRating = averageRating,
+                ReviewCount = reviewCount,
+                SoldQuantity = soldQuantity,
+                Images = images,
+                Variants = variants
+            };
+
+            return Ok(dto);
         }
 
         // POST: api/Products
