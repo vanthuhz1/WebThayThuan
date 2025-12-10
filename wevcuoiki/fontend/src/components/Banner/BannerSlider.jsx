@@ -1,6 +1,12 @@
 import { useEffect, useState, useRef } from 'react'
 import { getBanners } from '../../services/BannerService'
 
+const fallbackBanners = [
+  { id: 'fallback-1', imageUrl: '/assets/img/Banners/banner1.jpg', link: '#' },
+  { id: 'fallback-2', imageUrl: '/assets/img/Banners/banner2.jpg', link: '#' },
+  { id: 'fallback-3', imageUrl: '/assets/img/Banners/banner3.jpg', link: '#' },
+]
+
 const BannerSlider = () => {
   const [banners, setBanners] = useState([])
   const [loading, setLoading] = useState(true)
@@ -12,10 +18,7 @@ const BannerSlider = () => {
   const scrollLeft = useRef(0)
 
   // Fallback banners (local assets) in case API trống hoặc lỗi
-  const fallbackBanners = [
-    { id_banners: 'local-1', image_url: '/assets/img/Banners/banner1.jpg', link_url: '#' },
-    { id_banners: 'local-2', image_url: '/assets/img/Banners/banner2.jpg', link_url: '#' }
-  ]
+ 
 
   useEffect(() => {
     const load = async () => {

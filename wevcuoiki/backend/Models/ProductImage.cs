@@ -21,5 +21,7 @@ namespace Backend_WebBanHang.Models
 
         [Column("position")]
         public int? Position { get; set; }
+        [Column("color")]
+        public string color { get; set; }
     }
 }

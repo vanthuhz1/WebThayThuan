@@ -12,7 +12,21 @@
         public double? AverageRating { get; set; }
         public int ReviewCount { get; set; }
         public string? ShortDescription { get; set; }
+
         public List<string> AvailableColors { get; set; } = new();
         public List<string> AvailableSizes { get; set; } = new();
+
+        // ✅ thêm để làm card kiểu Atino: click thumbnail đổi ảnh theo màu
+        public Dictionary<string, List<string>> ImagesByColor { get; set; } = new();
+
+        // ✅ thumbnail theo màu để render hàng ảnh nhỏ (swatch image)
+        public List<ColorThumbDto> ColorThumbs { get; set; } = new();
+        public int StockQuantity { get;  set; }
+    }
+
+    public class ColorThumbDto
+    {
+        public string Color { get; set; } = "";
+        public string? ThumbUrl { get; set; }
     }
 }

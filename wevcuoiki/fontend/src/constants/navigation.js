@@ -1,14 +1,18 @@
-// Navigation menu items
+// Navigation menu items (slug khớp với bảng categories)
+// isCollection: true => link tới /collections/:slug, false => dùng path trực tiếp
 export const NAVIGATION_ITEMS = [
-  
-  { path: '/products', label: 'TRANG CHỦ', hasDropdown: false },
-  { path: '/ao-thu-dong', label: 'ÁO THU ĐÔNG', hasDropdown: true },
-  { path: '/ao-xuan-he', label: 'ÁO XUÂN HÈ', hasDropdown: true },
-  { path: '/quan', label: 'QUẦN', hasDropdown: true },
-  { path: '/phu-kien', label: 'PHỤ KIỆN', hasDropdown: true },
- 
-  { path: '/tin-thoi-trang', label: 'TIN THỜI TRANG', hasDropdown: false },
-   { path: '/ve-chung-toi', label: 'VỀ CHÚNG TÔI', hasDropdown: false },
+  // Trang chủ (về trang Home)
+  { path: '/', slug: 'all', label: 'TRANG CHỦ', hasDropdown: false, isCollection: false },
+
+  // Root categories
+  { path: '/collections/ao-thu-dong', slug: 'ao-thu-dong', label: 'ÁO THU ĐÔNG', hasDropdown: true, isCollection: true },
+  { path: '/collections/ao-xuan-he', slug: 'ao-xuan-he', label: 'ÁO XUÂN HÈ', hasDropdown: true, isCollection: true },
+  { path: '/collections/quan', slug: 'quan', label: 'QUẦN', hasDropdown: true, isCollection: true },
+  { path: '/collections/phu-kien', slug: 'phu-kien', label: 'PHỤ KIỆN', hasDropdown: true, isCollection: true },
+
+  // Static pages (đã có route trong App)
+  { path: '/news', slug: 'tin-thoi-trang', label: 'TIN THỜI TRANG', hasDropdown: false, isCollection: false },
+  { path: '/not-found', slug: 've-chung-toi', label: 'VỀ CHÚNG TÔI', hasDropdown: false, isCollection: false },
 ]
 
 // Footer links

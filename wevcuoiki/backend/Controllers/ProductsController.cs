@@ -19,50 +19,6 @@ namespace Backend_WebBanHang.Controllers
         {
             _context = context;
         }
-        //getallpro
-        [AllowAnonymous]
-        [HttpGet("all")]
-        public async Task<IActionResult> GetAllNoPaging()
-        {
-            var items = await _context.Products
-                .AsNoTracking()
-                .OrderByDescending(p => p.CreatedAt)
-                .Select(p => new
-                {
-                    p.IdProducts,
-                    p.IdCategories,
-                    p.Name,
-                    p.Slug,
-                    p.ShortDescription,
-                    p.Description,
-                    p.Sku,
-                    p.Price,
-                    p.SalePrice,
-                    p.StockQuantity,
-                    p.Status,
-                    p.CreatedAt,
-                    p.UpdatedAt,
-                    ThumbnailUrl = _context.ProductImages
-                        .Where(i => i.IdProducts == p.IdProducts)
-                        .OrderByDescending(i => i.IsPrimary)
-                        .ThenBy(i => i.Position)
-                        .Select(i => i.Url)
-                        .FirstOrDefault(),
-                    AverageRating = _context.ProductReviews
-                        .Where(r => r.IdProducts == p.IdProducts && r.Status == "active")
-                        .Select(r => (double?)r.Rating)
-                        .Average(),
-                    ReviewCount = _context.ProductReviews
-                        .Where(r => r.IdProducts == p.IdProducts && r.Status == "active")
-                        .Count()
-                })
-                .ToListAsync();
-
-            return Ok(items);
-        }
-
-        // GET: api/Products
-        // ?page=1&pageSize=12&keyword=ao&categoryId=1&minPrice=100000&maxPrice=500000&sort=price_asc
         [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetAllForm(
@@ -72,62 +28,95 @@ namespace Backend_WebBanHang.Controllers
             [FromQuery] long? categoryId = null,
             [FromQuery] decimal? minPrice = null,
             [FromQuery] decimal? maxPrice = null,
+            [FromQuery] string? colors = null,
+            [FromQuery] string? sizes = null,
             [FromQuery] string? sort = "newest")
         {
             if (page <= 0) page = 1;
             if (pageSize <= 0 || pageSize > 100) pageSize = 12;
 
-            var query = _context.Products.AsQueryable();
+            IQueryable<Product> query = _context.Products.AsNoTracking();
 
-            // Tìm theo tên / slug
             if (!string.IsNullOrWhiteSpace(keyword))
             {
                 var kw = keyword.Trim();
-                query = query.Where(p =>
-                    p.Name.Contains(kw) ||
-                    p.Slug.Contains(kw));
+                query = query.Where(p => p.Name.Contains(kw) || p.Slug.Contains(kw));
             }
 
-            // Lọc theo category
+            // categoryId=root => lấy cả con/cháu
             if (categoryId.HasValue)
             {
-                query = query.Where(p => p.IdCategories == categoryId.Value);
+                var rows = await _context.Categories.AsNoTracking()
+                    .Select(c => new { c.IdCategories, c.ParentIdCategories })
+                    .ToListAsync();
+
+                var childrenMap = rows
+                    .Where(x => x.ParentIdCategories.HasValue)
+                    .GroupBy(x => x.ParentIdCategories!.Value)
+                    .ToDictionary(g => g.Key, g => g.Select(x => x.IdCategories).ToList());
+
+                var ids = new HashSet<long>();
+                var stack = new Stack<long>();
+                stack.Push(categoryId.Value);
+
+                while (stack.Count > 0)
+                {
+                    var cur = stack.Pop();
+                    if (!ids.Add(cur)) continue;
+
+                    if (childrenMap.TryGetValue(cur, out var kids))
+                        foreach (var k in kids) stack.Push(k);
+                }
+
+                query = query.Where(p => ids.Contains(p.IdCategories));
             }
 
-            // Lọc theo khoảng giá (dùng giá thực tế = sale_price ?? price)
             if (minPrice.HasValue)
-            {
                 query = query.Where(p => (p.SalePrice ?? p.Price) >= minPrice.Value);
-            }
 
             if (maxPrice.HasValue)
-            {
                 query = query.Where(p => (p.SalePrice ?? p.Price) <= maxPrice.Value);
+
+            // ====== FILTER theo màu / size (dựa vào product_variant) ======
+            var colorList = string.IsNullOrWhiteSpace(colors)
+                ? new List<string>()
+                : colors.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+                    .Where(x => !string.IsNullOrWhiteSpace(x))
+                    .Distinct(StringComparer.OrdinalIgnoreCase)
+                    .ToList();
+
+            var sizeList = string.IsNullOrWhiteSpace(sizes)
+                ? new List<string>()
+                : sizes.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+                    .Where(x => !string.IsNullOrWhiteSpace(x))
+                    .Distinct(StringComparer.OrdinalIgnoreCase)
+                    .ToList();
+
+            if (colorList.Count > 0)
+            {
+                query = query.Where(p =>
+                    _context.ProductVariants.Any(v => v.IdProducts == p.IdProducts && v.Color != null && colorList.Contains(v.Color)));
+            }
+
+            if (sizeList.Count > 0)
+            {
+                query = query.Where(p =>
+                    _context.ProductVariants.Any(v => v.IdProducts == p.IdProducts && v.Size != null && sizeList.Contains(v.Size)));
             }
 
             // Sort
-            switch (sort?.ToLower())
+            query = (sort?.ToLower()) switch
             {
-                case "price_asc":
-                    query = query.OrderBy(p => p.SalePrice ?? p.Price);
-                    break;
-                case "price_desc":
-                    query = query.OrderByDescending(p => p.SalePrice ?? p.Price);
-                    break;
-                case "name_asc":
-                    query = query.OrderBy(p => p.Name);
-                    break;
-                case "name_desc":
-                    query = query.OrderByDescending(p => p.Name);
-                    break;
-                case "newest":
-                default:
-                    query = query.OrderByDescending(p => p.CreatedAt);
-                    break;
-            }
+                "price_asc" => query.OrderBy(p => p.SalePrice ?? p.Price),
+                "price_desc" => query.OrderByDescending(p => p.SalePrice ?? p.Price),
+                "name_asc" => query.OrderBy(p => p.Name),
+                "name_desc" => query.OrderByDescending(p => p.Name),
+                _ => query.OrderByDescending(p => p.CreatedAt)
+            };
 
             var totalItems = await query.CountAsync();
 
+            // ====== base list ======
             var items = await query
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
@@ -140,62 +129,151 @@ namespace Backend_WebBanHang.Controllers
                     SalePrice = p.SalePrice,
                     IdCategories = p.IdCategories,
                     ShortDescription = p.ShortDescription,
+
+                    StockQuantity = 0,
+
                     ThumbnailUrl = _context.ProductImages
-                        .Where(i => i.IdProducts == p.IdProducts && i.IsPrimary == true)
-                        .OrderBy(i => i.Position)
+                        .Where(i => i.IdProducts == p.IdProducts)
+                        .OrderByDescending(i => (i.IsPrimary ?? false))
+                        .ThenBy(i => (i.Position ?? 0))
                         .Select(i => i.Url)
                         .FirstOrDefault(),
+
                     AverageRating = _context.ProductReviews
-                        .Where(r => r.IdProducts == p.IdProducts && r.Status == "active")
+                        .Where(r => r.IdProducts == p.IdProducts && r.Status == "visible")
                         .Select(r => (double?)r.Rating)
                         .Average(),
+
                     ReviewCount = _context.ProductReviews
-                        .Where(r => r.IdProducts == p.IdProducts && r.Status == "active")
-                        .Count()
+                        .Where(r => r.IdProducts == p.IdProducts && r.Status == "visible")
+                        .Count(),
+
+                    AvailableColors = new List<string>(),
+                    AvailableSizes = new List<string>(),
+                    ImagesByColor = new Dictionary<string, List<string>>(),
+                    ColorThumbs = new List<ColorThumbDto>()
                 })
                 .ToListAsync();
 
-            // Populate AvailableColors and AvailableSizes
-            foreach (var item in items)
+            if (items.Count == 0)
             {
-                var variants = await _context.ProductVariants
-                    .Where(v => v.IdProducts == item.IdProducts)
-                    .ToListAsync();
+                return Ok(new PagedResult<ProductListItemDto>
+                {
+                    Page = page,
+                    PageSize = pageSize,
+                    TotalItems = totalItems,
+                    TotalPages = (int)Math.Ceiling(totalItems / (double)pageSize),
+                    Items = items
+                });
+            }
 
-                item.AvailableColors = variants
-                    .Where(v => !string.IsNullOrEmpty(v.Color))
+            var productIds = items.Select(x => x.IdProducts).ToList();
+
+            // ====== variants => colors/sizes + tồn kho tổng ======
+            var variantRows = await _context.ProductVariants.AsNoTracking()
+                .Where(v => productIds.Contains(v.IdProducts))
+                .Select(v => new { v.IdProducts, v.Color, v.Size, v.StockQuantity })
+                .ToListAsync();
+
+            foreach (var it in items)
+            {
+                it.AvailableColors = variantRows
+                    .Where(v => v.IdProducts == it.IdProducts && !string.IsNullOrEmpty(v.Color))
                     .Select(v => v.Color!)
                     .Distinct()
                     .ToList();
 
-                item.AvailableSizes = variants
-                    .Where(v => !string.IsNullOrEmpty(v.Size))
+                it.AvailableSizes = variantRows
+                    .Where(v => v.IdProducts == it.IdProducts && !string.IsNullOrEmpty(v.Size))
                     .Select(v => v.Size!)
                     .Distinct()
                     .ToList();
+
+                it.StockQuantity = variantRows
+                    .Where(v => v.IdProducts == it.IdProducts)
+                    .Sum(v => (int?)v.StockQuantity) ?? 0;
             }
 
-            var result = new PagedResult<ProductListItemDto>
+            // ====== imagesByColor + color thumbs + fallback thumbnail ======
+            var imgRows = await _context.ProductImages.AsNoTracking()
+                .Where(i => productIds.Contains(i.IdProducts) && i.color != null && i.color != "")
+                .Select(i => new { i.IdProducts, Color = i.color!, i.Url, i.IsPrimary, i.Position })
+                .ToListAsync();
+
+            foreach (var it in items)
+            {
+                var rows = imgRows
+                    .Where(r => r.IdProducts == it.IdProducts)
+                    .OrderByDescending(r => (r.IsPrimary ?? false))
+                    .ThenBy(r => (r.Position ?? 0))
+                    .ToList();
+
+                it.ImagesByColor = rows
+                    .GroupBy(r => r.Color)
+                    .ToDictionary(
+                        g => g.Key,
+                        g => g.OrderByDescending(x => (x.IsPrimary ?? false))
+                              .ThenBy(x => (x.Position ?? 0))
+                              .Select(x => x.Url)
+                              .Where(u => !string.IsNullOrEmpty(u))
+                              .Distinct()
+                              .ToList()
+                    );
+
+                it.ColorThumbs = it.ImagesByColor
+                    .Select(kv => new ColorThumbDto { Color = kv.Key, ThumbUrl = kv.Value.FirstOrDefault() })
+                    .ToList();
+
+                if (string.IsNullOrWhiteSpace(it.ThumbnailUrl))
+                    it.ThumbnailUrl = rows.Select(x => x.Url).FirstOrDefault();
+            }
+
+            return Ok(new PagedResult<ProductListItemDto>
             {
                 Page = page,
                 PageSize = pageSize,
                 TotalItems = totalItems,
                 TotalPages = (int)Math.Ceiling(totalItems / (double)pageSize),
                 Items = items
-            };
-
-            return Ok(result);
+            });
         }
+
+
+
+
+
+
+
+
+
+
 
         // GET: api/Products/5
         [AllowAnonymous]
         [HttpGet("{id:long}")]
         public async Task<IActionResult> GetById(long id)
         {
+            return await GetDetailsDto(p => p.IdProducts == id);
+        }
+
+        // GET: api/Products/by-slug/abc
+        [AllowAnonymous]
+        [HttpGet("by-slug/{slug}")]
+        public async Task<IActionResult> GetBySlug(string slug)
+        {
+            if (string.IsNullOrWhiteSpace(slug)) return BadRequest("slug is required");
+            var s = slug.Trim();
+            return await GetDetailsDto(p => p.Slug == s);
+        }
+
+        private async Task<IActionResult> GetDetailsDto(System.Linq.Expressions.Expression<Func<Product, bool>> predicate)
+        {
             var product = await _context.Products
-                .FirstOrDefaultAsync(p => p.IdProducts == id);
+                .FirstOrDefaultAsync(predicate);
 
             if (product == null) return NotFound();
+
+            var productId = product.IdProducts;
 
             // Lấy category name
             var category = await _context.Categories
@@ -203,7 +281,7 @@ namespace Backend_WebBanHang.Controllers
 
             // Lấy images
             var images = await _context.ProductImages
-                .Where(i => i.IdProducts == id)
+                .Where(i => i.IdProducts == productId)
                 .OrderByDescending(i => i.IsPrimary)
                 .ThenBy(i => i.Position)
                 .Select(i => new DTOs.Products.ProductImageDto
@@ -217,7 +295,7 @@ namespace Backend_WebBanHang.Controllers
 
             // Lấy variants
             var variants = await _context.ProductVariants
-                .Where(v => v.IdProducts == id)
+                .Where(v => v.IdProducts == productId)
                 .Select(v => new DTOs.Products.ProductVariantDto
                 {
                     IdProductVariants = v.IdProductVariants,
@@ -231,21 +309,24 @@ namespace Backend_WebBanHang.Controllers
                 })
                 .ToListAsync();
 
+            // tồn kho = tổng tồn kho variants
+            var totalVariantStock = variants.Sum(v => (int?)v.StockQuantity) ?? 0;
+
             // Tính average rating
             var averageRating = await _context.ProductReviews
-                .Where(r => r.IdProducts == id && r.Status == "active")
+                .Where(r => r.IdProducts == productId && r.Status == "active")
                 .Select(r => (double?)r.Rating)
                 .AverageAsync();
 
             var reviewCount = await _context.ProductReviews
-                .Where(r => r.IdProducts == id && r.Status == "active")
+                .Where(r => r.IdProducts == productId && r.Status == "active")
                 .CountAsync();
 
             // Tính số lượng đã bán (từ order_items thông qua product_variants)
             var soldQuantity = await (from oi in _context.OrderItems
                                      join v in _context.ProductVariants on oi.IdProductVariants equals v.IdProductVariants
                                      join o in _context.Orders on oi.IdOrders equals o.IdOrders
-                                     where v.IdProducts == id && o.Status != "cancelled"
+                                     where v.IdProducts == productId && o.Status != "cancelled"
                                      select oi.Quantity)
                                      .SumAsync();
 
@@ -259,7 +340,7 @@ namespace Backend_WebBanHang.Controllers
                 Sku = product.Sku,
                 Price = product.Price,
                 SalePrice = product.SalePrice,
-                StockQuantity = product.StockQuantity,
+                StockQuantity = totalVariantStock,
                 Status = product.Status,
                 IdCategories = product.IdCategories,
                 CategoryName = category?.Name,
@@ -303,9 +384,8 @@ namespace Backend_WebBanHang.Controllers
             product.Sku = model.Sku;
             product.Price = model.Price;
             product.SalePrice = model.SalePrice;
-            product.StockQuantity = model.StockQuantity;
             product.Status = model.Status;
-            product.UpdatedAt = DateTime.Now;
+           
 
             await _context.SaveChangesAsync();
             return NoContent();

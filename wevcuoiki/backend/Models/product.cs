@@ -35,16 +35,12 @@ namespace Backend_WebBanHang.Models
         [Column("sale_price")]
         public decimal? SalePrice { get; set; }
 
-        [Column("stock_quantity")]
-        public int StockQuantity { get; set; }
-
         [Column("status")]
         public string? Status { get; set; }
 
         [Column("created_at")]
         public DateTime? CreatedAt { get; set; }
 
-        [Column("updated_at")]
-        public DateTime? UpdatedAt { get; set; }
+        
     }
 }

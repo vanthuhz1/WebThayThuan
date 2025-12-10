@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { login, saveUserInfo, isLoggedIn } from '../../services/AuthService'
+import { getCart } from '../../services/CartService'
 
 const Login = () => {
   const [email, setEmail] = useState('')
@@ -42,6 +43,14 @@ const Login = () => {
     try {
       const userData = await login(email, password)
       saveUserInfo(userData)
+      
+      // Tự động khởi tạo giỏ hàng cho người dùng sau khi đăng nhập
+      try {
+        await getCart()
+      } catch (cartErr) {
+        // Ignore cart errors, không ảnh hưởng đến login flow
+        console.log('Cart initialization failed:', cartErr)
+      }
       
       const returnUrl = searchParams.get('returnUrl')
       navigate(returnUrl || '/')

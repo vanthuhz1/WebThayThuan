@@ -26,17 +26,11 @@ namespace Backend_WebBanHang.Models
         [Column("shipping_fee")]
         public decimal? ShippingFee { get; set; }
 
-        [Column("payment_method")]
-        public string? PaymentMethod { get; set; }
-
         [Column("shipping_address")]
         public string ShippingAddress { get; set; } = null!;
 
         [Column("id_discount_codes")]
         public long? IdDiscountCodes { get; set; }
-
-        [Column("discount_amount")]
-        public decimal? DiscountAmount { get; set; }
 
         [Column("created_at")]
         public DateTime? CreatedAt { get; set; }

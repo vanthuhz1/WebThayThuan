@@ -1,30 +1,11 @@
-const API_BASE_URL = "https://localhost:7194/api";
+// src/services/CategoryService.js
+import axios from "axios";
 
-// Lấy danh sách categories
-export async function getCategories() {
-  try {
-    const res = await fetch(`${API_BASE_URL}/Categories/children`);
-    if (!res.ok) {
-      throw new Error("Lỗi tải danh mục");
-    }
-    return await res.json();
-  } catch (err) {
-    console.error("Không kết nối được API", err);
-    throw err;
-  }
-}
+// Ưu tiên lấy từ env, fallback localhost để tránh undefined
+const API = import.meta.env.VITE_API_URL || "https://localhost:7194/api";
 
-// Lấy category tree
-export async function getCategoryTree() {
-  try {
-    const res = await fetch(`${API_BASE_URL}/Categories/tree`);
-    if (!res.ok) {
-      throw new Error("Lỗi tải category tree");
-    }
-    return await res.json();
-  } catch (err) {
-    console.error("Không kết nối được API", err);
-    throw err;
-  }
-}
-
+export const getCategoryBySlug = async (slug) => {
+  if (!slug) throw new Error("slug is required");
+  const { data } = await axios.get(`${API}/Categories/by-slug/${slug}`);
+  return data;
+};

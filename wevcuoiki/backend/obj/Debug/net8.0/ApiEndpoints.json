@@ -141,6 +141,38 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Backend_WebBanHang.Controllers.CategoriesController",
+    "Method": "GetBySlug",
+    "RelativePath": "api/Categories/by-slug/{slug}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "slug",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend_WebBanHang.Controllers.CategoriesController",
+    "Method": "GetTreeBySlug",
+    "RelativePath": "api/Categories/tree/by-slug/{slug}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "slug",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Backend_WebBanHang.Controllers.NavigationController",
     "Method": "GetNavigation",
     "RelativePath": "api/Navigation/nav",
@@ -186,6 +218,16 @@
       {
         "Name": "maxPrice",
         "Type": "System.Nullable\u00601[[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "colors",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sizes",
+        "Type": "System.String",
         "IsRequired": false
       },
       {
@@ -267,12 +309,102 @@
   },
   {
     "ContainingType": "Backend_WebBanHang.Controllers.ProductsController",
-    "Method": "GetAllNoPaging",
-    "RelativePath": "api/Products/all",
+    "Method": "GetBySlug",
+    "RelativePath": "api/Products/by-slug/{slug}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "slug",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend_WebBanHang.Controllers.WishlistsController",
+    "Method": "GetMyWishlist",
+    "RelativePath": "api/Wishlists",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend_WebBanHang.Controllers.WishlistsController",
+    "Method": "CheckProduct",
+    "RelativePath": "api/Wishlists/check/{productId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "productId",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend_WebBanHang.Controllers.WishlistsController",
+    "Method": "ClearWishlist",
+    "RelativePath": "api/Wishlists/clear",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend_WebBanHang.Controllers.WishlistsController",
+    "Method": "AddItem",
+    "RelativePath": "api/Wishlists/items",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Backend_WebBanHang.DTOs.Wishlist.AddWishlistItemRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend_WebBanHang.Controllers.WishlistsController",
+    "Method": "DeleteItem",
+    "RelativePath": "api/Wishlists/items/{wishlistItemId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "wishlistItemId",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend_WebBanHang.Controllers.WishlistsController",
+    "Method": "DeleteByProductId",
+    "RelativePath": "api/Wishlists/products/{productId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "productId",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   }
 ]

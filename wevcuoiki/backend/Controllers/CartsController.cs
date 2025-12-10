@@ -22,7 +22,7 @@ namespace Backend_WebBanHang.Controllers
         }
 
         // GET: api/Carts
-        // Lấy giỏ hàng hiện tại của user
+        // Lấy giỏ hàng hiện tại của user (tự động tạo nếu chưa có)
         [HttpGet]
         public async Task<IActionResult> GetMyCart()
         {
@@ -33,16 +33,26 @@ namespace Backend_WebBanHang.Controllers
             var cart = await _context.Carts
                 .FirstOrDefaultAsync(c => c.IdUsers == userId.Value);
 
+            // Tự động tạo giỏ hàng nếu chưa có
             if (cart == null)
             {
-                var empty = new CartResponse
+                cart = new Cart
                 {
-                    IdCarts = 0,
+                    IdUsers = userId.Value,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now
+                };
+                _context.Carts.Add(cart);
+                await _context.SaveChangesAsync();
+
+                // Trả về giỏ hàng rỗng mới tạo
+                return Ok(new CartResponse
+                {
+                    IdCarts = cart.IdCarts,
                     Items = new List<CartItemDto>(),
                     SubTotal = 0,
                     TotalQuantity = 0
-                };
-                return Ok(empty);
+                });
             }
 
             var itemsQuery =

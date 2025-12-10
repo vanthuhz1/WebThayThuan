@@ -240,10 +240,20 @@
         }
       }
     },
-    "/api/Navigation/nav": {
+    "/api/Categories/by-slug/{slug}": {
       "get": {
         "tags": [
-          "Navigation"
+          "Categories"
+        ],
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -252,10 +262,32 @@
         }
       }
     },
-    "/api/Products/all": {
+    "/api/Categories/tree/by-slug/{slug}": {
       "get": {
         "tags": [
-          "Products"
+          "Categories"
+        ],
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Navigation/nav": {
+      "get": {
+        "tags": [
+          "Navigation"
         ],
         "responses": {
           "200": {
@@ -317,6 +349,20 @@
             "schema": {
               "type": "number",
               "format": "double"
+            }
+          },
+          {
+            "name": "colors",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sizes",
+            "in": "query",
+            "schema": {
+              "type": "string"
             }
           },
           {
@@ -447,6 +493,152 @@
           }
         }
       }
+    },
+    "/api/Products/by-slug/{slug}": {
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Wishlists": {
+      "get": {
+        "tags": [
+          "Wishlists"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Wishlists/items": {
+      "post": {
+        "tags": [
+          "Wishlists"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddWishlistItemRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddWishlistItemRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddWishlistItemRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Wishlists/items/{wishlistItemId}": {
+      "delete": {
+        "tags": [
+          "Wishlists"
+        ],
+        "parameters": [
+          {
+            "name": "wishlistItemId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Wishlists/products/{productId}": {
+      "delete": {
+        "tags": [
+          "Wishlists"
+        ],
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Wishlists/clear": {
+      "delete": {
+        "tags": [
+          "Wishlists"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Wishlists/check/{productId}": {
+      "get": {
+        "tags": [
+          "Wishlists"
+        ],
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -469,6 +661,16 @@
           "quantity": {
             "type": "integer",
             "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AddWishlistItemRequest": {
+        "type": "object",
+        "properties": {
+          "idProducts": {
+            "type": "integer",
+            "format": "int64"
           }
         },
         "additionalProperties": false
@@ -541,20 +743,11 @@
             "format": "double",
             "nullable": true
           },
-          "stockQuantity": {
-            "type": "integer",
-            "format": "int32"
-          },
           "status": {
             "type": "string",
             "nullable": true
           },
           "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "updatedAt": {
             "type": "string",
             "format": "date-time",
             "nullable": true
