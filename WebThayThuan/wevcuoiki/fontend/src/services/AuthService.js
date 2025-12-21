@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://localhost:7194/api";
+const API_BASE_URL = import.meta.env.VITE_API_URL || "https://localhost:7194/api";
 
 // Hàm đăng nhập
 export async function login(email, password) {
@@ -95,4 +95,30 @@ export function getCurrentUser() {
     token: token
   };
 }
+
+// Hàm đăng nhập với Google
+export async function loginWithGoogle(credential) {
+  try {
+    const res = await fetch(`${API_BASE_URL}/Auth/login-google`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        credential: credential
+      })
+    });
+
+    if (!res.ok) {
+      const errorText = await res.text();
+      throw new Error(errorText || "Đăng nhập với Google thất bại");
+    }
+
+    const data = await res.json();
+    return data;
+  } catch (err) {
+    throw err;
+  }
+}
+
 

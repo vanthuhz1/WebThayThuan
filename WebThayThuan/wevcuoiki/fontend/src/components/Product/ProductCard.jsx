@@ -20,6 +20,7 @@ export default function ProductCard({
   images = [],
   imagesByColor,
   colors = [],
+  sizes = [],
   stockQuantity = 0,
   rating,
   reviewCount,
@@ -78,27 +79,27 @@ export default function ProductCard({
   });
 
   return (
-    <div className="group relative h-[420px] w-[280px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+    <div className="group relative h-[420px] w-[280px] overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300  hover:ring-1 hover:ring-black/5">
       {/* IMAGE */}
-      <div className="relative h-[220px] w-full bg-neutral-100">
+      <div className="relative h-[220px] w-full bg-neutral-100 p-2.5">
         <Link to={href} className="block h-full w-full">
           {img0 ? (
             <>
               <img
                 src={img0}
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                className="absolute inset-0 h-full w-full rounded-lg object-cover transition-opacity duration-300 group-hover:opacity-0"
                 loading="lazy"
               />
               {img1 && img1 !== img0 && (
                 <img
                   src={img1}
-                  className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  className="absolute inset-0 h-full w-full rounded-lg object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                   loading="lazy"
                 />
               )}
             </>
           ) : (
-            <div className="absolute inset-0 bg-neutral-200" />
+            <div className="absolute inset-0 rounded-lg bg-neutral-200" />
           )}
         </Link>
 

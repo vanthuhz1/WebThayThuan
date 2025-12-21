@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
-import { login, saveUserInfo, isLoggedIn } from '../../services/AuthService'
+import { login, saveUserInfo, isLoggedIn, loginWithGoogle } from '../../services/AuthService'
 import { getCart } from '../../services/CartService'
 
 const Login = () => {
@@ -9,8 +9,10 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+  const [socialLoading, setSocialLoading] = useState({ google: false })
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
+  const googleButtonRef = useRef(null)
 
   useEffect(() => {
     // Check if already logged in
@@ -18,7 +20,82 @@ const Login = () => {
       const returnUrl = searchParams.get('returnUrl')
       navigate(returnUrl || '/')
     }
+
+    // Initialize Google Sign-In
+    const initGoogleSignIn = () => {
+      const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+      
+      if (!googleClientId) {
+        console.warn('VITE_GOOGLE_CLIENT_ID chưa được cấu hình trong file .env');
+        return;
+      }
+
+      if (window.google && googleButtonRef.current) {
+        try {
+          window.google.accounts.id.initialize({
+            client_id: googleClientId,
+            callback: handleGoogleSignIn,
+          });
+
+          window.google.accounts.id.renderButton(
+            googleButtonRef.current,
+            { 
+              type: 'standard',
+              size: 'large',
+              theme: 'outline',
+              text: 'signin_with',
+              width: '100%'
+            }
+          );
+        } catch (error) {
+          console.error('Lỗi khởi tạo Google Sign-In:', error);
+        }
+      }
+    };
+
+    // Wait for Google script to load
+    if (window.google) {
+      initGoogleSignIn();
+    } else {
+      const checkGoogle = setInterval(() => {
+        if (window.google) {
+          clearInterval(checkGoogle);
+          initGoogleSignIn();
+        }
+      }, 100);
+      
+      return () => clearInterval(checkGoogle);
+    }
   }, [navigate, searchParams])
+
+  const handleGoogleSignIn = async (response) => {
+    if (!response.credential) {
+      setError('Đăng nhập với Google thất bại')
+      return
+    }
+
+    setSocialLoading(prev => ({ ...prev, google: true }))
+    setError('')
+
+    try {
+      const userData = await loginWithGoogle(response.credential)
+      saveUserInfo(userData)
+      
+      try {
+        await getCart()
+      } catch (cartErr) {
+        console.log('Cart initialization failed:', cartErr)
+      }
+      
+      const returnUrl = searchParams.get('returnUrl')
+      navigate(returnUrl || '/')
+    } catch (err) {
+      setError(err.message || 'Đăng nhập với Google thất bại')
+    } finally {
+      setSocialLoading(prev => ({ ...prev, google: false }))
+    }
+  }
+
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -104,16 +181,25 @@ const Login = () => {
 
           {/* Social Login */}
           <div className="mb-6">
-            <div className="grid grid-cols-3 gap-3 mb-4">
-              <button className="flex items-center justify-center p-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
-                <img src="/assets/img/google.png" alt="Google" className="w-5 h-5" />
-              </button>
-              <button className="flex items-center justify-center p-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
-                <i className="fa-brands fa-facebook text-blue-600 text-xl"></i>
-              </button>
-              <button className="flex items-center justify-center p-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
-                <i className="fa-brands fa-apple text-gray-900 text-xl"></i>
-              </button>
+            <div className="mb-4">
+              <div ref={googleButtonRef} className="w-full">
+                {!import.meta.env.VITE_GOOGLE_CLIENT_ID && (
+                  <button
+                    disabled
+                    className="flex items-center justify-center gap-2 w-full p-3 border border-gray-300 rounded-lg bg-gray-100 cursor-not-allowed opacity-50"
+                    title="Vui lòng cấu hình VITE_GOOGLE_CLIENT_ID trong file .env"
+                  >
+                    <img src="/assets/img/google.png" alt="Google" className="w-5 h-5" />
+                    <span className="text-sm font-medium text-gray-700">Google (Chưa cấu hình)</span>
+                  </button>
+                )}
+                {socialLoading.google && (
+                  <div className="flex items-center justify-center gap-2 w-full p-3 border border-gray-300 rounded-lg">
+                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-gray-600"></div>
+                    <span className="text-sm font-medium text-gray-700">Đang đăng nhập...</span>
+                  </div>
+                )}
+              </div>
             </div>
             <div className="relative">
               <div className="absolute inset-0 flex items-center">

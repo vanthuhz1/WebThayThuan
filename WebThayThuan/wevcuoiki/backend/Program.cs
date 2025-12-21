@@ -39,6 +39,9 @@ builder.Services
 // Đăng ký service sinh token
 builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
 
+// Đăng ký HttpClientFactory cho OAuth
+builder.Services.AddHttpClient();
+
 // 3. Đăng ký controller
 builder.Services.AddControllers();
 

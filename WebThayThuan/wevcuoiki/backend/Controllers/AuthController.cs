@@ -2,6 +2,7 @@
 using System.Text;
 using System.Security.Claims;
 using System.IdentityModel.Tokens.Jwt;
+using System.Text.Json;
 using Backend_WebBanHang.Data;
 using Backend_WebBanHang.DTOs.Auth;
 using Backend_WebBanHang.Models;
@@ -18,11 +19,15 @@ namespace Backend_WebBanHang.Controllers
     {
         private readonly AppDbContext _context;
         private readonly IJwtTokenService _jwtTokenService;
+        private readonly IHttpClientFactory _httpClientFactory;
+        private readonly IConfiguration _configuration;
 
-        public AuthController(AppDbContext context, IJwtTokenService jwtTokenService)
+        public AuthController(AppDbContext context, IJwtTokenService jwtTokenService, IHttpClientFactory httpClientFactory, IConfiguration configuration)
         {
             _context = context;
             _jwtTokenService = jwtTokenService;
+            _httpClientFactory = httpClientFactory;
+            _configuration = configuration;
         }
 
         // ĐĂNG KÝ
@@ -149,6 +154,150 @@ namespace Backend_WebBanHang.Controllers
             await _context.SaveChangesAsync();
 
             return Ok("Đổi mật khẩu thành công");
+        }
+
+        // ĐĂNG NHẬP VỚI GOOGLE
+        [HttpPost("login-google")]
+        public async Task<IActionResult> LoginWithGoogle([FromBody] GoogleLoginRequest request)
+        {
+            if (string.IsNullOrWhiteSpace(request.Credential))
+                return BadRequest("Credential không được để trống");
+
+            try
+            {
+                // Verify Google token và lấy thông tin user
+                var httpClient = _httpClientFactory.CreateClient();
+                var response = await httpClient.GetAsync($"https://oauth2.googleapis.com/tokeninfo?id_token={request.Credential}");
+                
+                if (!response.IsSuccessStatusCode)
+                    return Unauthorized("Token Google không hợp lệ");
+
+                var content = await response.Content.ReadAsStringAsync();
+                var googleUser = JsonSerializer.Deserialize<JsonElement>(content);
+
+                var email = googleUser.GetProperty("email").GetString();
+                var name = googleUser.GetProperty("name").GetString();
+                var googleId = googleUser.GetProperty("sub").GetString();
+
+                if (string.IsNullOrWhiteSpace(email))
+                    return BadRequest("Không thể lấy email từ Google");
+
+                // Tìm hoặc tạo user
+                var user = await _context.Users.FirstOrDefaultAsync(x => x.Email == email);
+                
+                if (user == null)
+                {
+                    // Tạo user mới
+                    user = new User
+                    {
+                        FullName = name ?? email.Split('@')[0],
+                        Email = email,
+                        PasswordHash = HashPassword($"google_{googleId}"), // Password hash đặc biệt cho OAuth
+                        Role = "customer",
+                        Status = "active",
+                        CreatedAt = DateTime.Now
+                    };
+                    _context.Users.Add(user);
+                    await _context.SaveChangesAsync();
+                }
+
+                var token = _jwtTokenService.GenerateToken(user);
+
+                var authResponse = new AuthResponse
+                {
+                    IdUsers = user.IdUsers,
+                    FullName = user.FullName,
+                    Email = user.Email,
+                    Role = user.Role,
+                    Token = token
+                };
+
+                return Ok(authResponse);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Lỗi xử lý đăng nhập Google: {ex.Message}");
+            }
+        }
+
+        // ĐĂNG NHẬP VỚI FACEBOOK
+        [HttpPost("login-facebook")]
+        public async Task<IActionResult> LoginWithFacebook([FromBody] FacebookLoginRequest request)
+        {
+            if (string.IsNullOrWhiteSpace(request.AccessToken) || string.IsNullOrWhiteSpace(request.UserId))
+                return BadRequest("AccessToken và UserId không được để trống");
+
+            try
+            {
+                // Verify Facebook token và lấy thông tin user
+                var httpClient = _httpClientFactory.CreateClient();
+                var appId = _configuration["Facebook:AppId"];
+                var appSecret = _configuration["Facebook:AppSecret"];
+                
+                // Verify token
+                var verifyResponse = await httpClient.GetAsync(
+                    $"https://graph.facebook.com/debug_token?input_token={request.AccessToken}&access_token={appId}|{appSecret}");
+                
+                if (!verifyResponse.IsSuccessStatusCode)
+                    return Unauthorized("Token Facebook không hợp lệ");
+
+                // Lấy thông tin user
+                var userInfoResponse = await httpClient.GetAsync(
+                    $"https://graph.facebook.com/v18.0/{request.UserId}?fields=id,name,email&access_token={request.AccessToken}");
+                
+                if (!userInfoResponse.IsSuccessStatusCode)
+                    return Unauthorized("Không thể lấy thông tin từ Facebook");
+
+                var content = await userInfoResponse.Content.ReadAsStringAsync();
+                var facebookUser = JsonSerializer.Deserialize<JsonElement>(content);
+
+                var email = facebookUser.TryGetProperty("email", out var emailProp) 
+                    ? emailProp.GetString() 
+                    : $"{request.UserId}@facebook.com";
+                var name = facebookUser.TryGetProperty("name", out var nameProp) 
+                    ? nameProp.GetString() 
+                    : "Facebook User";
+                var facebookId = facebookUser.GetProperty("id").GetString();
+
+                if (string.IsNullOrWhiteSpace(email))
+                    email = $"{facebookId}@facebook.com";
+
+                // Tìm hoặc tạo user
+                var user = await _context.Users.FirstOrDefaultAsync(x => x.Email == email);
+                
+                if (user == null)
+                {
+                    // Tạo user mới
+                    user = new User
+                    {
+                        FullName = name ?? email.Split('@')[0],
+                        Email = email,
+                        PasswordHash = HashPassword($"facebook_{facebookId}"), // Password hash đặc biệt cho OAuth
+                        Role = "customer",
+                        Status = "active",
+                        CreatedAt = DateTime.Now
+                    };
+                    _context.Users.Add(user);
+                    await _context.SaveChangesAsync();
+                }
+
+                var token = _jwtTokenService.GenerateToken(user);
+
+                var authResponse = new AuthResponse
+                {
+                    IdUsers = user.IdUsers,
+                    FullName = user.FullName,
+                    Email = user.Email,
+                    Role = user.Role,
+                    Token = token
+                };
+
+                return Ok(authResponse);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Lỗi xử lý đăng nhập Facebook: {ex.Message}");
+            }
         }
 
         // HÀM HASH PASSWORD

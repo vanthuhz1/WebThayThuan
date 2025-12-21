@@ -33,6 +33,38 @@
   },
   {
     "ContainingType": "Backend_WebBanHang.Controllers.AuthController",
+    "Method": "LoginWithFacebook",
+    "RelativePath": "api/Auth/login-facebook",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Backend_WebBanHang.DTOs.Auth.FacebookLoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend_WebBanHang.Controllers.AuthController",
+    "Method": "LoginWithGoogle",
+    "RelativePath": "api/Auth/login-google",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Backend_WebBanHang.DTOs.Auth.GoogleLoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend_WebBanHang.Controllers.AuthController",
     "Method": "Me",
     "RelativePath": "api/Auth/me",
     "HttpMethod": "GET",
