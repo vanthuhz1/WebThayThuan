@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { isLoggedIn, getCurrentUser, logout, getToken } from "../../services/AuthService";
+import { isLoggedIn, getCurrentUser, logout, getToken, fetchMe, updateMe, saveUserInfo } from "../../services/AuthService";
 import { getMyOrders } from "../../services/OrderService";
 
 const fmtVND = (v) =>
@@ -16,6 +16,12 @@ const MyAccount = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [user, setUser] = useState(null);
+
+  // Profile form
+  const [profileData, setProfileData] = useState({ fullName: "", email: "", phone: "" });
+  const [profileError, setProfileError] = useState(null);
+  const [profileSuccess, setProfileSuccess] = useState(null);
+  const [savingProfile, setSavingProfile] = useState(false);
 
   // Change password form
   const [passwordData, setPasswordData] = useState({
@@ -36,8 +42,66 @@ const MyAccount = () => {
     const currentUser = getCurrentUser();
     if (currentUser) {
       setUser(currentUser);
+      setProfileData({
+        fullName: currentUser.name || "",
+        email: currentUser.email || "",
+        phone: currentUser.phone || "",
+      });
     }
+
+    // Đồng bộ lại từ backend để lấy phone mới nhất
+    (async () => {
+      try {
+        const me = await fetchMe();
+        setUser({
+          id: String(me.idUsers),
+          name: me.fullName,
+          email: me.email,
+          phone: me.phone || "",
+          role: me.role,
+          token: me.token,
+        });
+        setProfileData({ fullName: me.fullName || "", email: me.email || "", phone: me.phone || "" });
+        saveUserInfo(me);
+      } catch {
+        // ignore
+      }
+    })();
   }, []);
+
+  const handleSaveProfile = async (e) => {
+    e.preventDefault();
+    setProfileError(null);
+    setProfileSuccess(null);
+
+    if (!profileData.fullName?.trim()) {
+      setProfileError("Vui lòng nhập họ và tên");
+      return;
+    }
+
+    try {
+      setSavingProfile(true);
+      const updated = await updateMe(profileData.fullName.trim(), profileData.phone);
+      saveUserInfo(updated);
+      setUser((prev) => ({
+        ...(prev || {}),
+        name: updated.fullName,
+        email: updated.email,
+        phone: updated.phone || "",
+        token: updated.token,
+      }));
+      setProfileData({
+        fullName: updated.fullName || "",
+        email: updated.email || "",
+        phone: updated.phone || "",
+      });
+      setProfileSuccess("Cập nhật thông tin thành công!");
+    } catch (err) {
+      setProfileError(err?.message || "Cập nhật thông tin thất bại");
+    } finally {
+      setSavingProfile(false);
+    }
+  };
 
   useEffect(() => {
     if (activeTab === "orders") {
@@ -135,6 +199,28 @@ const MyAccount = () => {
       cancelled: "bg-red-100 text-red-800",
     };
     return colorMap[status] || "bg-gray-100 text-gray-800";
+  };
+
+  const getPaymentLabel = (order) => {
+    const gateway = order.paymentGateway || order.PaymentGateway;
+    const paymentStatus = order.paymentStatus || order.PaymentStatus;
+    const transactionCode = order.transactionCode || order.TransactionCode;
+
+    const isPaid = !!transactionCode || String(paymentStatus || "").toLowerCase() === "success";
+    if (isPaid) return "Đã thanh toán";
+
+    if ((gateway || "").toLowerCase() === "momo") {
+      return "Chưa thanh toán";
+    }
+    if ((gateway || "").toLowerCase() === "cod") {
+      return "Chưa thanh toán";
+    }
+    return "Chưa thanh toán";
+  };
+
+  const getPaymentColor = (label) => {
+    if (label === "Đã thanh toán") return "bg-green-100 text-green-800";
+    return "bg-yellow-100 text-yellow-800";
   };
 
   if (!user) {
@@ -330,6 +416,21 @@ const MyAccount = () => {
                         <div className="text-sm text-neutral-600">
                           Địa chỉ giao hàng: {order.ShippingAddress || order.shippingAddress}
                         </div>
+                        <div className="flex items-center gap-2">
+                          <span
+                            className={`inline-block rounded-full px-3 py-1 text-xs font-semibold ${getPaymentColor(
+                              getPaymentLabel(order)
+                            )}`}
+                          >
+                            {getPaymentLabel(order)}
+                          </span>
+                          <Link
+                            to={`/my-account/orders/${order.IdOrders || order.idOrders}`}
+                            className="rounded-full border border-neutral-300 bg-white px-4 py-2 text-xs font-semibold text-neutral-900 hover:bg-neutral-50"
+                          >
+                            Xem chi tiết
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -343,34 +444,58 @@ const MyAccount = () => {
             <div className="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm">
               <h2 className="mb-6 text-xl font-bold text-neutral-900">Xem hồ sơ</h2>
 
-              <div className="space-y-4">
-                <div>
-                  <label className="mb-1 block text-sm font-semibold text-neutral-700">
-                    Họ và tên
-                  </label>
-                  <div className="rounded-lg border border-neutral-300 bg-neutral-50 px-4 py-3 text-sm text-neutral-900">
-                    {user?.name || "—"}
+              <form onSubmit={handleSaveProfile} className="space-y-4">
+                {profileError && (
+                  <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+                    {profileError}
                   </div>
+                )}
+                {profileSuccess && (
+                  <div className="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-700">
+                    {profileSuccess}
+                  </div>
+                )}
+
+                <div>
+                  <label className="mb-1 block text-sm font-semibold text-neutral-700">Họ và tên</label>
+                  <input
+                    type="text"
+                    value={profileData.fullName}
+                    onChange={(e) => setProfileData({ ...profileData, fullName: e.target.value })}
+                    className="w-full rounded-lg border border-neutral-300 px-4 py-3 text-sm text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-1 focus:ring-neutral-900/10"
+                    placeholder="Nhập họ và tên"
+                  />
                 </div>
 
                 <div>
-                  <label className="mb-1 block text-sm font-semibold text-neutral-700">
-                    Email
-                  </label>
-                  <div className="rounded-lg border border-neutral-300 bg-neutral-50 px-4 py-3 text-sm text-neutral-900">
-                    {user?.email || "—"}
-                  </div>
+                  <label className="mb-1 block text-sm font-semibold text-neutral-700">Email (không thể thay đổi)</label>
+                  <input
+                    type="email"
+                    value={profileData.email}
+                    disabled
+                    className="w-full cursor-not-allowed rounded-lg border border-neutral-300 bg-neutral-50 px-4 py-3 text-sm text-neutral-900"
+                  />
                 </div>
 
                 <div>
-                  <label className="mb-1 block text-sm font-semibold text-neutral-700">
-                    Số điện thoại
-                  </label>
-                  <div className="rounded-lg border border-neutral-300 bg-neutral-50 px-4 py-3 text-sm text-neutral-900">
-                    {user?.phone || "—"}
-                  </div>
+                  <label className="mb-1 block text-sm font-semibold text-neutral-700">Số điện thoại</label>
+                  <input
+                    type="text"
+                    value={profileData.phone}
+                    onChange={(e) => setProfileData({ ...profileData, phone: e.target.value })}
+                    className="w-full rounded-lg border border-neutral-300 px-4 py-3 text-sm text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-1 focus:ring-neutral-900/10"
+                    placeholder="Nhập số điện thoại"
+                  />
                 </div>
-              </div>
+
+                <button
+                  type="submit"
+                  disabled={savingProfile}
+                  className="rounded-full bg-black px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90 disabled:cursor-not-allowed disabled:bg-neutral-400"
+                >
+                  {savingProfile ? "Đang lưu..." : "Lưu thay đổi"}
+                </button>
+              </form>
             </div>
           )}
 

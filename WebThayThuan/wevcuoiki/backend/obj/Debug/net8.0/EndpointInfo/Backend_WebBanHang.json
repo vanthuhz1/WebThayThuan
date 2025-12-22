@@ -409,6 +409,48 @@
         }
       }
     },
+    "/api/admin/AdminOrders/{id}/payment": {
+      "put": {
+        "tags": [
+          "AdminOrders"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePaymentRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePaymentRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePaymentRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/admin/AdminOrders/{id}/status": {
       "put": {
         "tags": [
@@ -1381,6 +1423,29 @@
         }
       }
     },
+    "/api/Orders/{id}": {
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Payment/create-momo-payment": {
       "post": {
         "tags": [
@@ -2257,6 +2322,14 @@
           "orderId": {
             "type": "integer",
             "format": "int64"
+          },
+          "transId": {
+            "type": "string",
+            "nullable": true
+          },
+          "rawResponse": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2496,6 +2569,20 @@
         },
         "additionalProperties": false
       },
+      "UpdatePaymentRequest": {
+        "type": "object",
+        "properties": {
+          "paymentStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "transactionCode": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "UpdateProductRequest": {
         "type": "object",
         "properties": {
@@ -2542,6 +2629,13 @@
             "type": "array",
             "items": {
               "type": "string"
+            },
+            "nullable": true
+          },
+          "variants": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductVariantRequest"
             },
             "nullable": true
           }

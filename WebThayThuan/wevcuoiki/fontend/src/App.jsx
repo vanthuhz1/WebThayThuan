@@ -9,6 +9,7 @@ import Wishlist from "./pages/Wishlist/Wishlist";
 import Order from "./pages/Order/Order";
 import OrderSuccess from "./pages/OrderSuccess/OrderSuccess";
 import MyAccount from "./pages/MyAccount/MyAccount";
+import MyOrderDetail from "./pages/MyAccount/OrderDetail";
 import News from "./pages/News/News";
 import NotFound from "./pages/NotFound/NotFound";
 import CollectionPage from "./pages/Collections/CollectionPage";
@@ -48,6 +49,7 @@ function App() {
           <Route path="/order" element={<Order />} />
           <Route path="/order-success" element={<OrderSuccess />} />
           <Route path="/my-account" element={<MyAccount />} />
+          <Route path="/my-account/orders/:id" element={<MyOrderDetail />} />
           <Route path="/news" element={<News />} />
           <Route path="/not-found" element={<NotFound />} />
           <Route path="*" element={<NotFound />} />

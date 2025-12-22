@@ -9,6 +9,10 @@ namespace Backend_WebBanHang.DTOs.Orders
         public decimal? ShippingFee { get; set; }
         public string ShippingAddress { get; set; } = null!;
         public DateTime? CreatedAt { get; set; }
+        public string? PaymentGateway { get; set; }
+        public string? PaymentStatus { get; set; }
+        public string? TransactionCode { get; set; }
+        public DateTime? PaidAt { get; set; }
         public List<OrderItemDto> Items { get; set; } = new List<OrderItemDto>();
     }
 }

@@ -62,6 +62,7 @@ namespace Backend_WebBanHang.Controllers
                 IdUsers = user.IdUsers,
                 FullName = user.FullName,
                 Email = user.Email,
+                Phone = user.Phone,
                 Role = user.Role,
                 Token = token
             };
@@ -97,6 +98,7 @@ namespace Backend_WebBanHang.Controllers
                 IdUsers = user.IdUsers,
                 FullName = user.FullName,
                 Email = user.Email,
+                Phone = user.Phone,
                 Role = user.Role,
                 Token = token
             };
@@ -122,8 +124,48 @@ namespace Backend_WebBanHang.Controllers
                 IdUsers = user.IdUsers,
                 FullName = user.FullName,
                 Email = user.Email,
+                Phone = user.Phone,
                 Role = user.Role,
                 // tùy, có thể tạo token mới hoặc không
+                Token = _jwtTokenService.GenerateToken(user)
+            };
+
+            return Ok(response);
+        }
+
+        // CẬP NHẬT THÔNG TIN USER (CHỈ FULLNAME + PHONE, KHÔNG CHO SỬA EMAIL)
+        [Authorize]
+        [HttpPut("me")]
+        public async Task<IActionResult> UpdateMe([FromBody] UpdateMeRequest request)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var userId = GetUserIdFromToken();
+            if (userId == null)
+                return Unauthorized("Không đọc được user từ token");
+
+            var user = await _context.Users.FindAsync(userId.Value);
+            if (user == null)
+                return Unauthorized("User không tồn tại");
+
+            if (!string.IsNullOrWhiteSpace(request.FullName))
+            {
+                user.FullName = request.FullName.Trim();
+            }
+
+            user.Phone = string.IsNullOrWhiteSpace(request.Phone) ? null : request.Phone.Trim();
+            user.UpdatedAt = DateTime.Now;
+
+            await _context.SaveChangesAsync();
+
+            var response = new AuthResponse
+            {
+                IdUsers = user.IdUsers,
+                FullName = user.FullName,
+                Email = user.Email,
+                Phone = user.Phone,
+                Role = user.Role,
                 Token = _jwtTokenService.GenerateToken(user)
             };
 
@@ -212,6 +254,7 @@ namespace Backend_WebBanHang.Controllers
                     IdUsers = user.IdUsers,
                     FullName = user.FullName,
                     Email = user.Email,
+                    Phone = user.Phone,
                     Role = user.Role,
                     Token = token
                 };
@@ -292,6 +335,7 @@ namespace Backend_WebBanHang.Controllers
                     IdUsers = user.IdUsers,
                     FullName = user.FullName,
                     Email = user.Email,
+                    Phone = user.Phone,
                     Role = user.Role,
                     Token = token
                 };
@@ -307,10 +351,15 @@ namespace Backend_WebBanHang.Controllers
         // HÀM HASH PASSWORD
         private static string HashPassword(string password)
         {
-            using var sha = SHA256.Create();
-            var bytes = Encoding.UTF8.GetBytes(password);
-            var hash = sha.ComputeHash(bytes);
-            return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
+            using var sha256 = SHA256.Create();
+            var bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+            return Convert.ToHexString(bytes);
+        }
+
+        public class UpdateMeRequest
+        {
+            public string FullName { get; set; } = null!;
+            public string? Phone { get; set; }
         }
 
         // LẤY userId TỪ TOKEN

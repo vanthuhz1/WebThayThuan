@@ -3,6 +3,7 @@ using Backend_WebBanHang.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Security.Claims;
 using System.Linq;
 
@@ -61,6 +62,18 @@ namespace Backend_WebBanHang.Controllers
                     o.Status,
                     o.ShippingAddress,
                     o.CreatedAt,
+                    PaymentGateway = _context.Payments
+                        .Where(p => p.IdOrders == o.IdOrders)
+                        .Select(p => p.PaymentGateway)
+                        .FirstOrDefault(),
+                    PaymentStatus = _context.Payments
+                        .Where(p => p.IdOrders == o.IdOrders)
+                        .Select(p => p.Status)
+                        .FirstOrDefault(),
+                    TransactionCode = _context.Payments
+                        .Where(p => p.IdOrders == o.IdOrders)
+                        .Select(p => p.TransactionCode)
+                        .FirstOrDefault(),
                     ItemCount = _context.OrderItems
                         .Where(oi => oi.IdOrders == o.IdOrders)
                         .Sum(oi => oi.Quantity)
@@ -90,6 +103,9 @@ namespace Backend_WebBanHang.Controllers
             if (order == null) return NotFound();
 
             var user = await _context.Users.FindAsync(order.IdUsers);
+
+            var payment = await _context.Payments
+                .FirstOrDefaultAsync(p => p.IdOrders == id);
 
             var items = await (from oi in _context.OrderItems
                              join v in _context.ProductVariants on oi.IdProductVariants equals v.IdProductVariants
@@ -132,8 +148,52 @@ namespace Backend_WebBanHang.Controllers
                 order.IdDiscountCodes,
                 order.CreatedAt,
                 order.UpdatedAt,
+                Payment = new
+                {
+                    PaymentGateway = payment?.PaymentGateway,
+                    PaymentStatus = payment?.Status,
+                    TransactionCode = payment?.TransactionCode,
+                    PaidAt = payment?.PaidAt
+                },
                 Items = items
             });
+        }
+
+        // PUT: api/admin/AdminOrders/{id}/payment
+        [HttpPut("{id:long}/payment")]
+        public async Task<IActionResult> UpdatePayment(long id, [FromBody] UpdatePaymentRequest request)
+        {
+            if (!IsAdmin()) return Forbid();
+
+            var order = await _context.Orders.FindAsync(id);
+            if (order == null) return NotFound();
+
+            var payment = await _context.Payments.FirstOrDefaultAsync(p => p.IdOrders == id);
+            if (payment == null) return NotFound(new { Message = "Payment not found" });
+
+            if (request.PaymentStatus != null)
+            {
+                payment.Status = request.PaymentStatus;
+            }
+
+            if (request.TransactionCode != null)
+            {
+                payment.TransactionCode = string.IsNullOrWhiteSpace(request.TransactionCode) ? null : request.TransactionCode.Trim();
+            }
+
+            if (!string.IsNullOrWhiteSpace(payment.TransactionCode) || string.Equals(payment.Status, "success", StringComparison.OrdinalIgnoreCase))
+            {
+                payment.PaidAt = payment.PaidAt ?? DateTime.Now;
+            }
+            else
+            {
+                payment.PaidAt = null;
+            }
+
+            payment.UpdatedAt = DateTime.Now;
+            await _context.SaveChangesAsync();
+
+            return Ok(new { Message = "Cập nhật thanh toán thành công" });
         }
 
         // PUT: api/admin/AdminOrders/{id}/status
@@ -221,6 +281,12 @@ namespace Backend_WebBanHang.Controllers
     {
         public string Status { get; set; } = null!;
         public string? Notes { get; set; }
+    }
+
+    public class UpdatePaymentRequest
+    {
+        public string? PaymentStatus { get; set; }
+        public string? TransactionCode { get; set; }
     }
 }
 

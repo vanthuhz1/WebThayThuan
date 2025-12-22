@@ -96,6 +96,13 @@ export async function updateOrderStatus(id, status, notes) {
   });
 }
 
+export async function updateOrderPayment(id, paymentStatus, transactionCode) {
+  return fetchWithAuth(`${API_BASE_URL}/admin/AdminOrders/${id}/payment`, {
+    method: "PUT",
+    body: JSON.stringify({ paymentStatus, transactionCode }),
+  });
+}
+
 export async function deleteOrder(id) {
   return fetchWithAuth(`${API_BASE_URL}/admin/AdminOrders/${id}`, {
     method: "DELETE",

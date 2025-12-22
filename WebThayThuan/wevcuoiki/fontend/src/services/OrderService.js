@@ -93,3 +93,31 @@ export async function getOrderDetails(orderId) {
     throw err;
   }
 }
+
+// Tạo link thanh toán MoMo cho đơn hàng (dùng cho thanh toán lại)
+export async function createMoMoPayment(orderId, amount) {
+  const token = getToken();
+  if (!token) {
+    throw new Error("Bạn cần đăng nhập");
+  }
+
+  const res = await fetch(`${API_BASE_URL}/Payment/create-momo-payment`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      orderId: Number(orderId),
+      amount: Number(amount),
+      orderInfo: `Pay for order ${orderId}`,
+    }),
+  });
+
+  if (!res.ok) {
+    const errorText = await res.text();
+    throw new Error(errorText || "Tạo payment link thất bại");
+  }
+
+  return res.json();
+}

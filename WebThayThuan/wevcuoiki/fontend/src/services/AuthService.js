@@ -60,6 +60,7 @@ export function saveUserInfo(userData) {
   localStorage.setItem("userId", userData.idUsers);
   localStorage.setItem("userName", userData.fullName);
   localStorage.setItem("userEmail", userData.email);
+  localStorage.setItem("userPhone", userData.phone || "");
   localStorage.setItem("userRole", userData.role);
 }
 
@@ -74,6 +75,7 @@ export function logout() {
   localStorage.removeItem("userId");
   localStorage.removeItem("userName");
   localStorage.removeItem("userEmail");
+  localStorage.removeItem("userPhone");
   localStorage.removeItem("userRole");
 }
 
@@ -91,9 +93,50 @@ export function getCurrentUser() {
     id: localStorage.getItem("userId"),
     name: localStorage.getItem("userName"),
     email: localStorage.getItem("userEmail"),
+    phone: localStorage.getItem("userPhone") || "",
     role: localStorage.getItem("userRole"),
     token: token
   };
+}
+
+export async function fetchMe() {
+  const token = getToken();
+  if (!token) throw new Error("Chưa đăng nhập");
+
+  const res = await fetch(`${API_BASE_URL}/Auth/me`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  if (!res.ok) {
+    const errorText = await res.text();
+    throw new Error(errorText || "Không lấy được thông tin tài khoản");
+  }
+
+  return res.json();
+}
+
+export async function updateMe(fullName, phone) {
+  const token = getToken();
+  if (!token) throw new Error("Chưa đăng nhập");
+
+  const res = await fetch(`${API_BASE_URL}/Auth/me`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ fullName, phone }),
+  });
+
+  if (!res.ok) {
+    const errorText = await res.text();
+    throw new Error(errorText || "Cập nhật thông tin thất bại");
+  }
+
+  return res.json();
 }
 
 // Hàm đăng nhập với Google

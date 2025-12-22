@@ -125,6 +125,7 @@ export default function OrderList() {
                   <th className="px-4 py-3 text-left text-xs font-semibold text-neutral-700 uppercase">Tổng tiền</th>
                   <th className="px-4 py-3 text-left text-xs font-semibold text-neutral-700 uppercase">Số lượng</th>
                   <th className="px-4 py-3 text-left text-xs font-semibold text-neutral-700 uppercase">Trạng thái</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold text-neutral-700 uppercase">Thanh toán</th>
                   <th className="px-4 py-3 text-left text-xs font-semibold text-neutral-700 uppercase">Ngày tạo</th>
                   <th className="px-4 py-3 text-left text-xs font-semibold text-neutral-700 uppercase">Thao tác</th>
                 </tr>
@@ -132,7 +133,7 @@ export default function OrderList() {
               <tbody className="divide-y divide-neutral-200">
                 {orders.length === 0 ? (
                   <tr>
-                    <td colSpan="7" className="px-4 py-8 text-center text-sm text-neutral-500">
+                    <td colSpan="8" className="px-4 py-8 text-center text-sm text-neutral-500">
                       Không có đơn hàng nào
                     </td>
                   </tr>
@@ -154,6 +155,14 @@ export default function OrderList() {
                         <span className={`px-2 py-1 rounded text-xs font-medium ${getStatusColor(order.status)}`}>
                           {order.status}
                         </span>
+                      </td>
+                      <td className="px-4 py-3 text-sm text-neutral-700">
+                        <div className="space-y-1">
+                          <div>{order.paymentGateway || "—"}</div>
+                          <div className="text-xs text-neutral-500">
+                            {order.transactionCode ? "Đã thanh toán" : order.paymentStatus || "Chưa thanh toán"}
+                          </div>
+                        </div>
                       </td>
                       <td className="px-4 py-3 text-sm text-neutral-600">
                         {order.createdAt ? new Date(order.createdAt).toLocaleDateString("vi-VN") : "N/A"}

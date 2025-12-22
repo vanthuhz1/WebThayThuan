@@ -172,6 +172,10 @@ namespace Backend_WebBanHang.Controllers
 
             foreach (var order in orders)
             {
+                var payment = await _context.Payments
+                    .Where(p => p.IdOrders == order.IdOrders)
+                    .FirstOrDefaultAsync();
+
                 // Lấy order items với thông tin sản phẩm
                 var itemsQuery = from oi in _context.OrderItems
                                  join v in _context.ProductVariants on oi.IdProductVariants equals v.IdProductVariants
@@ -215,11 +219,79 @@ namespace Backend_WebBanHang.Controllers
                     ShippingFee = order.ShippingFee,
                     ShippingAddress = order.ShippingAddress,
                     CreatedAt = order.CreatedAt,
+                    PaymentGateway = payment?.PaymentGateway,
+                    PaymentStatus = payment?.Status,
+                    TransactionCode = payment?.TransactionCode,
+                    PaidAt = payment?.PaidAt,
                     Items = itemDtos
                 });
             }
 
             return Ok(orderDtos);
+        }
+
+        // GET: api/Orders/{id}
+        // Lấy chi tiết 1 đơn hàng của user
+        [HttpGet("{id:long}")]
+        public async Task<IActionResult> GetOrderDetails(long id)
+        {
+            var userId = GetUserIdFromToken();
+            if (userId == null)
+                return Unauthorized("Không đọc được user từ token.");
+
+            var order = await _context.Orders
+                .Where(o => o.IdOrders == id && o.IdUsers == userId.Value)
+                .FirstOrDefaultAsync();
+
+            if (order == null) return NotFound();
+
+            var payment = await _context.Payments
+                .Where(p => p.IdOrders == id)
+                .FirstOrDefaultAsync();
+
+            var items = await (from oi in _context.OrderItems
+                               join v in _context.ProductVariants on oi.IdProductVariants equals v.IdProductVariants
+                               join p in _context.Products on v.IdProducts equals p.IdProducts
+                               where oi.IdOrders == id
+                               select new
+                               {
+                                   oi.IdOrderItems,
+                                   ProductId = p.IdProducts,
+                                   ProductName = p.Name,
+                                   ProductImage = _context.ProductImages
+                                       .Where(i => i.IdProducts == p.IdProducts)
+                                       .OrderByDescending(i => i.IsPrimary.HasValue && i.IsPrimary.Value)
+                                       .ThenBy(i => i.Position ?? 0)
+                                       .Select(i => i.Url)
+                                       .FirstOrDefault(),
+                                   v.Color,
+                                   v.Size,
+                                   oi.Quantity,
+                                   oi.UnitPrice,
+                                   SubTotal = oi.Quantity * oi.UnitPrice
+                               })
+                               .ToListAsync();
+
+            return Ok(new
+            {
+                order.IdOrders,
+                order.OrderNumber,
+                order.TotalAmount,
+                order.ShippingFee,
+                order.ShippingAddress,
+                order.Status,
+                order.IdDiscountCodes,
+                order.CreatedAt,
+                order.UpdatedAt,
+                Payment = new
+                {
+                    PaymentGateway = payment?.PaymentGateway,
+                    PaymentStatus = payment?.Status,
+                    TransactionCode = payment?.TransactionCode,
+                    PaidAt = payment?.PaidAt
+                },
+                Items = items
+            });
         }
         // Helper: Lấy userId từ token
         private long? GetUserIdFromToken()

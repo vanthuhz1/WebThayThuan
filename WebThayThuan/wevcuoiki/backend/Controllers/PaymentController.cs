@@ -50,8 +50,17 @@ namespace backend.Controllers
                 if (userId == null)
                     return Unauthorized();
 
+                var order = await _context.Orders
+                    .FirstOrDefaultAsync(o => o.IdOrders == request.OrderId && o.IdUsers == userId.Value);
+                if (order == null)
+                {
+                    return NotFound(new { success = false, message = "Order not found" });
+                }
+
+                var amount = (long)order.TotalAmount;
+
                 // Validate amount
-                if (request.Amount < 10000)
+                if (amount < 10000)
                 {
                     return BadRequest(new
                     {
@@ -90,7 +99,7 @@ namespace backend.Controllers
                     : request.OrderInfo;
                 
                 var result = await _momoService.CreatePaymentRequestAsync(
-                    amount: request.Amount,
+                    amount: amount,
                     orderId: request.OrderId,
                     orderInfo: orderInfo,
                     redirectUrl: redirectUrl,
@@ -99,6 +108,18 @@ namespace backend.Controllers
 
                 if (result.Success)
                 {
+                    var payment = await _context.Payments
+                        .FirstOrDefaultAsync(p => p.IdOrders == request.OrderId && p.PaymentGateway == "momo");
+                    if (payment != null)
+                    {
+                        payment.Status = "pending";
+                        payment.TransactionCode = null;
+                        payment.PaidAt = null;
+                        payment.RawResponse = null;
+                        payment.UpdatedAt = DateTime.Now;
+                        await _context.SaveChangesAsync();
+                    }
+
                     _logger.LogInformation("✅ MoMo payment created successfully");
                     _logger.LogInformation("📱 PayUrl: {PayUrl}", result.PayUrl);
                     _logger.LogInformation("📱 QRCodeUrl: {QRCodeUrl}", result.QrCodeUrl);
@@ -203,15 +224,20 @@ namespace backend.Controllers
 
                 if (payment != null)
                 {
+                    // Lưu raw response để debug/đối soát
+                    payment.RawResponse = System.Text.Json.JsonSerializer.Serialize(request);
+
                     if (request.ResultCode == 0)
                     {
                         payment.Status = "success";
                         payment.PaidAt = DateTime.Now;
+                        payment.TransactionCode = request.TransId.ToString();
                         _logger.LogInformation("💰 Payment {PaymentId} marked as SUCCESS", payment.IdPayments);
                     }
                     else
                     {
                         payment.Status = "failed";
+                        payment.TransactionCode = request.TransId > 0 ? request.TransId.ToString() : null;
                         _logger.LogWarning("⚠️ Payment {PaymentId} marked as FAILED - resultCode: {ResultCode}",
                             payment.IdPayments, request.ResultCode);
                     }
@@ -305,6 +331,8 @@ namespace backend.Controllers
             {
                 payment.Status = "success";
                 payment.PaidAt = DateTime.Now;
+                payment.TransactionCode = request.TransId;
+                payment.RawResponse = request.RawResponse;
                 payment.UpdatedAt = DateTime.Now;
             }
 
@@ -354,5 +382,7 @@ namespace backend.Controllers
     public class ManualCompleteRequest
     {
         public long OrderId { get; set; }
+        public string? TransId { get; set; }
+        public string? RawResponse { get; set; }
     }
 }

@@ -15,6 +15,33 @@ const OrderSuccess = () => {
       return;
     }
 
+    // Dev/local: MoMo IPN có thể không gọi được vào localhost.
+    // Nếu return về frontend có transId thì gọi manual-complete để lưu mã giao dịch.
+    (async () => {
+      try {
+        if (resultCode === "0" && orderId && transId) {
+          const API_BASE_URL = import.meta.env.VITE_API_URL || "https://localhost:7194/api";
+          const token = localStorage.getItem("token");
+          if (!token) return;
+
+          await fetch(`${API_BASE_URL}/Payment/manual-complete`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({
+              orderId: Number(orderId),
+              transId: String(transId),
+              rawResponse: JSON.stringify({ orderId, resultCode, message, transId }),
+            }),
+          });
+        }
+      } catch {
+        // ignore
+      }
+    })();
+
     // Clear sessionStorage sau khi thanh toán thành công
     // (cả COD và MoMo đều sẽ vào trang này)
     sessionStorage.removeItem("orderFormData");

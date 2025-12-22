@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { getAdminOrder, updateOrderStatus, deleteOrder } from "../../../services/AdminService";
+import { getAdminOrder, updateOrderStatus, updateOrderPayment, deleteOrder } from "../../../services/AdminService";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
@@ -26,6 +26,8 @@ export default function OrderDetail() {
   const [order, setOrder] = useState(null);
   const [status, setStatus] = useState("");
   const [notes, setNotes] = useState("");
+  const [paymentStatus, setPaymentStatus] = useState("");
+  const [transactionCode, setTransactionCode] = useState("");
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -37,6 +39,8 @@ export default function OrderDetail() {
         if (!mounted) return;
         setOrder(data);
         setStatus(data.status || "pending");
+        setPaymentStatus(data.payment?.paymentStatus || "");
+        setTransactionCode(data.payment?.transactionCode || "");
       } catch (err) {
         setError(err.message || "Không tải được đơn hàng");
       } finally {
@@ -61,6 +65,19 @@ export default function OrderDetail() {
       navigate("/admin/orders");
     } catch (err) {
       alert(err.message || "Không cập nhật được trạng thái");
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const handleUpdatePayment = async () => {
+    try {
+      setSaving(true);
+      await updateOrderPayment(id, paymentStatus || null, transactionCode || null);
+      alert("Cập nhật thanh toán thành công");
+      navigate("/admin/orders");
+    } catch (err) {
+      alert(err.message || "Không cập nhật được thanh toán");
     } finally {
       setSaving(false);
     }
@@ -167,6 +184,49 @@ export default function OrderDetail() {
               className="px-4 py-2 rounded-lg bg-red-600 text-white hover:bg-red-700 disabled:opacity-50"
             >
               {saving ? "Đang lưu..." : "Lưu trạng thái"}
+            </button>
+          </div>
+        </div>
+
+        <div className="bg-white rounded-lg shadow-sm p-4 space-y-3 lg:col-span-3">
+          <h2 className="text-lg font-semibold text-neutral-900">Thanh toán</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 items-end">
+            <div className="text-sm text-neutral-700">
+              <div className="text-xs text-neutral-500">Cổng thanh toán</div>
+              <div className="font-semibold">{order.payment?.paymentGateway || "—"}</div>
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-neutral-700">Trạng thái thanh toán</label>
+              <select
+                value={paymentStatus}
+                onChange={(e) => setPaymentStatus(e.target.value)}
+                className="mt-1 w-full rounded-lg border border-neutral-300 px-3 py-2"
+              >
+                <option value="">(giữ nguyên)</option>
+                <option value="pending">pending</option>
+                <option value="success">success</option>
+                <option value="failed">failed</option>
+              </select>
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-neutral-700">Mã giao dịch</label>
+              <input
+                type="text"
+                value={transactionCode}
+                onChange={(e) => setTransactionCode(e.target.value)}
+                className="mt-1 w-full rounded-lg border border-neutral-300 px-3 py-2"
+                placeholder="transaction_code"
+              />
+            </div>
+          </div>
+          <div className="pt-2">
+            <button
+              type="button"
+              onClick={handleUpdatePayment}
+              disabled={saving}
+              className="px-4 py-2 rounded-lg bg-black text-white hover:opacity-90 disabled:opacity-50"
+            >
+              {saving ? "Đang lưu..." : "Lưu thanh toán"}
             </button>
           </div>
         </div>
