@@ -108,9 +108,19 @@ namespace Backend_WebBanHang.Controllers
 
             _context.Payments.Add(payment);
 
+<<<<<<< HEAD:WebThayThuan/wevcuoiki/backend/Controllers/OrdersController.cs
             // Xóa cart items sau khi tạo order thành công
             _context.CartItems.RemoveRange(cartItems);
             cart.UpdatedAt = DateTime.Now;
+=======
+            // Chỉ xóa cart items nếu là COD (thanh toán ngay)
+            // Với MoMo, sẽ xóa sau khi thanh toán thành công (trong callback)
+            if (request.PaymentMethod == "cod")
+            {
+                _context.CartItems.RemoveRange(cartItems);
+                cart.UpdatedAt = DateTime.Now;
+            }
+>>>>>>> origin/Viet_Hung_ThanhToanMoMo_DatHang_XemThongTinTK:wevcuoiki/backend/Controllers/OrdersController.cs
 
             await _context.SaveChangesAsync();
 
@@ -128,6 +138,84 @@ namespace Backend_WebBanHang.Controllers
             return Ok(response);
         }
 
+<<<<<<< HEAD:WebThayThuan/wevcuoiki/backend/Controllers/OrdersController.cs
+=======
+        // GET: api/Orders
+        // Lấy danh sách đơn hàng của user
+        [HttpGet]
+        public async Task<IActionResult> GetMyOrders([FromQuery] string? status = null)
+        {
+            var userId = GetUserIdFromToken();
+            if (userId == null)
+                return Unauthorized("Không đọc được user từ token.");
+
+            var ordersQuery = _context.Orders
+                .Where(o => o.IdUsers == userId.Value)
+                .OrderByDescending(o => o.CreatedAt);
+
+            // Filter theo status nếu có
+            if (!string.IsNullOrEmpty(status) && status.ToLower() != "all")
+            {
+                ordersQuery = (IOrderedQueryable<Order>)ordersQuery.Where(o => o.Status == status);
+            }
+
+            var orders = await ordersQuery.ToListAsync();
+
+            var orderDtos = new List<OrderListDto>();
+
+            foreach (var order in orders)
+            {
+                // Lấy order items với thông tin sản phẩm
+                var itemsQuery = from oi in _context.OrderItems
+                                 join v in _context.ProductVariants on oi.IdProductVariants equals v.IdProductVariants
+                                 join p in _context.Products on v.IdProducts equals p.IdProducts
+                                 where oi.IdOrders == order.IdOrders
+                                 select new { oi, v, p };
+
+                var itemsData = await itemsQuery.ToListAsync();
+
+                var itemDtos = new List<OrderItemDto>();
+
+                foreach (var x in itemsData)
+                {
+                    // Lấy thumbnail
+                    var thumb = await _context.ProductImages
+                        .Where(i => i.IdProducts == x.p.IdProducts && i.IsPrimary == true)
+                        .OrderBy(i => i.Position)
+                        .Select(i => i.Url)
+                        .FirstOrDefaultAsync();
+
+                    itemDtos.Add(new OrderItemDto
+                    {
+                        IdOrderItems = x.oi.IdOrderItems,
+                        IdProducts = x.p.IdProducts,
+                        ProductName = x.p.Name,
+                        Color = x.v.Color,
+                        Size = x.v.Size,
+                        Quantity = x.oi.Quantity,
+                        UnitPrice = x.oi.UnitPrice,
+                        Discount = x.oi.Discount,
+                        ThumbnailUrl = thumb
+                    });
+                }
+
+                orderDtos.Add(new OrderListDto
+                {
+                    IdOrders = order.IdOrders,
+                    OrderNumber = order.OrderNumber,
+                    Status = order.Status,
+                    TotalAmount = order.TotalAmount,
+                    ShippingFee = order.ShippingFee,
+                    ShippingAddress = order.ShippingAddress,
+                    CreatedAt = order.CreatedAt,
+                    Items = itemDtos
+                });
+            }
+
+            return Ok(orderDtos);
+        }
+
+>>>>>>> origin/Viet_Hung_ThanhToanMoMo_DatHang_XemThongTinTK:wevcuoiki/backend/Controllers/OrdersController.cs
         // Helper: Lấy userId từ token
         private long? GetUserIdFromToken()
         {

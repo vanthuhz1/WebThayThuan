@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD:WebThayThuan/wevcuoiki/backend/obj/project.nuget.cache
   "dgSpecHash": "w7ehVETILJU=",
   "success": true,
   "projectFilePath": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Backend_WebBanHang.csproj",
+=======
+  "dgSpecHash": "4zW8bI/vI9g=",
+  "success": true,
+  "projectFilePath": "D:\\WebThayThuan\\wevcuoiki\\backend\\Backend_WebBanHang.csproj",
+>>>>>>> origin/Viet_Hung_ThanhToanMoMo_DatHang_XemThongTinTK:wevcuoiki/backend/obj/project.nuget.cache
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

@@ -39,10 +39,18 @@ builder.Services
 // Đăng ký service sinh token
 builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
 
+<<<<<<< HEAD:WebThayThuan/wevcuoiki/backend/Program.cs
 // Đăng ký HttpClientFactory cho OAuth
 builder.Services.AddHttpClient();
 
 // 3. Đăng ký controller + JSON camelCase để khớp frontend
+=======
+// Đăng ký MoMo Payment Service
+builder.Services.AddHttpClient();
+builder.Services.AddScoped<IMoMoPaymentService, MoMoPaymentService>();
+
+// 3. Đăng ký controller với JSON camelCase
+>>>>>>> origin/Viet_Hung_ThanhToanMoMo_DatHang_XemThongTinTK:wevcuoiki/backend/Program.cs
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {

@@ -14,7 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Backend_WebBanHang")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD:WebThayThuan/wevcuoiki/backend/obj/Debug/net8.0/Backend_WebBanHang.AssemblyInfo.cs
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4de4af52619c9aff8750f1b986b10df6910746b9")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6b943330abab81ea80bbc23594f923969c2c2f7b")]
+>>>>>>> origin/Viet_Hung_ThanhToanMoMo_DatHang_XemThongTinTK:wevcuoiki/backend/obj/Debug/net8.0/Backend_WebBanHang.AssemblyInfo.cs
 [assembly: System.Reflection.AssemblyProductAttribute("Backend_WebBanHang")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Backend_WebBanHang")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
