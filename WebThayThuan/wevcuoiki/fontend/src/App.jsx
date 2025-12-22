@@ -24,7 +24,12 @@ import OrderList from "./pages/Admin/Orders/OrderList";
 import OrderDetail from "./pages/Admin/Orders/OrderDetail";
 import UserList from "./pages/Admin/Users/UserList";
 import UserDetail from "./pages/Admin/Users/UserDetail";
+import UserCreate from "./pages/Admin/Users/UserCreate";
+import UserEdit from "./pages/Admin/Users/UserEdit";
 import CategoryTree from "./pages/Admin/Categories/CategoryTree";
+import DiscountCodeList from "./pages/Admin/DiscountCodes/DiscountCodeList";
+import DiscountCodeCreate from "./pages/Admin/DiscountCodes/DiscountCodeCreate";
+import DiscountCodeEdit from "./pages/Admin/DiscountCodes/DiscountCodeEdit";
 
 function App() {
   return (
@@ -66,8 +71,13 @@ function App() {
           <Route path="orders" element={<OrderList />} />
           <Route path="orders/:id" element={<OrderDetail />} />
           <Route path="users" element={<UserList />} />
+          <Route path="users/new" element={<UserCreate />} />
           <Route path="users/:id" element={<UserDetail />} />
+          <Route path="users/:id/edit" element={<UserEdit />} />
           <Route path="categories" element={<CategoryTree />} />
+          <Route path="discount-codes" element={<DiscountCodeList />} />
+          <Route path="discount-codes/new" element={<DiscountCodeCreate />} />
+          <Route path="discount-codes/:id/edit" element={<DiscountCodeEdit />} />
         </Route>
       </Routes>
     </Router>

@@ -13,15 +13,20 @@ export default function ProductList() {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [totalItems, setTotalItems] = useState(0);
+  const [statusFilter, setStatusFilter] = useState("all"); // "all", "active", "inactive"
 
   useEffect(() => {
     loadProducts();
-  }, [page]);
+  }, [page, statusFilter]);
 
   const loadProducts = async () => {
     try {
       setLoading(true);
-      const data = await getAdminProducts({ page, pageSize: 20 });
+      const data = await getAdminProducts({ 
+        page, 
+        pageSize: 20,
+        status: statusFilter === "all" ? null : statusFilter
+      });
       setProducts(data.items || []);
       setTotalPages(data.totalPages || 1);
       setTotalItems(data.totalItems || 0);
@@ -59,6 +64,25 @@ export default function ProductList() {
           <FontAwesomeIcon icon={faPlus} />
           <span>Thêm sản phẩm</span>
         </Link>
+      </div>
+
+      {/* Filter by Status */}
+      <div className="bg-white rounded-lg shadow-sm p-4">
+        <div className="flex items-center gap-4">
+          <label className="text-sm font-medium text-neutral-700">Lọc theo trạng thái:</label>
+          <select
+            value={statusFilter}
+            onChange={(e) => {
+              setStatusFilter(e.target.value);
+              setPage(1); // Reset về trang 1 khi đổi filter
+            }}
+            className="px-4 py-2 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+          >
+            <option value="all">Tất cả</option>
+            <option value="active">Active</option>
+            <option value="inactive">Inactive</option>
+          </select>
+        </div>
       </div>
 
       {loading ? (
@@ -187,5 +211,6 @@ export default function ProductList() {
     </div>
   );
 }
+
 
 

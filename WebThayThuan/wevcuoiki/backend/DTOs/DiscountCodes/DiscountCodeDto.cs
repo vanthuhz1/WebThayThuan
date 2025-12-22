@@ -6,7 +6,6 @@ namespace Backend_WebBanHang.DTOs.DiscountCodes
         public long IdDiscountCodes { get; set; }
 
         public string Code { get; set; } = null!;
-        public string? Description { get; set; }
 
         // "percent" | "fixed"
         public string DiscountType { get; set; } = null!;

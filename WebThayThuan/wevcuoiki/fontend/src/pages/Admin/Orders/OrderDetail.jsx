@@ -1,12 +1,16 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { getAdminOrder, updateOrderStatus } from "../../../services/AdminService";
+import { getAdminOrder, updateOrderStatus, deleteOrder } from "../../../services/AdminService";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
+// Đồng bộ với user page: "pending", "shipping", "delivered", "cancelled"
+// Map sang admin status: "pending", "processing"/"shipped", "delivered"/"completed", "cancelled"
 const statusOptions = [
-  { value: "pending", label: "Chờ xử lý" },
-  { value: "processing", label: "Đang xử lý" },
-  { value: "shipped", label: "Đã giao hàng" },
-  { value: "delivered", label: "Đã giao thành công" },
+  { value: "pending", label: "Đang xử lý" },
+  { value: "processing", label: "Đang xử lý (processing)" },
+  { value: "shipped", label: "Đang giao hàng" },
+  { value: "delivered", label: "Đã giao hàng" },
   { value: "completed", label: "Hoàn thành" },
   { value: "cancelled", label: "Đã hủy" },
 ];
@@ -62,6 +66,24 @@ export default function OrderDetail() {
     }
   };
 
+  const handleDelete = async () => {
+    if (!order) return;
+    
+    const orderNumber = order.orderNumber || order.orderNumber || `#${id}`;
+    if (!confirm(`Bạn có chắc muốn xóa đơn hàng ${orderNumber}?\n\nHành động này không thể hoàn tác.`)) return;
+
+    try {
+      const result = await deleteOrder(id);
+      const message = result?.orderNumber 
+        ? `Xóa đơn hàng ${result.orderNumber} thành công`
+        : "Xóa đơn hàng thành công";
+      alert(message);
+      navigate("/admin/orders");
+    } catch (err) {
+      alert(err.message || "Không thể xóa đơn hàng");
+    }
+  };
+
   if (loading) return <p className="text-neutral-500">Đang tải đơn hàng...</p>;
   if (error) return <p className="text-red-600">{error}</p>;
   if (!order) return <p className="text-neutral-500">Không có dữ liệu</p>;
@@ -75,13 +97,23 @@ export default function OrderDetail() {
             Khách: {order.customer?.fullName} ({order.customer?.email})
           </p>
         </div>
-        <button
-          type="button"
-          onClick={() => navigate(-1)}
-          className="px-4 py-2 border border-neutral-300 rounded-lg hover:bg-neutral-50"
-        >
-          Quay lại
-        </button>
+        <div className="flex gap-2">
+          <button
+            type="button"
+            onClick={handleDelete}
+            className="px-4 py-2 border border-red-300 text-red-600 rounded-lg hover:bg-red-50 flex items-center gap-2"
+          >
+            <FontAwesomeIcon icon={faTrash} />
+            Xóa đơn hàng
+          </button>
+          <button
+            type="button"
+            onClick={() => navigate(-1)}
+            className="px-4 py-2 border border-neutral-300 rounded-lg hover:bg-neutral-50"
+          >
+            Quay lại
+          </button>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">

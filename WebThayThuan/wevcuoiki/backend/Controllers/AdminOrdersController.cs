@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
+using System.Linq;
 
 namespace Backend_WebBanHang.Controllers
 {
@@ -160,6 +161,53 @@ namespace Backend_WebBanHang.Controllers
             await _context.SaveChangesAsync();
 
             return Ok(new { Message = "Cập nhật trạng thái đơn hàng thành công" });
+        }
+
+        // DELETE: api/admin/AdminOrders/{id}
+        [HttpDelete("{id:long}")]
+        public async Task<IActionResult> DeleteOrder(long id)
+        {
+            if (!IsAdmin()) return Forbid();
+
+            var order = await _context.Orders.FindAsync(id);
+            if (order == null) return NotFound();
+
+            // Lấy orderNumber để trả về cho frontend
+            var orderNumber = order.OrderNumber;
+
+            // Xóa các Payments trước (có foreign key đến Orders)
+            var payments = await _context.Payments
+                .Where(p => p.IdOrders == id)
+                .ToListAsync();
+            if (payments.Any())
+            {
+                _context.Payments.RemoveRange(payments);
+            }
+
+            // Xóa các order items
+            var orderItems = await _context.OrderItems
+                .Where(oi => oi.IdOrders == id)
+                .ToListAsync();
+            if (orderItems.Any())
+            {
+                _context.OrderItems.RemoveRange(orderItems);
+            }
+
+            // Xóa order status history
+            var statusHistories = await _context.OrderStatusHistories
+                .Where(osh => osh.IdOrders == id)
+                .ToListAsync();
+            if (statusHistories.Any())
+            {
+                _context.OrderStatusHistories.RemoveRange(statusHistories);
+            }
+
+            // Xóa order
+            _context.Orders.Remove(order);
+
+            await _context.SaveChangesAsync();
+
+            return Ok(new { Message = $"Xóa đơn hàng {orderNumber} thành công", OrderNumber = orderNumber });
         }
 
         private bool IsAdmin()

@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import {
   deleteUser,
   getAdminUser,
   updateUserRole,
   updateUserStatus,
 } from "../../../services/AdminService";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit } from "@fortawesome/free-solid-svg-icons";
 
 const fmtVND = (v) =>
   new Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND" }).format(Number(v || 0));
@@ -16,7 +18,7 @@ export default function UserDetail() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
-  const [role, setRole] = useState("user");
+  const [role, setRole] = useState("customer");
   const [status, setStatus] = useState("active");
   const [error, setError] = useState(null);
 
@@ -28,7 +30,8 @@ export default function UserDetail() {
         const data = await getAdminUser(id);
         if (!mounted) return;
         setUser(data);
-        setRole(data.role || "user");
+        // Map "user" cũ sang "customer" mới
+        setRole(data.role === "user" ? "customer" : (data.role || "customer"));
         setStatus(data.status || "active");
       } catch (err) {
         setError(err.message || "Không tải được người dùng");
@@ -68,11 +71,29 @@ export default function UserDetail() {
   };
 
   const handleDelete = async () => {
-    if (!confirm("Bạn chắc chắn muốn khóa tài khoản này?")) return;
+    if (!user) return;
+    const userName = user.fullName || "người dùng";
+    const userEmail = user.email || "";
+    
+    if (!confirm(`⚠️ CẢNH BÁO: Bạn có chắc muốn XÓA VĨNH VIỄN tài khoản ${userName} (${userEmail})?\n\nHành động này sẽ:\n- Xóa tất cả đơn hàng của user\n- Xóa giỏ hàng, wishlist\n- Xóa tất cả dữ liệu liên quan\n- KHÔNG THỂ HOÀN TÁC!`)) return;
+    
+    const confirmText = prompt('Nhập "XÓA" để xác nhận xóa vĩnh viễn:');
+    // Xử lý: trim whitespace, so sánh không phân biệt hoa thường, và kiểm tra null (user click Cancel)
+    if (!confirmText || confirmText.trim().toUpperCase() !== "XÓA") {
+      if (confirmText === null) {
+        // User click Cancel
+        alert("Đã hủy xóa tài khoản");
+      } else {
+        alert('Vui lòng nhập chính xác "XÓA" để xác nhận');
+      }
+      return;
+    }
+
     try {
       setSaving(true);
-      await deleteUser(id);
-      alert("Đã khóa tài khoản (banned)");
+      const result = await deleteUser(id);
+      const message = result?.message || "Đã xóa tài khoản thành công";
+      alert(message);
       navigate("/admin/users");
     } catch (err) {
       alert(err.message || "Không xóa được tài khoản");
@@ -92,13 +113,22 @@ export default function UserDetail() {
           <h1 className="text-2xl font-bold text-neutral-900">{user.fullName}</h1>
           <p className="text-sm text-neutral-600">{user.email}</p>
         </div>
-        <button
-          type="button"
-          onClick={() => navigate(-1)}
-          className="px-4 py-2 border border-neutral-300 rounded-lg hover:bg-neutral-50"
-        >
-          Quay lại
-        </button>
+        <div className="flex gap-2">
+          <Link
+            to={`/admin/users/${id}/edit`}
+            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center gap-2"
+          >
+            <FontAwesomeIcon icon={faEdit} />
+            Sửa thông tin
+          </Link>
+          <button
+            type="button"
+            onClick={() => navigate(-1)}
+            className="px-4 py-2 border border-neutral-300 rounded-lg hover:bg-neutral-50"
+          >
+            Quay lại
+          </button>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
@@ -127,7 +157,7 @@ export default function UserDetail() {
               onChange={(e) => setRole(e.target.value)}
               className="w-full rounded-lg border border-neutral-300 px-3 py-2"
             >
-              <option value="user">User</option>
+              <option value="customer">Customer</option>
               <option value="admin">Admin</option>
             </select>
             <button
@@ -167,7 +197,7 @@ export default function UserDetail() {
               disabled={saving}
               className="px-4 py-2 rounded-lg bg-red-600 text-white hover:bg-red-700 disabled:opacity-50 w-full"
             >
-              {saving ? "Đang xử lý..." : "Khóa tài khoản"}
+              {saving ? "Đang xử lý..." : "Xóa tài khoản"}
             </button>
           </div>
         </div>

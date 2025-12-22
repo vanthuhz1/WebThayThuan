@@ -45,8 +45,12 @@ export async function getDashboardStats() {
 
 // Products
 export async function getAdminProducts(params = {}) {
-  const { page = 1, pageSize = 20 } = params;
-  return fetchWithAuth(`${API_BASE_URL}/admin/AdminProducts?page=${page}&pageSize=${pageSize}`);
+  const { page = 1, pageSize = 20, status } = params;
+  let url = `${API_BASE_URL}/admin/AdminProducts?page=${page}&pageSize=${pageSize}`;
+  if (status && status !== "all") {
+    url += `&status=${status}`;
+  }
+  return fetchWithAuth(url);
 }
 
 export async function getAdminProduct(id) {
@@ -92,6 +96,12 @@ export async function updateOrderStatus(id, status, notes) {
   });
 }
 
+export async function deleteOrder(id) {
+  return fetchWithAuth(`${API_BASE_URL}/admin/AdminOrders/${id}`, {
+    method: "DELETE",
+  });
+}
+
 // Users
 export async function getAdminUsers(params = {}) {
   const { page = 1, pageSize = 20, role, status } = params;
@@ -122,6 +132,54 @@ export async function updateUserStatus(id, status) {
 export async function deleteUser(id) {
   return fetchWithAuth(`${API_BASE_URL}/admin/AdminUsers/${id}`, {
     method: "DELETE",
+  });
+}
+
+// Discount Codes
+export async function getAdminDiscountCodes(params = {}) {
+  const { page = 1, pageSize = 20, status, discountType, search } = params;
+  let url = `${API_BASE_URL}/admin/AdminDiscountCodes?page=${page}&pageSize=${pageSize}`;
+  if (status && status !== "all") url += `&status=${status}`;
+  if (discountType && discountType !== "all") url += `&discountType=${discountType}`;
+  if (search) url += `&search=${encodeURIComponent(search)}`;
+  return fetchWithAuth(url);
+}
+
+export async function getAdminDiscountCode(id) {
+  return fetchWithAuth(`${API_BASE_URL}/admin/AdminDiscountCodes/${id}`);
+}
+
+export async function createDiscountCode(discountCodeData) {
+  return fetchWithAuth(`${API_BASE_URL}/admin/AdminDiscountCodes`, {
+    method: "POST",
+    body: JSON.stringify(discountCodeData),
+  });
+}
+
+export async function updateDiscountCode(id, discountCodeData) {
+  return fetchWithAuth(`${API_BASE_URL}/admin/AdminDiscountCodes/${id}`, {
+    method: "PUT",
+    body: JSON.stringify(discountCodeData),
+  });
+}
+
+export async function deleteDiscountCode(id) {
+  return fetchWithAuth(`${API_BASE_URL}/admin/AdminDiscountCodes/${id}`, {
+    method: "DELETE",
+  });
+}
+
+export async function createUser(userData) {
+  return fetchWithAuth(`${API_BASE_URL}/admin/AdminUsers`, {
+    method: "POST",
+    body: JSON.stringify(userData),
+  });
+}
+
+export async function updateUser(id, userData) {
+  return fetchWithAuth(`${API_BASE_URL}/admin/AdminUsers/${id}`, {
+    method: "PUT",
+    body: JSON.stringify(userData),
   });
 }
 

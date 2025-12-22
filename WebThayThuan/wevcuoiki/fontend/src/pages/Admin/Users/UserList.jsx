@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getAdminUsers } from "../../../services/AdminService";
+import { getAdminUsers, deleteUser } from "../../../services/AdminService";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus, faTrash, faEye } from "@fortawesome/free-solid-svg-icons";
 
 const fmtVND = (v) =>
   new Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND" }).format(Number(v || 0));
@@ -47,12 +49,44 @@ export default function UserList() {
     }
   };
 
+  const handleDelete = async (userId, userName, userEmail) => {
+    if (!confirm(`⚠️ CẢNH BÁO: Bạn có chắc muốn XÓA VĨNH VIỄN tài khoản ${userName} (${userEmail})?\n\nHành động này sẽ:\n- Xóa tất cả đơn hàng của user\n- Xóa giỏ hàng, wishlist\n- Xóa tất cả dữ liệu liên quan\n- KHÔNG THỂ HOÀN TÁC!`)) return;
+    
+    const confirmText = prompt('Nhập "XÓA" để xác nhận xóa vĩnh viễn:');
+    // Xử lý: trim whitespace, so sánh không phân biệt hoa thường, và kiểm tra null (user click Cancel)
+    if (!confirmText || confirmText.trim().toUpperCase() !== "XÓA") {
+      if (confirmText === null) {
+        // User click Cancel
+        alert("Đã hủy xóa tài khoản");
+      } else {
+        alert('Vui lòng nhập chính xác "XÓA" để xác nhận');
+      }
+      return;
+    }
+
+    try {
+      const result = await deleteUser(userId);
+      const message = result?.message || "Đã xóa tài khoản thành công";
+      alert(message);
+      loadUsers();
+    } catch (err) {
+      alert(err.message || "Không thể xóa tài khoản");
+    }
+  };
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between flex-wrap gap-3">
         <div>
           <h1 className="text-2xl font-bold text-neutral-900">Quản lý Người dùng</h1>
         </div>
+        <Link
+          to="/admin/users/new"
+          className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
+        >
+          <FontAwesomeIcon icon={faPlus} />
+          <span>Thêm người dùng</span>
+        </Link>
         <div className="flex items-center gap-2">
           <select
             value={roleFilter}
@@ -63,7 +97,7 @@ export default function UserList() {
             className="px-3 py-2 border border-neutral-300 rounded-lg"
           >
             <option value="">Tất cả vai trò</option>
-            <option value="user">User</option>
+            <option value="customer">Customer</option>
             <option value="admin">Admin</option>
           </select>
           <select
@@ -129,12 +163,23 @@ export default function UserList() {
                         {u.createdAt ? new Date(u.createdAt).toLocaleDateString("vi-VN") : "N/A"}
                       </td>
                       <td className="px-4 py-3">
-                        <Link
-                          to={`/admin/users/${u.idUsers}`}
-                          className="px-3 py-2 text-blue-600 hover:bg-blue-50 rounded-lg text-sm font-medium"
-                        >
-                          Chi tiết
-                        </Link>
+                        <div className="flex items-center gap-2">
+                          <Link
+                            to={`/admin/users/${u.idUsers}`}
+                            className="p-2 text-blue-600 hover:bg-blue-50 rounded transition"
+                            title="Xem chi tiết"
+                          >
+                            <FontAwesomeIcon icon={faEye} />
+                          </Link>
+                          <button
+                            type="button"
+                            onClick={() => handleDelete(u.idUsers, u.fullName, u.email)}
+                            className="p-2 text-red-600 hover:bg-red-50 rounded transition"
+                            title="Xóa tài khoản"
+                          >
+                            <FontAwesomeIcon icon={faTrash} />
+                          </button>
+                        </div>
                       </td>
                     </tr>
                   ))

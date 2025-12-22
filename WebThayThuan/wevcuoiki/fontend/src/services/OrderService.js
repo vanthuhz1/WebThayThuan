@@ -14,19 +14,19 @@ export async function createOrder(orderData) {
       throw new Error("Bạn cần đăng nhập để đặt hàng");
     }
 
-    const res = await fetch(`${API_BASE_URL}/Orders`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(orderData),
-    });
+      const res = await fetch(`${API_BASE_URL}/Orders`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(orderData),
+      });
 
-    if (!res.ok) {
-      const errorText = await res.text();
-      throw new Error(errorText || "Đặt hàng thất bại");
-    }
+      if (!res.ok) {
+        const errorText = await res.text();
+        throw new Error(errorText || "Đặt hàng thất bại");
+      }
 
     return await res.json();
   } catch (err) {
@@ -50,9 +50,9 @@ export async function getMyOrders(status = null) {
 
     const res = await fetch(url, {
       method: "GET",
-      headers: {
+          headers: {
         Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
+            "Content-Type": "application/json",
       },
     });
 

@@ -14,9 +14,6 @@ namespace Backend_WebBanHang.Models
         [Column("code")]
         public string Code { get; set; } = null!;
 
-        [Column("description")]
-        public string? Description { get; set; }
-
         [Column("discount_type")]
         public string DiscountType { get; set; } = null!;
 

@@ -32,10 +32,20 @@ namespace Backend_WebBanHang.Controllers
             if (page <= 0) page = 1;
             if (pageSize <= 0 || pageSize > 100) pageSize = 20;
 
-            // Chỉ lấy sản phẩm theo status (mặc định chỉ lấy active)
+            // Admin có thể xem tất cả trạng thái hoặc filter theo status
             var query = _context.Products.AsQueryable();
-            var normalizedStatus = NormalizeStatus(status) ?? "active";
-            query = query.Where(p => p.Status == normalizedStatus);
+            
+            // Nếu status = null hoặc "all" => hiển thị tất cả
+            // Nếu status = "active" hoặc "inactive" => filter theo status đó
+            if (!string.IsNullOrWhiteSpace(status) && status.ToLower() != "all")
+            {
+                var normalizedStatus = NormalizeStatus(status);
+                if (normalizedStatus != null)
+                {
+                    query = query.Where(p => p.Status == normalizedStatus);
+                }
+            }
+            // Nếu status = null hoặc "all" => không filter, hiển thị tất cả
 
             var totalItems = await query.CountAsync();
 

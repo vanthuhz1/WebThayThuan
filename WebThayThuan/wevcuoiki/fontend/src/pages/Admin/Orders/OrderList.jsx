@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { getAdminOrders } from "../../../services/AdminService";
+import { getAdminOrders, deleteOrder } from "../../../services/AdminService";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye } from "@fortawesome/free-solid-svg-icons";
+import { faEye, faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
 
 const fmtVND = (v) =>
   new Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND" }).format(Number(v || 0));
@@ -12,7 +12,7 @@ export default function OrderList() {
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [statusFilter, setStatusFilter] = useState("");
+  const [statusFilter, setStatusFilter] = useState("all");
 
   useEffect(() => {
     loadOrders();
@@ -21,7 +21,29 @@ export default function OrderList() {
   const loadOrders = async () => {
     try {
       setLoading(true);
-      const data = await getAdminOrders({ page, pageSize: 20, status: statusFilter || undefined });
+      // Map status từ user format sang admin format để đồng bộ
+      // User: "all", "pending", "shipping", "delivered", "cancelled"
+      // Admin: "pending", "processing", "shipped", "delivered", "completed", "cancelled"
+      let adminStatus = undefined;
+      if (statusFilter === "all") {
+        adminStatus = undefined; // Lấy tất cả
+      } else if (statusFilter === "pending") {
+        adminStatus = "pending";
+      } else if (statusFilter === "shipping") {
+        // "shipping" ở user = "processing" hoặc "shipped" ở admin
+        // Vì API chỉ nhận 1 status, ta sẽ filter "processing" (đang xử lý/giao hàng)
+        adminStatus = "processing";
+      } else if (statusFilter === "delivered") {
+        // "delivered" ở user = "delivered" hoặc "completed" ở admin
+        adminStatus = "delivered";
+      } else if (statusFilter === "cancelled") {
+        adminStatus = "cancelled";
+      } else {
+        // Các status khác (processing, shipped, completed) giữ nguyên
+        adminStatus = statusFilter;
+      }
+      
+      const data = await getAdminOrders({ page, pageSize: 20, status: adminStatus });
       setOrders(data.items || []);
       setTotalPages(data.totalPages || 1);
     } catch (err) {
@@ -29,6 +51,21 @@ export default function OrderList() {
       alert(err.message || "Không tải được đơn hàng");
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleDelete = async (orderId, orderNumber) => {
+    if (!confirm(`Bạn có chắc muốn xóa đơn hàng ${orderNumber}?\n\nHành động này không thể hoàn tác.`)) return;
+
+    try {
+      const result = await deleteOrder(orderId);
+      const message = result?.orderNumber 
+        ? `Xóa đơn hàng ${result.orderNumber} thành công`
+        : "Xóa đơn hàng thành công";
+      alert(message);
+      loadOrders();
+    } catch (err) {
+      alert(err.message || "Không thể xóa đơn hàng");
     }
   };
 
@@ -61,12 +98,15 @@ export default function OrderList() {
           }}
           className="px-4 py-2 border border-neutral-300 rounded-lg"
         >
-          <option value="">Tất cả trạng thái</option>
-          <option value="pending">Chờ xử lý</option>
-          <option value="processing">Đang xử lý</option>
-          <option value="shipped">Đã giao hàng</option>
-          <option value="completed">Hoàn thành</option>
+          <option value="all">Tất cả</option>
+          <option value="pending">Đang xử lý</option>
+          <option value="shipping">Đang giao hàng</option>
+          <option value="delivered">Đã giao hàng</option>
           <option value="cancelled">Đã hủy</option>
+          {/* Các trạng thái chi tiết cho admin */}
+          <option value="processing">Processing</option>
+          <option value="shipped">Shipped</option>
+          <option value="completed">Completed</option>
         </select>
       </div>
 
@@ -119,13 +159,23 @@ export default function OrderList() {
                         {order.createdAt ? new Date(order.createdAt).toLocaleDateString("vi-VN") : "N/A"}
                       </td>
                       <td className="px-4 py-3">
-                        <Link
-                          to={`/admin/orders/${order.idOrders}`}
-                          className="p-2 text-blue-600 hover:bg-blue-50 rounded transition"
-                          title="Xem chi tiết"
-                        >
-                          <FontAwesomeIcon icon={faEye} />
-                        </Link>
+                        <div className="flex items-center gap-2">
+                          <Link
+                            to={`/admin/orders/${order.idOrders}`}
+                            className="p-2 text-blue-600 hover:bg-blue-50 rounded transition"
+                            title="Xem chi tiết"
+                          >
+                            <FontAwesomeIcon icon={faEye} />
+                          </Link>
+                          <button
+                            type="button"
+                            onClick={() => handleDelete(order.idOrders, order.orderNumber)}
+                            className="p-2 text-red-600 hover:bg-red-50 rounded transition"
+                            title="Xóa"
+                          >
+                            <FontAwesomeIcon icon={faTrash} />
+                          </button>
+                        </div>
                       </td>
                     </tr>
                   ))
@@ -163,5 +213,6 @@ export default function OrderList() {
     </div>
   );
 }
+
 
 
