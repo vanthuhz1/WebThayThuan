@@ -4,6 +4,7 @@ import { getCart } from "../../services/CartService";
 import { isLoggedIn, getCurrentUser } from "../../services/AuthService";
 import { getProvinces, getDistricts, getWards } from "../../services/AddressService";
 import { getAvailableDiscountCodes, validateDiscountCode } from "../../services/DiscountCodeService";
+import { createOrder } from "../../services/OrderService";
 
 const fmtVND = (v) =>
   new Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND" }).format(
@@ -11,13 +12,16 @@ const fmtVND = (v) =>
   );
 
 const Order = () => {
-  const [step, setStep] = useState(1); // 1: Nhập thông tin, 2: Kiểm tra và xác nhận
+  const navigate = useNavigate();
+  const user = getCurrentUser();
+
+  const [step, setStep] = useState(1);
   const [cart, setCart] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [submitting, setSubmitting] = useState(false);
-  
-  // Form data
+
+  // ===== FORM DATA =====
   const [formData, setFormData] = useState({
     fullName: "",
     phone: "",
@@ -31,16 +35,16 @@ const Order = () => {
     wardName: "",
     note: "",
     discountCode: "",
-    paymentMethod: "cod", // cod = cash on delivery
+    paymentMethod: "cod",
   });
 
-  // Address data from API
+  // ===== ADDRESS DATA =====
   const [provinces, setProvinces] = useState([]);
   const [districts, setDistricts] = useState([]);
   const [wards, setWards] = useState([]);
   const [loadingAddress, setLoadingAddress] = useState(false);
 
-  // Discount code state
+  // ===== DISCOUNT =====
   const [availableDiscountCodes, setAvailableDiscountCodes] = useState([]);
   const [loadingDiscountCodes, setLoadingDiscountCodes] = useState(false);
   const [discountInfo, setDiscountInfo] = useState(null);
@@ -48,39 +52,27 @@ const Order = () => {
   const [checkingDiscount, setCheckingDiscount] = useState(false);
   const [showDiscountModal, setShowDiscountModal] = useState(false);
 
-  const navigate = useNavigate();
-  const user = getCurrentUser();
-
+  // ================= INIT =================
   useEffect(() => {
     if (!isLoggedIn()) {
       navigate("/login?returnUrl=/order");
       return;
     }
 
-    // Load từ sessionStorage nếu có (khi quay lại từ bước 2)
-    const savedFormData = sessionStorage.getItem("orderFormData");
-    if (savedFormData) {
-      try {
-        const parsed = JSON.parse(savedFormData);
-        setFormData(prev => ({ ...prev, ...parsed }));
-        // Nếu có step trong sessionStorage, chuyển về bước đó
-        const savedStep = sessionStorage.getItem("orderStep");
-        if (savedStep === "2") {
-          setStep(2);
-        }
-      } catch (err) {
-        console.error("Lỗi load formData từ sessionStorage", err);
-      }
-    } else {
-      // Load user info if available
-      if (user) {
-        setFormData(prev => ({
-          ...prev,
-          fullName: user.name || "",
-          email: user.email || "",
-        }));
-      }
+    const savedForm = sessionStorage.getItem("orderFormData");
+    const savedStep = sessionStorage.getItem("orderStep");
+
+    if (savedForm) {
+      setFormData(JSON.parse(savedForm));
+    } else if (user) {
+      setFormData(prev => ({
+        ...prev,
+        fullName: user.name || "",
+        email: user.email || "",
+      }));
     }
+
+    if (savedStep === "2") setStep(2);
 
     loadCart();
     loadProvinces();
@@ -88,147 +80,34 @@ const Order = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Load available discount codes
-  const loadDiscountCodes = async () => {
+  // ================= LOADERS =================
+  const loadCart = async () => {
     try {
-      setLoadingDiscountCodes(true);
-      const codes = await getAvailableDiscountCodes();
-      setAvailableDiscountCodes(codes || []);
+      setLoading(true);
+      setError(null);
+      const data = await getCart();
+      setCart(data);
+      if (!data.items?.length) setError("Giỏ hàng trống");
     } catch (err) {
-      console.error("Lỗi tải danh sách mã giảm giá", err);
-      // Không hiển thị lỗi nếu API chưa có, chỉ log
-      setAvailableDiscountCodes([]);
+      setError("Không tải được giỏ hàng");
     } finally {
-      setLoadingDiscountCodes(false);
+      setLoading(false);
     }
   };
 
-  // Load provinces on mount
   const loadProvinces = async () => {
     try {
       setLoadingAddress(true);
-      const data = await getProvinces();
-      setProvinces(data);
-    } catch (err) {
-      console.error("Lỗi tải danh sách tỉnh/thành phố", err);
+      setProvinces(await getProvinces());
     } finally {
       setLoadingAddress(false);
     }
   };
 
-  // Load districts when province changes
-  useEffect(() => {
-    if (formData.provinceCode) {
-      loadDistricts(formData.provinceCode);
-    } else {
-      setDistricts([]);
-      setWards([]);
-      setFormData(prev => ({
-        ...prev,
-        districtCode: "",
-        districtName: "",
-        wardCode: "",
-        wardName: "",
-      }));
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [formData.provinceCode]);
-
-  // Load wards when district changes
-  useEffect(() => {
-    if (formData.districtCode) {
-      loadWards(formData.districtCode);
-    } else {
-      setWards([]);
-      setFormData(prev => ({
-        ...prev,
-        wardCode: "",
-        wardName: "",
-      }));
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [formData.districtCode]);
-
-  // Đảm bảo các giá trị name được set khi chuyển sang bước 2
-  useEffect(() => {
-    if (step === 2) {
-      const loadAddressNames = async () => {
-        const updated = { ...formData };
-        let changed = false;
-        
-        // Lấy tên tỉnh/thành phố nếu chưa có
-        if (!updated.provinceName && updated.provinceCode) {
-          if (provinces.length > 0) {
-            const selectedProvince = provinces.find(p => p.code === updated.provinceCode);
-            if (selectedProvince?.name) {
-              updated.provinceName = selectedProvince.name;
-              changed = true;
-            }
-          } else {
-            // Nếu không có trong array, gọi API để lấy
-            try {
-              const { getProvinceByCode } = await import("../../services/AddressService");
-              const provinceData = await getProvinceByCode(updated.provinceCode);
-              if (provinceData?.name) {
-                updated.provinceName = provinceData.name;
-                changed = true;
-              }
-            } catch (err) {
-              console.error("Lỗi lấy tên tỉnh/thành phố", err);
-            }
-          }
-        }
-        
-        // Lấy tên quận/huyện nếu chưa có - LUÔN gọi API để đảm bảo
-        if (!updated.districtName && updated.districtCode) {
-          try {
-            const { getDistrictByCode } = await import("../../services/AddressService");
-            const districtData = await getDistrictByCode(updated.districtCode);
-            if (districtData?.name) {
-              updated.districtName = districtData.name;
-              changed = true;
-            }
-          } catch (err) {
-            console.error("Lỗi lấy tên quận/huyện", err, "Code:", updated.districtCode);
-          }
-        }
-        
-        // Lấy tên phường/xã nếu chưa có - LUÔN gọi API để đảm bảo
-        if (!updated.wardName && updated.wardCode) {
-          try {
-            const { getWardByCode } = await import("../../services/AddressService");
-            const wardData = await getWardByCode(updated.wardCode);
-            if (wardData?.name) {
-              updated.wardName = wardData.name;
-              changed = true;
-            }
-          } catch (err) {
-            console.error("Lỗi lấy tên phường/xã", err, "Code:", updated.wardCode);
-          }
-        }
-        
-        if (changed) {
-          setFormData(updated);
-          sessionStorage.setItem("orderFormData", JSON.stringify(updated));
-        }
-      };
-      
-      // Đợi một chút để đảm bảo formData đã được load từ sessionStorage
-      setTimeout(() => {
-        loadAddressNames();
-      }, 100);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [step, formData.provinceCode, formData.districtCode, formData.wardCode]);
-
   const loadDistricts = async (provinceCode) => {
     try {
       setLoadingAddress(true);
-      const data = await getDistricts(provinceCode);
-      setDistricts(data);
-    } catch (err) {
-      console.error("Lỗi tải danh sách quận/huyện", err);
-      setDistricts([]);
+      setDistricts(await getDistricts(provinceCode));
     } finally {
       setLoadingAddress(false);
     }
@@ -237,104 +116,98 @@ const Order = () => {
   const loadWards = async (districtCode) => {
     try {
       setLoadingAddress(true);
-      const data = await getWards(districtCode);
-      setWards(data);
-    } catch (err) {
-      console.error("Lỗi tải danh sách phường/xã", err);
-      setWards([]);
+      setWards(await getWards(districtCode));
     } finally {
       setLoadingAddress(false);
     }
   };
 
-  const loadCart = async () => {
+  const loadDiscountCodes = async () => {
     try {
-      setLoading(true);
-      setError(null);
-      const data = await getCart();
-      setCart(data);
-      
-      // Check if cart is empty
-      if (!data.items || data.items.length === 0) {
-        setError("Giỏ hàng của bạn đang trống. Vui lòng thêm sản phẩm trước khi đặt hàng.");
-      }
-    } catch (err) {
-      setError(err?.message || "Không tải được giỏ hàng");
-      if (err?.message?.includes("đăng nhập")) {
-        navigate("/login?returnUrl=/order");
-      }
+      setLoadingDiscountCodes(true);
+      setAvailableDiscountCodes(await getAvailableDiscountCodes());
+    } catch {
+      setAvailableDiscountCodes([]);
     } finally {
-      setLoading(false);
+      setLoadingDiscountCodes(false);
     }
   };
 
+  // ================= ADDRESS CASCADE =================
+  useEffect(() => {
+    if (formData.provinceCode) {
+      loadDistricts(formData.provinceCode);
+    } else {
+      setDistricts([]);
+      setWards([]);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [formData.provinceCode]);
+
+  useEffect(() => {
+    if (formData.districtCode) {
+      loadWards(formData.districtCode);
+    } else {
+      setWards([]);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [formData.districtCode]);
+
+
+  // ================= INPUT HANDLER =================
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    
-    // Handle province selection
+
+    let updated = { ...formData };
+
     if (name === "provinceCode") {
-      const selectedProvince = provinces.find(p => p.code === value);
-      const newFormData = {
+      // Get name directly from selected option text (skip placeholder)
+      const selectedOption = e.target.options[e.target.selectedIndex];
+      const provinceName = value && selectedOption ? selectedOption.text : "";
+      
+      updated = {
+        ...updated,
         provinceCode: value,
-        provinceName: selectedProvince?.name || "",
+        provinceName: provinceName,
         districtCode: "",
         districtName: "",
         wardCode: "",
         wardName: "",
       };
-      setFormData(prev => {
-        const updated = { ...prev, ...newFormData };
-        // Lưu vào sessionStorage ngay khi thay đổi
-        sessionStorage.setItem("orderFormData", JSON.stringify(updated));
-        return updated;
-      });
-      return;
-    }
-    
-    // Handle district selection
-    if (name === "districtCode") {
-      const selectedDistrict = districts.find(d => d.code === value);
-      const newFormData = {
+    } 
+    else if (name === "districtCode") {
+      // Get name directly from selected option text (skip placeholder)
+      const selectedOption = e.target.options[e.target.selectedIndex];
+      const districtName = value && selectedOption ? selectedOption.text : "";
+      
+      updated = {
+        ...updated,
         districtCode: value,
-        districtName: selectedDistrict?.name || "",
+        districtName: districtName,
         wardCode: "",
         wardName: "",
       };
-      setFormData(prev => {
-        const updated = { ...prev, ...newFormData };
-        // Lưu vào sessionStorage ngay khi thay đổi
-        sessionStorage.setItem("orderFormData", JSON.stringify(updated));
-        return updated;
-      });
-      return;
-    }
-    
-    // Handle ward selection
-    if (name === "wardCode") {
-      const selectedWard = wards.find(w => w.code === value);
-      const newFormData = {
+    } 
+    else if (name === "wardCode") {
+      // Get name directly from selected option text (skip placeholder)
+      const selectedOption = e.target.options[e.target.selectedIndex];
+      const wardName = value && selectedOption ? selectedOption.text : "";
+      
+      updated = {
+        ...updated,
         wardCode: value,
-        wardName: selectedWard?.name || "",
+        wardName: wardName,
       };
-      setFormData(prev => {
-        const updated = { ...prev, ...newFormData };
-        // Lưu vào sessionStorage ngay khi thay đổi
-        sessionStorage.setItem("orderFormData", JSON.stringify(updated));
-        return updated;
-      });
-      return;
+    } 
+    else {
+      updated[name] = value;
     }
-    
-    setFormData(prev => {
-      const updated = { ...prev, [name]: value };
-      // Lưu vào sessionStorage khi có thay đổi
-      if (step === 1) {
-        sessionStorage.setItem("orderFormData", JSON.stringify(updated));
-      }
-      return updated;
-    });
+
+    setFormData(updated);
+    sessionStorage.setItem("orderFormData", JSON.stringify(updated));
   };
 
+  // ================= DISCOUNT HANDLER =================
   const handleSelectDiscountCode = async (code) => {
     if (!code) {
       setDiscountInfo(null);
@@ -347,11 +220,9 @@ const Order = () => {
       setCheckingDiscount(true);
       setDiscountError(null);
       
-      // Tìm mã giảm giá trong danh sách có sẵn
       const selectedCode = availableDiscountCodes.find(c => c.code === code);
       
       if (selectedCode) {
-        // Validate mã giảm giá với API
         try {
           const validateResult = await validateDiscountCode(code);
           
@@ -369,7 +240,6 @@ const Order = () => {
             throw new Error(validateResult.message || "Mã giảm giá không hợp lệ");
           }
         } catch (validateErr) {
-          // Nếu validate fail, vẫn cho phép chọn nhưng cảnh báo
           setDiscountInfo({
             idDiscountCodes: selectedCode.idDiscountCodes,
             code: selectedCode.code,
@@ -392,217 +262,95 @@ const Order = () => {
     }
   };
 
+  // ================= UTILS =================
+  const getFullAddress = () =>
+    [
+      formData.shippingAddress,
+      formData.wardName,
+      formData.districtName,
+      formData.provinceName,
+    ].filter(Boolean).join(", ");
+
   const calculateTotals = () => {
     const subTotal = cart?.subTotal || 0;
-    const shippingFee = 30000; // Default shipping fee
+    const shippingFee = 30000;
     let discountAmount = 0;
 
     if (discountInfo) {
       if (discountInfo.discountType === "percentage") {
         discountAmount = (subTotal * discountInfo.discountValue) / 100;
-      } else if (discountInfo.discountType === "fixed") {
+      } else {
         discountAmount = discountInfo.discountValue;
       }
       
-      // Apply min order amount if exists
       if (discountInfo.minOrderAmount && subTotal < discountInfo.minOrderAmount) {
         discountAmount = 0;
       }
     }
 
-    const totalAmount = subTotal + shippingFee - discountAmount;
-    
     return {
       subTotal,
       shippingFee,
       discountAmount,
-      totalAmount,
+      totalAmount: subTotal + shippingFee - discountAmount,
     };
   };
 
-  // Helper: Lấy tên từ formData hoặc arrays
-  const getProvinceName = () => {
-    // Ưu tiên lấy từ formData
-    if (formData.provinceName) return formData.provinceName;
-    
-    // Nếu không có trong formData, tìm trong provinces array
-    if (formData.provinceCode) {
-      if (provinces.length > 0) {
-        const selected = provinces.find(p => p.code === formData.provinceCode);
-        if (selected?.name) return selected.name;
-      }
-    }
-    
-    return "";
-  };
-
-  const getDistrictName = () => {
-    // Ưu tiên lấy từ formData
-    if (formData.districtName) return formData.districtName;
-    
-    // Nếu không có trong formData, tìm trong districts array
-    if (formData.districtCode) {
-      if (districts.length > 0) {
-        const selected = districts.find(d => d.code === formData.districtCode);
-        if (selected?.name) return selected.name;
-      }
-    }
-    
-    return "";
-  };
-
-  const getWardName = () => {
-    // Ưu tiên lấy từ formData
-    if (formData.wardName) return formData.wardName;
-    
-    // Nếu không có trong formData, tìm trong wards array
-    if (formData.wardCode) {
-      if (wards.length > 0) {
-        const selected = wards.find(w => w.code === formData.wardCode);
-        if (selected?.name) return selected.name;
-      }
-    }
-    
-    return "";
-  };
-
-  // Tính địa chỉ đầy đủ để hiển thị
-  const getFullAddress = () => {
-    // Ưu tiên lấy từ formData trước
-    let provinceName = formData.provinceName || "";
-    let districtName = formData.districtName || "";
-    let wardName = formData.wardName || "";
-    
-    // Nếu không có trong formData, tìm trong arrays
-    if (!provinceName && formData.provinceCode) {
-      if (provinces.length > 0) {
-        const selected = provinces.find(p => p.code === formData.provinceCode);
-        provinceName = selected?.name || "";
-      }
-    }
-    
-    if (!districtName && formData.districtCode) {
-      if (districts.length > 0) {
-        const selected = districts.find(d => d.code === formData.districtCode);
-        districtName = selected?.name || "";
-      }
-    }
-    
-    if (!wardName && formData.wardCode) {
-      if (wards.length > 0) {
-        const selected = wards.find(w => w.code === formData.wardCode);
-        wardName = selected?.name || "";
-      }
-    }
-    
-    const addressParts = [
-      formData.shippingAddress?.trim(),
-      wardName?.trim(),
-      districtName?.trim(),
-      provinceName?.trim()
-    ].filter(part => part && part.length > 0);
-    
-    return addressParts.join(", ") || formData.shippingAddress || "";
-  };
-
-  // Bước 1: Validate và chuyển sang bước kiểm tra lại
+  // ================= STEP 1 SUBMIT =================
   const handleContinue = (e) => {
     e.preventDefault();
-    
-    // Validation
-    if (!formData.fullName.trim()) {
+    setError(null);
+
+    // Validate thông tin cơ bản
+    if (!formData.fullName?.trim()) {
       setError("Vui lòng nhập họ tên");
       return;
     }
-    if (!formData.phone.trim()) {
+    if (!formData.phone?.trim()) {
       setError("Vui lòng nhập số điện thoại");
       return;
     }
-    if (!formData.email.trim()) {
+    if (!formData.email?.trim()) {
       setError("Vui lòng nhập email");
       return;
     }
-    if (!formData.shippingAddress.trim()) {
+    if (!formData.shippingAddress?.trim()) {
       setError("Vui lòng nhập địa chỉ chi tiết");
       return;
     }
-    if (!formData.provinceCode) {
+
+    // Validate địa chỉ - cần có cả code và name
+    if (!formData.provinceCode || !formData.provinceName) {
       setError("Vui lòng chọn tỉnh/thành phố");
       return;
     }
-    if (!formData.districtCode) {
+    if (!formData.districtCode || !formData.districtName) {
       setError("Vui lòng chọn quận/huyện");
       return;
     }
-    if (!formData.wardCode) {
+    if (!formData.wardCode || !formData.wardName) {
       setError("Vui lòng chọn phường/xã");
       return;
     }
 
-    if (!cart || !cart.items || cart.items.length === 0) {
-      setError("Giỏ hàng của bạn đang trống");
-      return;
-    }
-
-    // Đảm bảo các giá trị name được set trước khi chuyển sang bước 2
-    const updatedFormData = { ...formData };
-    
-    // Lấy tên tỉnh/thành phố nếu chưa có
-    if (!updatedFormData.provinceName && updatedFormData.provinceCode) {
-      if (provinces.length > 0) {
-        const selectedProvince = provinces.find(p => p.code === updatedFormData.provinceCode);
-        if (selectedProvince?.name) {
-          updatedFormData.provinceName = selectedProvince.name;
-        }
-      }
-    }
-    
-    // Lấy tên quận/huyện nếu chưa có
-    if (!updatedFormData.districtName && updatedFormData.districtCode) {
-      if (districts.length > 0) {
-        const selectedDistrict = districts.find(d => d.code === updatedFormData.districtCode);
-        if (selectedDistrict?.name) {
-          updatedFormData.districtName = selectedDistrict.name;
-        }
-      }
-    }
-    
-    // Lấy tên phường/xã nếu chưa có
-    if (!updatedFormData.wardName && updatedFormData.wardCode) {
-      if (wards.length > 0) {
-        const selectedWard = wards.find(w => w.code === updatedFormData.wardCode);
-        if (selectedWard?.name) {
-          updatedFormData.wardName = selectedWard.name;
-        }
-      }
-    }
-    
-    // Lưu vào sessionStorage với các giá trị đã cập nhật
-    sessionStorage.setItem("orderFormData", JSON.stringify(updatedFormData));
+    // Save to sessionStorage and move to step 2
+    sessionStorage.setItem("orderFormData", JSON.stringify(formData));
     sessionStorage.setItem("orderStep", "2");
-    
-    // Reload trang để đảm bảo các giá trị được load lại và update địa chỉ
-    window.location.reload();
+    setStep(2);
   };
 
-  // Bước 2: Xác nhận và lưu vào database
+  // ================= CONFIRM =================
   const handleConfirmPayment = async () => {
     try {
       setSubmitting(true);
       setError(null);
 
       const totals = calculateTotals();
-      
-      // Gộp tất cả thông tin địa chỉ vào 1 trường shipping_address
-      // Sử dụng getFullAddress() để đảm bảo lấy đúng giá trị
-      const fullAddress = getFullAddress();
-
-      // Gọi API để lưu vào database
       const API_BASE_URL = import.meta.env.VITE_API_URL || "https://localhost:7194/api";
       const token = localStorage.getItem("token");
 
       const orderData = {
-        shippingAddress: fullAddress,
+        shippingAddress: getFullAddress(),
         shippingFee: totals.shippingFee,
         totalAmount: totals.totalAmount,
         idDiscountCodes: discountInfo?.idDiscountCodes || null,
@@ -610,28 +358,54 @@ const Order = () => {
         note: formData.note || null,
       };
 
-      const res = await fetch(`${API_BASE_URL}/Orders`, {
-        method: "POST",
-        headers: {
-          "Authorization": `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(orderData),
-      });
+      // Tạo đơn hàng sử dụng OrderService
+      const orderResult = await createOrder(orderData);
+      const orderId = orderResult.idOrders || orderResult.IdOrders || orderResult.id;
 
-      if (!res.ok) {
-        const errorText = await res.text();
-        throw new Error(errorText || "Đặt hàng thất bại");
+      // Nếu là MoMo, tạo payment link và redirect
+      if (formData.paymentMethod === "momo") {
+        console.log("[Order] Creating MoMo payment for order:", orderId);
+        
+        const paymentRes = await fetch(`${API_BASE_URL}/Payment/create-momo-payment`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ 
+            orderId: orderId,
+            amount: totals.totalAmount,
+            orderInfo: `Pay for order ${orderId}`
+          }),
+        });
+
+        if (!paymentRes.ok) {
+          const errorText = await paymentRes.text();
+          throw new Error(errorText || "Tạo payment link thất bại");
+        }
+
+        const paymentResult = await paymentRes.json();
+        console.log("[Order] Payment response:", paymentResult);
+        
+        // Check response structure
+        const paymentUrl = paymentResult.data?.payUrl || paymentResult.payUrl;
+
+        if (paymentUrl) {
+          console.log("[Order] Redirecting to MoMo:", paymentUrl);
+          // Redirect đến MoMo
+          window.location.href = paymentUrl;
+          return; // Không clear sessionStorage vì có thể quay lại
+        } else {
+          console.error("[Order] No payment URL in response:", paymentResult);
+          throw new Error("Không nhận được payment URL từ MoMo");
+        }
       }
 
-      const orderResult = await res.json();
-      
-      // Xóa dữ liệu trong sessionStorage sau khi lưu thành công
+      // Nếu là COD, xóa session và chuyển đến trang success
       sessionStorage.removeItem("orderFormData");
       sessionStorage.removeItem("orderStep");
       
-      // Redirect to success page
-      navigate(`/order-success?orderId=${orderResult.idOrders || orderResult.id}`);
+      navigate(`/order-success?orderId=${orderId}`);
     } catch (err) {
       setError(err?.message || "Có lỗi xảy ra khi đặt hàng. Vui lòng thử lại.");
     } finally {
@@ -639,17 +413,18 @@ const Order = () => {
     }
   };
 
+  // ================= RENDER =================
   const totals = cart ? calculateTotals() : { subTotal: 0, shippingFee: 0, discountAmount: 0, totalAmount: 0 };
   const items = cart?.items || [];
   const hasItems = items.length > 0;
 
   if (loading) {
-  return (
+    return (
       <div className="mx-auto max-w-6xl px-4 py-10">
         <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
           <div className="h-32 animate-pulse rounded-xl bg-neutral-100" />
         </div>
-    </div>
+      </div>
     );
   }
 
@@ -1063,19 +838,19 @@ const Order = () => {
                     <div>
                       <span className="font-semibold text-neutral-700">Phường/Xã:</span>
                       <span className="ml-2 text-neutral-900">
-                        {(formData.wardName || getWardName()) || "—"}
+                        {formData.wardName || "—"}
                       </span>
                     </div>
                     <div>
                       <span className="font-semibold text-neutral-700">Quận/Huyện:</span>
                       <span className="ml-2 text-neutral-900">
-                        {(formData.districtName || getDistrictName()) || "—"}
+                        {formData.districtName || "—"}
                       </span>
                     </div>
                     <div>
                       <span className="font-semibold text-neutral-700">Tỉnh/Thành phố:</span>
                       <span className="ml-2 text-neutral-900">
-                        {(formData.provinceName || getProvinceName()) || "—"}
+                        {formData.provinceName || "—"}
                       </span>
                     </div>
                     <div className="mt-2 rounded-lg bg-neutral-50 p-2">
@@ -1108,7 +883,6 @@ const Order = () => {
             <button
               type="button"
               onClick={() => {
-                // Cập nhật sessionStorage khi quay lại
                 sessionStorage.setItem("orderFormData", JSON.stringify(formData));
                 sessionStorage.setItem("orderStep", "1");
                 setStep(1);

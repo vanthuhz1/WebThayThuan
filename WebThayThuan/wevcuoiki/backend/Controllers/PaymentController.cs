@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System.Security.Claims;
+using System;
 using Backend_WebBanHang.Data;
 using Backend_WebBanHang.Services;
 
@@ -14,15 +16,18 @@ namespace backend.Controllers
         private readonly AppDbContext _context;
         private readonly IMoMoPaymentService _momoService;
         private readonly ILogger<PaymentController> _logger;
+        private readonly IConfiguration _configuration;
 
         public PaymentController(
             AppDbContext context,
             IMoMoPaymentService momoService,
-            ILogger<PaymentController> logger)
+            ILogger<PaymentController> logger,
+            IConfiguration configuration)
         {
             _context = context;
             _momoService = momoService;
             _logger = logger;
+            _configuration = configuration;
         }
 
         private long? GetUserIdFromToken()
@@ -57,14 +62,23 @@ namespace backend.Controllers
 
                 // ✅ URL ĐÚNG - Callback về frontend và backend
                 var baseUrl = $"{Request.Scheme}://{Request.Host}";
-                var frontendUrl = "http://localhost:5173"; // Frontend URL
+                
+                // Lấy Frontend URL từ config hoặc environment variable
+                var frontendUrl = _configuration["MoMo:FrontendUrl"] 
+                    ?? Environment.GetEnvironmentVariable("FRONTEND_URL") 
+                    ?? "http://localhost:5173";
                 
                 // redirectUrl: User sẽ được redirect về đây sau khi thanh toán
                 var redirectUrl = $"{frontendUrl}/order-success?orderId={request.OrderId}";
                 
                 // ipnUrl: MoMo sẽ gọi API này để thông báo kết quả (phải là public HTTPS)
                 // Trong development: dùng ngrok hoặc để localhost (sẽ không nhận IPN)
-                var ipnUrl = $"{baseUrl}/api/Payment/momo-callback";
+                // Có thể override bằng environment variable NGROK_URL hoặc MOMO_IPN_URL
+                var ngrokUrl = Environment.GetEnvironmentVariable("NGROK_URL");
+                var customIpnUrl = Environment.GetEnvironmentVariable("MOMO_IPN_URL");
+                var ipnBaseUrl = !string.IsNullOrEmpty(customIpnUrl) ? customIpnUrl 
+                    : (!string.IsNullOrEmpty(ngrokUrl) ? ngrokUrl : baseUrl);
+                var ipnUrl = $"{ipnBaseUrl}/api/Payment/momo-callback";
 
                 _logger.LogInformation("🔗 redirectUrl: {RedirectUrl}", redirectUrl);
                 _logger.LogInformation("🔗 ipnUrl: {IpnUrl}", ipnUrl);
@@ -134,13 +148,20 @@ namespace backend.Controllers
                 _logger.LogInformation("🔔 === MoMo IPN Callback Received ===");
                 _logger.LogInformation("📦 Full payload: {Payload}", System.Text.Json.JsonSerializer.Serialize(request));
 
-                // Verify signature
+                // Verify signature với đầy đủ thông tin
                 var isValid = _momoService.VerifySignature(
-                    requestId: request.RequestId,
+                    partnerCode: request.PartnerCode,
                     orderId: request.OrderId,
-                    amount: request.Amount.ToString(),
-                    resultCode: request.ResultCode.ToString(),
+                    requestId: request.RequestId,
+                    amount: request.Amount,
+                    orderInfo: request.OrderInfo,
+                    orderType: request.OrderType,
+                    payType: request.PayType,
+                    transId: request.TransId,
+                    responseTime: request.ResponseTime,
+                    resultCode: request.ResultCode,
                     message: request.Message,
+                    extraData: request.ExtraData,
                     signature: request.Signature
                 );
 
@@ -152,18 +173,28 @@ namespace backend.Controllers
 
                 _logger.LogInformation("✅ Signature verified");
 
-                // Extract orderId from MoMo orderId (format: MM639019452241439203)
-                var orderIdStr = request.OrderId.Replace("MM", "").Replace("ORD-", "");
-                var parts = orderIdStr.Split('-');
+                // Extract internal orderId từ extraData (đã lưu khi tạo payment)
                 long orderId = 0;
-
-                if (long.TryParse(parts[0], out var extractedId))
+                if (!string.IsNullOrEmpty(request.ExtraData) && long.TryParse(request.ExtraData, out orderId))
                 {
-                    orderId = extractedId;
+                    _logger.LogInformation("📋 Internal OrderId from extraData: {OrderId}", orderId);
                 }
                 else
                 {
-                    _logger.LogWarning("⚠️ Cannot parse orderId from: {OrderId}", request.OrderId);
+                    _logger.LogWarning("⚠️ Cannot parse orderId from extraData: {ExtraData}, MoMo OrderId: {MoMoOrderId}", 
+                        request.ExtraData, request.OrderId);
+                    // Fallback: thử parse từ MoMo orderId (không khuyến khích)
+                    var orderIdStr = request.OrderId.Replace("MM", "").Replace("ORD-", "");
+                    if (long.TryParse(orderIdStr, out var fallbackId))
+                    {
+                        orderId = fallbackId;
+                        _logger.LogInformation("📋 Using fallback orderId: {OrderId}", orderId);
+                    }
+                    else
+                    {
+                        _logger.LogError("❌ Cannot determine internal orderId");
+                        return BadRequest(new { message = "Cannot determine orderId" });
+                    }
                 }
 
                 // Update payment status

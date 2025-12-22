@@ -16,6 +16,21 @@ namespace Backend_WebBanHang.Services
             string resultCode,
             string message,
             string signature);
+
+        bool VerifySignature(
+            string partnerCode,
+            string orderId,
+            string requestId,
+            long amount,
+            string orderInfo,
+            string orderType,
+            string payType,
+            long transId,
+            long responseTime,
+            int resultCode,
+            string message,
+            string extraData,
+            string signature);
     }
 
     public class MoMoPaymentResult

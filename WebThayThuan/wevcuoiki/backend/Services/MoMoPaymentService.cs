@@ -37,8 +37,23 @@ namespace Backend_WebBanHang.Services
                 var partnerCode = _configuration["MoMo:PartnerCode"] ?? "MOMO";
                 var accessKey = _configuration["MoMo:AccessKey"] ?? "F8BBA842ECF85";
                 var secretKey = _configuration["MoMo:SecretKey"] ?? "K951B6PE1waDMi640xX08PD3vg6EkVlz";
-                var endpoint = _configuration["MoMo:Endpoint"] ?? "https://test-payment.momo.vn/v2/gateway/api/create";
                 var requestType = _configuration["MoMo:RequestType"] ?? "captureWallet";
+                
+                // Get API version and environment
+                var apiVersion = _configuration["MoMo:ApiVersion"] ?? "v2";
+                var environment = _configuration["MoMo:Environment"] ?? "test";
+                
+                // Build endpoint based on version and environment
+                var endpoint = _configuration[$"MoMo:Endpoints:{apiVersion}:{environment}"] 
+                    ?? (apiVersion == "v3" 
+                        ? (environment == "production" 
+                            ? "https://payment.momo.vn/v3/gateway/api/create"
+                            : "https://test-payment.momo.vn/v3/gateway/api/create")
+                        : (environment == "production"
+                            ? "https://payment.momo.vn/v2/gateway/api/create"
+                            : "https://test-payment.momo.vn/v2/gateway/api/create"));
+                
+                _logger.LogInformation("Using MoMo API {ApiVersion} - {Environment}", apiVersion, environment);
 
                 // Validation
                 if (amount < 10000)
@@ -56,7 +71,8 @@ namespace Backend_WebBanHang.Services
                 var momoOrderId = $"MM{timestamp}{random}";
                 var requestId = momoOrderId;
                 var amountStr = amount.ToString();
-                var extraData = "";
+                // Lưu internal orderId vào extraData để map lại khi callback
+                var extraData = orderId.ToString();
 
                 _logger.LogInformation("MoMo OrderId: {MomoOrderId}", momoOrderId);
                 _logger.LogInformation("RequestId: {RequestId}", requestId);
@@ -192,11 +208,12 @@ namespace Backend_WebBanHang.Services
             {
                 var secretKey = _configuration["MoMo:SecretKey"] ?? "";
                 var accessKey = _configuration["MoMo:AccessKey"] ?? "";
+                var partnerCode = _configuration["MoMo:PartnerCode"] ?? "";
 
-                // Build raw signature for IPN callback (different order than payment request!)
-                // For IPN: accessKey -> amount -> extraData -> message -> orderId -> orderInfo -> orderType -> partnerCode -> payType -> requestId -> responseTime -> resultCode -> transId
-                // Simplified version for basic verification:
-                var rawSignature = $"accessKey={accessKey}&amount={amount}&message={message}&orderId={orderId}&requestId={requestId}&resultCode={resultCode}";
+                // Build raw signature for IPN callback theo đúng format MoMo
+                // Thứ tự alphabet: accessKey -> amount -> extraData -> message -> orderId -> orderInfo -> orderType -> partnerCode -> payType -> requestId -> responseTime -> resultCode -> transId
+                // Note: Cần đầy đủ các trường, nhưng một số có thể empty
+                var rawSignature = $"accessKey={accessKey}&amount={amount}&extraData=&message={message}&orderId={orderId}&orderInfo=&orderType=momo_wallet&partnerCode={partnerCode}&payType=&requestId={requestId}&responseTime=&resultCode={resultCode}&transId=";
 
                 var computedSignature = ComputeHmacSha256(rawSignature, secretKey);
 
@@ -213,6 +230,50 @@ namespace Backend_WebBanHang.Services
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error verifying signature");
+                return false;
+            }
+        }
+
+        // Overload với đầy đủ thông tin từ callback
+        public bool VerifySignature(
+            string partnerCode,
+            string orderId,
+            string requestId,
+            long amount,
+            string orderInfo,
+            string orderType,
+            string payType,
+            long transId,
+            long responseTime,
+            int resultCode,
+            string message,
+            string extraData,
+            string signature)
+        {
+            try
+            {
+                var secretKey = _configuration["MoMo:SecretKey"] ?? "";
+                var accessKey = _configuration["MoMo:AccessKey"] ?? "";
+
+                // Build raw signature theo đúng thứ tự alphabet của MoMo IPN callback
+                // accessKey -> amount -> extraData -> message -> orderId -> orderInfo -> orderType -> partnerCode -> payType -> requestId -> responseTime -> resultCode -> transId
+                var rawSignature = $"accessKey={accessKey}&amount={amount}&extraData={extraData ?? ""}&message={message ?? ""}&orderId={orderId}&orderInfo={orderInfo ?? ""}&orderType={orderType ?? ""}&partnerCode={partnerCode}&payType={payType ?? ""}&requestId={requestId}&responseTime={responseTime}&resultCode={resultCode}&transId={transId}";
+
+                var computedSignature = ComputeHmacSha256(rawSignature, secretKey);
+
+                _logger.LogInformation("=== VERIFY SIGNATURE (Full) ===");
+                _logger.LogInformation("Raw: {Raw}", rawSignature);
+                _logger.LogInformation("Computed: {Computed}", computedSignature);
+                _logger.LogInformation("Received: {Received}", signature);
+
+                var isValid = computedSignature.Equals(signature, StringComparison.OrdinalIgnoreCase);
+                _logger.LogInformation("Valid: {IsValid}", isValid);
+
+                return isValid;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error verifying signature (full)");
                 return false;
             }
         }

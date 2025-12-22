@@ -5,12 +5,20 @@ import { isLoggedIn } from "../../services/AuthService";
 const OrderSuccess = () => {
   const [searchParams] = useSearchParams();
   const orderId = searchParams.get("orderId");
+  const resultCode = searchParams.get("resultCode");
+  const message = searchParams.get("message");
+  const transId = searchParams.get("transId");
 
   useEffect(() => {
     if (!isLoggedIn()) {
       window.location.href = "/login";
       return;
     }
+
+    // Clear sessionStorage sau khi thanh toán thành công
+    // (cả COD và MoMo đều sẽ vào trang này)
+    sessionStorage.removeItem("orderFormData");
+    sessionStorage.removeItem("orderStep");
   }, []);
 
   return (
@@ -52,7 +60,9 @@ const OrderSuccess = () => {
 
         {/* Message */}
         <p className="mb-6 text-neutral-600">
-          Cảm ơn bạn đã đặt hàng. Đơn hàng của bạn đã được lưu vào hệ thống thành công.
+          {resultCode === "0" || !resultCode
+            ? "Cảm ơn bạn đã đặt hàng. Đơn hàng của bạn đã được lưu vào hệ thống thành công."
+            : message || "Đơn hàng của bạn đã được tạo. Vui lòng kiểm tra trạng thái thanh toán."}
         </p>
 
         {/* Order ID */}
@@ -60,6 +70,14 @@ const OrderSuccess = () => {
           <div className="mb-6 rounded-lg bg-neutral-50 p-4">
             <p className="text-sm text-neutral-600">Mã đơn hàng</p>
             <p className="mt-1 text-lg font-bold text-neutral-900">#{orderId}</p>
+          </div>
+        )}
+
+        {/* Payment Info (nếu thanh toán MoMo thành công) */}
+        {resultCode === "0" && transId && (
+          <div className="mb-6 rounded-lg border border-emerald-200 bg-emerald-50 p-4">
+            <p className="text-sm font-semibold text-emerald-900">Thanh toán thành công</p>
+            <p className="mt-1 text-xs text-emerald-700">Mã giao dịch: {transId}</p>
           </div>
         )}
 

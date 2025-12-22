@@ -15,10 +15,12 @@ namespace Backend_WebBanHang.Controllers
     public class OrdersController : ControllerBase
     {
         private readonly AppDbContext _context;
+        private readonly ILogger<OrdersController> _logger;
 
-        public OrdersController(AppDbContext context)
+        public OrdersController(AppDbContext context, ILogger<OrdersController> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         // POST: api/Orders
@@ -32,6 +34,13 @@ namespace Backend_WebBanHang.Controllers
             var userId = GetUserIdFromToken();
             if (userId == null)
                 return Unauthorized("Không đọc được user từ token.");
+
+            // Log để kiểm tra dữ liệu địa chỉ
+            _logger.LogInformation("=== CREATE ORDER REQUEST ===");
+            _logger.LogInformation("ShippingAddress: {ShippingAddress}", request.ShippingAddress);
+            _logger.LogInformation("TotalAmount: {TotalAmount}", request.TotalAmount);
+            _logger.LogInformation("ShippingFee: {ShippingFee}", request.ShippingFee);
+            _logger.LogInformation("PaymentMethod: {PaymentMethod}", request.PaymentMethod);
 
             // Lấy giỏ hàng của user
             var cart = await _context.Carts
@@ -59,14 +68,20 @@ namespace Backend_WebBanHang.Controllers
                 Status = "pending",
                 TotalAmount = request.TotalAmount,
                 ShippingFee = request.ShippingFee,
-                ShippingAddress = request.ShippingAddress,
+                ShippingAddress = request.ShippingAddress ?? "",
                 IdDiscountCodes = request.IdDiscountCodes,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now
             };
 
+            _logger.LogInformation("=== ORDER CREATED ===");
+            _logger.LogInformation("OrderId: {OrderId}, ShippingAddress: {ShippingAddress}", 
+                order.IdOrders, order.ShippingAddress);
+
             _context.Orders.Add(order);
             await _context.SaveChangesAsync(); // Lưu để lấy IdOrders
+            
+            _logger.LogInformation("Order saved with IdOrders: {IdOrders}", order.IdOrders);
 
             // Tạo order status history record (trạng thái đầu tiên: pending)
             var orderStatusHistory = new OrderStatusHistory
