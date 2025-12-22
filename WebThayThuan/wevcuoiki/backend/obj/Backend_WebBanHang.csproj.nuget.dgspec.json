@@ -1,7 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD:WebThayThuan/wevcuoiki/backend/obj/Backend_WebBanHang.csproj.nuget.dgspec.json
     "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Backend_WebBanHang.csproj": {}
   },
   "projects": {
@@ -13,19 +12,6 @@
         "projectPath": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Backend_WebBanHang.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
         "outputPath": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\obj\\",
-=======
-    "D:\\WebThayThuan\\wevcuoiki\\backend\\Backend_WebBanHang.csproj": {}
-  },
-  "projects": {
-    "D:\\WebThayThuan\\wevcuoiki\\backend\\Backend_WebBanHang.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\WebThayThuan\\wevcuoiki\\backend\\Backend_WebBanHang.csproj",
-        "projectName": "Backend_WebBanHang",
-        "projectPath": "D:\\WebThayThuan\\wevcuoiki\\backend\\Backend_WebBanHang.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\WebThayThuan\\wevcuoiki\\backend\\obj\\",
->>>>>>> origin/Viet_Hung_ThanhToanMoMo_DatHang_XemThongTinTK:wevcuoiki/backend/obj/Backend_WebBanHang.csproj.nuget.dgspec.json
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -40,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -59,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -103,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.307/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

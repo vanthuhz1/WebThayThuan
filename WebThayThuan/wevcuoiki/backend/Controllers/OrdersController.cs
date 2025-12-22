@@ -108,11 +108,6 @@ namespace Backend_WebBanHang.Controllers
 
             _context.Payments.Add(payment);
 
-<<<<<<< HEAD:WebThayThuan/wevcuoiki/backend/Controllers/OrdersController.cs
-            // Xóa cart items sau khi tạo order thành công
-            _context.CartItems.RemoveRange(cartItems);
-            cart.UpdatedAt = DateTime.Now;
-=======
             // Chỉ xóa cart items nếu là COD (thanh toán ngay)
             // Với MoMo, sẽ xóa sau khi thanh toán thành công (trong callback)
             if (request.PaymentMethod == "cod")
@@ -120,7 +115,6 @@ namespace Backend_WebBanHang.Controllers
                 _context.CartItems.RemoveRange(cartItems);
                 cart.UpdatedAt = DateTime.Now;
             }
->>>>>>> origin/Viet_Hung_ThanhToanMoMo_DatHang_XemThongTinTK:wevcuoiki/backend/Controllers/OrdersController.cs
 
             await _context.SaveChangesAsync();
 
@@ -138,8 +132,6 @@ namespace Backend_WebBanHang.Controllers
             return Ok(response);
         }
 
-<<<<<<< HEAD:WebThayThuan/wevcuoiki/backend/Controllers/OrdersController.cs
-=======
         // GET: api/Orders
         // Lấy danh sách đơn hàng của user
         [HttpGet]
@@ -214,8 +206,6 @@ namespace Backend_WebBanHang.Controllers
 
             return Ok(orderDtos);
         }
-
->>>>>>> origin/Viet_Hung_ThanhToanMoMo_DatHang_XemThongTinTK:wevcuoiki/backend/Controllers/OrdersController.cs
         // Helper: Lấy userId từ token
         private long? GetUserIdFromToken()
         {
