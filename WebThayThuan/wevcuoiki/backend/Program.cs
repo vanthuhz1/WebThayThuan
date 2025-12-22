@@ -113,6 +113,9 @@ app.UseHttpsRedirection();
 
 app.UseCors("AllowAll");
 
+// Cho phép serve static files (uploads)
+app.UseStaticFiles();
+
 // PHẢI gọi UseAuthentication trước UseAuthorization
 app.UseAuthentication();
 app.UseAuthorization();

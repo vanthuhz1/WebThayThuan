@@ -183,3 +183,35 @@ export async function updateUser(id, userData) {
   });
 }
 
+// Upload images
+export async function uploadImages(files) {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    throw new Error("Chưa đăng nhập");
+  }
+
+  const formData = new FormData();
+  files.forEach((file) => {
+    formData.append("files", file);
+  });
+
+  const res = await fetch(`${API_BASE_URL}/Upload/images`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    body: formData,
+  });
+
+  if (!res.ok) {
+    const errorText = await res.text();
+    try {
+      const errorJson = JSON.parse(errorText);
+      throw new Error(errorJson.message || "Lỗi khi upload ảnh");
+    } catch {
+      throw new Error(errorText || "Lỗi khi upload ảnh");
+    }
+  }
+
+  return res.json();
+}

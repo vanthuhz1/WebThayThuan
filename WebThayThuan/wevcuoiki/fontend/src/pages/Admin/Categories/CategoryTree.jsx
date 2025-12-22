@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import {
   createAdminCategory,
   deleteAdminCategory,
   getAdminCategoryTree,
   updateAdminCategory,
 } from "../../../services/CategoryService";
+import { uploadImages } from "../../../services/AdminService";
 
 function TreeNode({ node, onEdit, onDelete }) {
   const [open, setOpen] = useState(true);
@@ -75,6 +76,28 @@ export default function CategoryTree() {
   });
   const [saving, setSaving] = useState(false);
   const [showForm, setShowForm] = useState(false);
+  const [uploading, setUploading] = useState(false);
+  const fileInputRef = useRef(null);
+
+  const handleFileSelect = async (e) => {
+    const files = Array.from(e.target.files);
+    if (files.length === 0) return;
+
+    try {
+      setUploading(true);
+      const result = await uploadImages(files);
+      if (result.urls && result.urls.length > 0) {
+        setForm((f) => ({ ...f, img: result.urls[0] }));
+      }
+    } catch (err) {
+      alert(err.message || "Lỗi khi upload ảnh");
+    } finally {
+      setUploading(false);
+      if (fileInputRef.current) {
+        fileInputRef.current.value = "";
+      }
+    }
+  };
 
   useEffect(() => {
     loadTree();
@@ -259,13 +282,39 @@ export default function CategoryTree() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-neutral-700">Ảnh (URL)</label>
-                <input
-                  type="text"
-                  className="mt-1 w-full rounded-lg border border-neutral-300 px-3 py-2 text-sm"
-                  value={form.img}
-                  onChange={(e) => setForm((f) => ({ ...f, img: e.target.value }))}
-                />
+                <label className="block text-sm font-medium text-neutral-700">Ảnh</label>
+                <div className="mt-1 flex gap-2 flex-wrap">
+                  <input
+                    type="file"
+                    ref={fileInputRef}
+                    onChange={handleFileSelect}
+                    accept="image/*"
+                    className="hidden"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => fileInputRef.current?.click()}
+                    disabled={uploading}
+                    className="px-3 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 text-sm disabled:opacity-50"
+                  >
+                    {uploading ? "Đang tải..." : "Chọn từ máy"}
+                  </button>
+                  <input
+                    type="text"
+                    className="flex-1 rounded-lg border border-neutral-300 px-3 py-2 text-sm"
+                    value={form.img}
+                    onChange={(e) => setForm((f) => ({ ...f, img: e.target.value }))}
+                    placeholder="Hoặc nhập URL ảnh..."
+                  />
+                </div>
+                {form.img && (
+                  <img
+                    src={form.img}
+                    alt="Preview"
+                    className="mt-2 w-20 h-20 object-cover rounded border"
+                    onError={(e) => { e.target.style.display = 'none'; }}
+                  />
+                )}
               </div>
               <div>
                 <label className="block text-sm font-medium text-neutral-700">Trạng thái</label>

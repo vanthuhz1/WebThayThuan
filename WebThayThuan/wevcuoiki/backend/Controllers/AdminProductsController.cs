@@ -72,7 +72,7 @@ namespace Backend_WebBanHang.Controllers
                         .Where(i => i.IdProducts == p.IdProducts)
                         .OrderByDescending(i => i.IsPrimary.HasValue && i.IsPrimary.Value)
                         .ThenBy(i => i.Position ?? 0)
-                        .Select(i => i.Url)
+                        .Select(i => i.Url ?? "")
                         .FirstOrDefault()
                 })
                 .ToListAsync();
@@ -106,10 +106,9 @@ namespace Backend_WebBanHang.Controllers
                 .Select(i => new
                 {
                     i.IdProductImages,
-                    i.Url,
+                    Url = i.Url ?? "",
                     i.IsPrimary,
-                    i.Position,
-                    i.color
+                    i.Position
                 })
                 .ToListAsync();
 
@@ -118,13 +117,13 @@ namespace Backend_WebBanHang.Controllers
                 .Select(v => new
                 {
                     v.IdProductVariants,
-                    v.Color,
-                    v.Size,
+                    Color = v.Color ?? "",
+                    Size = v.Size ?? "",
                     v.StockQuantity,
                     v.Price,
                     v.SalePrice,
-                    v.Sku,
-                    v.Status
+                    Sku = v.Sku ?? "",
+                    Status = v.Status ?? ""
                 })
                 .ToListAsync();
 
@@ -229,6 +228,50 @@ namespace Backend_WebBanHang.Controllers
             if (normalizedStatus != null) product.Status = normalizedStatus;
             if (request.IdCategories.HasValue) product.IdCategories = request.IdCategories.Value;
 
+            // Update images if provided
+            if (request.Images != null)
+            {
+                var oldImages = _context.ProductImages.Where(pi => pi.IdProducts == id);
+                _context.ProductImages.RemoveRange(oldImages);
+
+                if (request.Images.Count > 0)
+                {
+                    var newImages = request.Images.Select((url, index) => new ProductImage
+                    {
+                        IdProducts = id,
+                        Url = url,
+                        IsPrimary = index == 0,
+                        Position = index
+                    }).ToList();
+
+                    _context.ProductImages.AddRange(newImages);
+                }
+            }
+
+            // Update variants if provided
+            if (request.Variants != null)
+            {
+                var oldVariants = _context.ProductVariants.Where(pv => pv.IdProducts == id);
+                _context.ProductVariants.RemoveRange(oldVariants);
+
+                if (request.Variants.Count > 0)
+                {
+                    var newVariants = request.Variants.Select(v => new ProductVariant
+                    {
+                        IdProducts = id,
+                        Color = v.Color,
+                        Size = v.Size,
+                        StockQuantity = v.StockQuantity,
+                        Price = v.Price,
+                        SalePrice = v.SalePrice,
+                        Sku = v.Sku,
+                        Status = v.Status ?? "active"
+                    }).ToList();
+
+                    _context.ProductVariants.AddRange(newVariants);
+                }
+            }
+
             await _context.SaveChangesAsync();
 
             return Ok(new { Message = "Cập nhật sản phẩm thành công" });
@@ -315,6 +358,8 @@ namespace Backend_WebBanHang.Controllers
         public decimal? SalePrice { get; set; }
         public string? Status { get; set; }
         public long? IdCategories { get; set; }
+        public List<string>? Images { get; set; }
+        public List<ProductVariantRequest>? Variants { get; set; }
     }
 
     public class ProductVariantRequest

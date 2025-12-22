@@ -15,7 +15,7 @@ namespace Backend_WebBanHang.Models
         public long IdProducts { get; set; }
 
         [Column("sku")]
-        public string Sku { get; set; } = null!;
+        public string? Sku { get; set; }
 
         [Column("size")]
         public string? Size { get; set; }

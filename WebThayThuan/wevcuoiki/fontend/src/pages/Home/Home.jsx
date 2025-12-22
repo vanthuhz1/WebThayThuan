@@ -13,7 +13,7 @@ export default function Home() {
     // Fetch featured categories
     (async () => {
       try {
-        const data = await getFeaturedCategories(4);
+        const data = await getFeaturedCategories(100);
         if (mounted) {
           setCategories(Array.isArray(data) ? data : []);
         }

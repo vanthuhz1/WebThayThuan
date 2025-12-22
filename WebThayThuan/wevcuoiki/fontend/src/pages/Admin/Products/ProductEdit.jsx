@@ -48,7 +48,8 @@ export default function ProductEdit() {
         salePrice: payload.salePrice ?? undefined,
         status: payload.status || "active",
         idCategories: payload.idCategories ?? undefined,
-        // Hiện chưa hỗ trợ update images/variants trong API nên bỏ qua để tránh lỗi
+        images: payload.images,
+        variants: payload.variants,
       });
       alert("Cập nhật sản phẩm thành công");
       navigate("/admin/products");

@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faTrash, faEdit, faUpload } from "@fortawesome/free-solid-svg-icons";
+import { uploadImages } from "../../../services/AdminService";
+import { getAdminCategoryTree } from "../../../services/CategoryService";
 
 const defaultData = {
   name: "",
@@ -25,6 +27,39 @@ export default function ProductForm({ mode = "create", initialData, onSubmit, su
   const [variants, setVariants] = useState([]);
   const [newImageUrl, setNewImageUrl] = useState("");
   const [editingVariantIndex, setEditingVariantIndex] = useState(-1);
+  const [uploading, setUploading] = useState(false);
+  const fileInputRef = useRef(null);
+  const [categoryList, setCategoryList] = useState([]);
+  const [categoryLoading, setCategoryLoading] = useState(true);
+
+  // Load danh mục khi component mount
+  useEffect(() => {
+    (async () => {
+      try {
+        setCategoryLoading(true);
+        const tree = await getAdminCategoryTree({ status: "active" });
+        // Flatten tree thành list
+        const flatList = [];
+        const flatten = (nodes, prefix = "") => {
+          nodes.forEach((node) => {
+            flatList.push({
+              id: node.idCategories,
+              name: prefix + node.name,
+            });
+            if (node.children && node.children.length > 0) {
+              flatten(node.children, prefix + "-- ");
+            }
+          });
+        };
+        flatten(tree || []);
+        setCategoryList(flatList);
+      } catch (err) {
+        console.error("Lỗi tải danh mục", err);
+      } finally {
+        setCategoryLoading(false);
+      }
+    })();
+  }, []);
 
   useEffect(() => {
     if (initialData) {
@@ -72,6 +107,25 @@ export default function ProductForm({ mode = "create", initialData, onSubmit, su
     if (newImageUrl.trim()) {
       setImages([...images, { url: newImageUrl.trim(), id: null }]);
       setNewImageUrl("");
+    }
+  };
+
+  const handleFileSelect = async (e) => {
+    const files = Array.from(e.target.files);
+    if (files.length === 0) return;
+
+    try {
+      setUploading(true);
+      const result = await uploadImages(files);
+      const newImages = result.urls.map((url) => ({ url, id: null }));
+      setImages([...images, ...newImages]);
+    } catch (err) {
+      alert(err.message || "Lỗi khi upload ảnh");
+    } finally {
+      setUploading(false);
+      if (fileInputRef.current) {
+        fileInputRef.current.value = "";
+      }
     }
   };
 
@@ -172,14 +226,21 @@ export default function ProductForm({ mode = "create", initialData, onSubmit, su
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-neutral-700">Danh mục (IdCategories) *</label>
-          <input
-            type="number"
+          <label className="block text-sm font-medium text-neutral-700">Danh mục *</label>
+          <select
             className="mt-1 w-full rounded-lg border border-neutral-300 px-3 py-2"
             value={form.idCategories}
             onChange={(e) => handleChange("idCategories", e.target.value)}
             required
-          />
+            disabled={categoryLoading}
+          >
+            <option value="">{categoryLoading ? "Đang tải..." : "-- Chọn danh mục --"}</option>
+            {categoryList.map((cat) => (
+              <option key={cat.id} value={cat.id}>
+                {cat.name}
+              </option>
+            ))}
+          </select>
         </div>
         <div>
           <label className="block text-sm font-medium text-neutral-700">Giá *</label>
@@ -237,13 +298,32 @@ export default function ProductForm({ mode = "create", initialData, onSubmit, su
 
       {/* Images Section */}
       <div className="bg-white rounded-lg border border-neutral-200 p-4">
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
           <label className="block text-sm font-medium text-neutral-700">Ảnh sản phẩm</label>
-          <div className="flex gap-2">
+          <div className="flex gap-2 flex-wrap">
+            {/* Nút chọn file từ máy tính */}
+            <input
+              type="file"
+              ref={fileInputRef}
+              onChange={handleFileSelect}
+              accept="image/*"
+              multiple
+              className="hidden"
+            />
+            <button
+              type="button"
+              onClick={() => fileInputRef.current?.click()}
+              disabled={uploading}
+              className="px-3 py-1 bg-green-600 text-white rounded-lg hover:bg-green-700 text-sm flex items-center gap-1 disabled:opacity-50"
+            >
+              <FontAwesomeIcon icon={faUpload} className="text-xs" />
+              {uploading ? "Đang tải..." : "Chọn từ máy"}
+            </button>
+            {/* Hoặc nhập URL */}
             <input
               type="text"
               className="px-3 py-1 text-sm rounded-lg border border-neutral-300"
-              placeholder="Nhập URL ảnh..."
+              placeholder="Hoặc nhập URL ảnh..."
               value={newImageUrl}
               onChange={(e) => setNewImageUrl(e.target.value)}
               onKeyPress={(e) => e.key === "Enter" && (e.preventDefault(), handleAddImage())}
@@ -254,7 +334,7 @@ export default function ProductForm({ mode = "create", initialData, onSubmit, su
               className="px-3 py-1 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-sm flex items-center gap-1"
             >
               <FontAwesomeIcon icon={faPlus} className="text-xs" />
-              Thêm
+              Thêm URL
             </button>
           </div>
         </div>

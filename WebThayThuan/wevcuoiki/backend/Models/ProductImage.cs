@@ -14,7 +14,7 @@ namespace Backend_WebBanHang.Models
         public long IdProducts { get; set; }
 
         [Column("url")]
-        public string Url { get; set; } = null!;
+        public string? Url { get; set; }
 
         [Column("is_primary")]
         public bool? IsPrimary { get; set; }
@@ -22,6 +22,6 @@ namespace Backend_WebBanHang.Models
         [Column("position")]
         public int? Position { get; set; }
         [Column("color")]
-        public string color { get; set; }
+        public string? color { get; set; }
     }
 }
