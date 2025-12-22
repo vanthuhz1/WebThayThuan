@@ -39,8 +39,16 @@ builder.Services
 // Đăng ký service sinh token
 builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
 
-// 3. Đăng ký controller
-builder.Services.AddControllers();
+// Đăng ký MoMo Payment Service
+builder.Services.AddHttpClient();
+builder.Services.AddScoped<IMoMoPaymentService, MoMoPaymentService>();
+
+// 3. Đăng ký controller với JSON camelCase
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy.CamelCase;
+    });
 
 // 4. CORS cho frontend gọi REST API
 builder.Services.AddCors(options =>

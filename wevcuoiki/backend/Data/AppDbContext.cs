@@ -20,11 +20,13 @@ namespace Backend_WebBanHang.Data
         public DbSet<CartItem> CartItems { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<Payment> Payments { get; set; }
         public DbSet<DiscountCode> DiscountCodes { get; set; }
         public DbSet<ProductReview> ProductReviews { get; set; }
         public DbSet<Wishlist> Wishlists { get; set; }
         public DbSet<WishlistItem> WishlistItems { get; set; }
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Banner> Banners { get; set; }
+        public DbSet<OrderStatusHistory> OrderStatusHistories { get; set; }
     }
 }

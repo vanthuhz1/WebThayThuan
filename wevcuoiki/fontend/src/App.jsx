@@ -7,6 +7,7 @@ import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import ShopCart from "./pages/ShopCart/ShopCart";
 import Wishlist from "./pages/Wishlist/Wishlist";
 import Order from "./pages/Order/Order";
+import OrderSuccess from "./pages/OrderSuccess/OrderSuccess";
 import MyAccount from "./pages/MyAccount/MyAccount";
 import News from "./pages/News/News";
 import NotFound from "./pages/NotFound/NotFound";
@@ -28,6 +29,7 @@ function App() {
           <Route path="/shop-cart" element={<ShopCart />} />
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/order" element={<Order />} />
+          <Route path="/order-success" element={<OrderSuccess />} />
           <Route path="/my-account" element={<MyAccount />} />
           <Route path="/news" element={<News />} />
           <Route path="/not-found" element={<NotFound />} />

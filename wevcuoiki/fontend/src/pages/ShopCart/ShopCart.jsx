@@ -247,13 +247,16 @@ const ShopCart = () => {
               </div>
             </div>
 
-            <button
-              type="button"
-              disabled={!hasItems || updatingId !== null}
-              className="mb-3 flex w-full items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90 disabled:cursor-not-allowed disabled:bg-neutral-400"
+            <Link
+              to="/order"
+              className={`mb-3 flex w-full items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90 ${
+                !hasItems || updatingId !== null
+                  ? "pointer-events-none cursor-not-allowed bg-neutral-400"
+                  : ""
+              }`}
             >
               TIẾN HÀNH ĐẶT HÀNG
-            </button>
+            </Link>
 
             <Link
               to="/collections/all"

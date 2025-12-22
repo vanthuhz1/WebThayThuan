@@ -1,0 +1,28 @@
+### Test MoMo Payment API trực tiếp
+POST https://test-payment.momo.vn/v2/gateway/api/create
+Content-Type: application/json
+
+{
+  "partnerCode": "MOMO",
+  "accessKey": "F8BBA842ECF85",
+  "requestId": "MOMO1735000000000",
+  "amount": "50000",
+  "orderId": "MOMO1735000000000",
+  "orderInfo": "pay with MoMo",
+  "redirectUrl": "https://momo.vn/return",
+  "ipnUrl": "https://webhook.site/454e7b77-f177-4ece-8236-ddf1c26ba7f8",
+  "extraData": "",
+  "requestType": "captureWallet",
+  "signature": "your_signature_here",
+  "lang": "vi"
+}
+
+### Test Backend Create Payment
+POST https://localhost:7194/api/Payment/create-momo-payment
+Content-Type: application/json
+Authorization: Bearer YOUR_TOKEN
+
+{
+  "orderId": 1
+}
+
