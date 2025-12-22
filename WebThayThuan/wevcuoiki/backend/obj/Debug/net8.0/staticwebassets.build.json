@@ -1,1 +1,2803 @@
-{"Version":1,"Hash":"ihRxfv6XPiv8iIbV9UmEgYKYa2EZf5y3kDEQ6cZ7+JQ=","Source":"Backend_WebBanHang","BasePath":"_content/Backend_WebBanHang","Mode":"Default","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[{"Name":"Backend_WebBanHang\\wwwroot","Source":"Backend_WebBanHang","ContentRoot":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\","BasePath":"_content/Backend_WebBanHang","Pattern":"**"}],"Assets":[{"Identity":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\0b553b43-4b2b-4e02-baf2-3a7a670468be.jpg","SourceId":"Backend_WebBanHang","SourceType":"Discovered","ContentRoot":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\","BasePath":"_content/Backend_WebBanHang","RelativePath":"uploads/0b553b43-4b2b-4e02-baf2-3a7a670468be#[.{fingerprint}]?.jpg","AssetKind":"All","AssetMode":"All","AssetRole":"Primary","AssetMergeBehavior":"","AssetMergeSource":"","RelatedAsset":"","AssetTraitName":"","AssetTraitValue":"","Fingerprint":"p2s1j7whq0","Integrity":"nwwfotwQHLnM8UtZ6yQOmzQv5FNIE12JtZOV4cO4EuY=","CopyToOutputDirectory":"Never","CopyToPublishDirectory":"PreserveNewest","OriginalItemSpec":"wwwroot\\uploads\\0b553b43-4b2b-4e02-baf2-3a7a670468be.jpg","FileLength":243774,"LastWriteTime":"2025-12-22T21:14:49+00:00"},{"Identity":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\1a7f5751-5952-4fb9-87a2-360b3cf3bca8.jpg","SourceId":"Backend_WebBanHang","SourceType":"Discovered","ContentRoot":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\","BasePath":"_content/Backend_WebBanHang","RelativePath":"uploads/1a7f5751-5952-4fb9-87a2-360b3cf3bca8#[.{fingerprint}]?.jpg","AssetKind":"All","AssetMode":"All","AssetRole":"Primary","AssetMergeBehavior":"","AssetMergeSource":"","RelatedAsset":"","AssetTraitName":"","AssetTraitValue":"","Fingerprint":"3vgj90tm0b","Integrity":"H9WeJ4huSfVIakeByxezq/FL1prQIWcIpUNG3yJkb8o=","CopyToOutputDirectory":"Never","CopyToPublishDirectory":"PreserveNewest","OriginalItemSpec":"wwwroot\\uploads\\1a7f5751-5952-4fb9-87a2-360b3cf3bca8.jpg","FileLength":227484,"LastWriteTime":"2025-12-22T21:14:49+00:00"},{"Identity":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\1f76c211-dd7f-4996-96f9-e813e1237db8.jpg","SourceId":"Backend_WebBanHang","SourceType":"Discovered","ContentRoot":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\","BasePath":"_content/Backend_WebBanHang","RelativePath":"uploads/1f76c211-dd7f-4996-96f9-e813e1237db8#[.{fingerprint}]?.jpg","AssetKind":"All","AssetMode":"All","AssetRole":"Primary","AssetMergeBehavior":"","AssetMergeSource":"","RelatedAsset":"","AssetTraitName":"","AssetTraitValue":"","Fingerprint":"8l2b6cmdlw","Integrity":"JAjFpffq/7avPhFKA/dL5sF150/1VZa66E6OIRhj/7A=","CopyToOutputDirectory":"Never","CopyToPublishDirectory":"PreserveNewest","OriginalItemSpec":"wwwroot\\uploads\\1f76c211-dd7f-4996-96f9-e813e1237db8.jpg","FileLength":297930,"LastWriteTime":"2025-12-22T20:50:37+00:00"},{"Identity":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\2db42555-1526-41ee-8252-9e0582f529fe.jpg","SourceId":"Backend_WebBanHang","SourceType":"Discovered","ContentRoot":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\","BasePath":"_content/Backend_WebBanHang","RelativePath":"uploads/2db42555-1526-41ee-8252-9e0582f529fe#[.{fingerprint}]?.jpg","AssetKind":"All","AssetMode":"All","AssetRole":"Primary","AssetMergeBehavior":"","AssetMergeSource":"","RelatedAsset":"","AssetTraitName":"","AssetTraitValue":"","Fingerprint":"jyz69gqmfh","Integrity":"iwSao7Lp4vNKahCrEnG5vy3AUUDZp7rPmWr9/nb0RpU=","CopyToOutputDirectory":"Never","CopyToPublishDirectory":"PreserveNewest","OriginalItemSpec":"wwwroot\\uploads\\2db42555-1526-41ee-8252-9e0582f529fe.jpg","FileLength":77028,"LastWriteTime":"2025-12-22T20:49:43+00:00"},{"Identity":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\4731c614-3927-4b1b-87bb-9e0e9c75ab45.jpg","SourceId":"Backend_WebBanHang","SourceType":"Discovered","ContentRoot":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\","BasePath":"_content/Backend_WebBanHang","RelativePath":"uploads/4731c614-3927-4b1b-87bb-9e0e9c75ab45#[.{fingerprint}]?.jpg","AssetKind":"All","AssetMode":"All","AssetRole":"Primary","AssetMergeBehavior":"","AssetMergeSource":"","RelatedAsset":"","AssetTraitName":"","AssetTraitValue":"","Fingerprint":"afw1rpa0at","Integrity":"ZvmjmLmBDyt5z6AXkKzuvB84uvnVDquzOduWkR+wi7E=","CopyToOutputDirectory":"Never","CopyToPublishDirectory":"PreserveNewest","OriginalItemSpec":"wwwroot\\uploads\\4731c614-3927-4b1b-87bb-9e0e9c75ab45.jpg","FileLength":338381,"LastWriteTime":"2025-12-22T20:54:08+00:00"},{"Identity":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\64afb0c7-d591-416e-a6ac-fb5a96186df2.jpg","SourceId":"Backend_WebBanHang","SourceType":"Discovered","ContentRoot":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\","BasePath":"_content/Backend_WebBanHang","RelativePath":"uploads/64afb0c7-d591-416e-a6ac-fb5a96186df2#[.{fingerprint}]?.jpg","AssetKind":"All","AssetMode":"All","AssetRole":"Primary","AssetMergeBehavior":"","AssetMergeSource":"","RelatedAsset":"","AssetTraitName":"","AssetTraitValue":"","Fingerprint":"x4p2j9fjlz","Integrity":"P60Fp5pGycuEgkriSkVf5Mj70iV8F7ozQS5C3EVDm70=","CopyToOutputDirectory":"Never","CopyToPublishDirectory":"PreserveNewest","OriginalItemSpec":"wwwroot\\uploads\\64afb0c7-d591-416e-a6ac-fb5a96186df2.jpg","FileLength":241867,"LastWriteTime":"2025-12-22T21:14:49+00:00"},{"Identity":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\6e6862ec-8ef7-42cf-96f0-c851cb5e72b0.jpg","SourceId":"Backend_WebBanHang","SourceType":"Discovered","ContentRoot":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\","BasePath":"_content/Backend_WebBanHang","RelativePath":"uploads/6e6862ec-8ef7-42cf-96f0-c851cb5e72b0#[.{fingerprint}]?.jpg","AssetKind":"All","AssetMode":"All","AssetRole":"Primary","AssetMergeBehavior":"","AssetMergeSource":"","RelatedAsset":"","AssetTraitName":"","AssetTraitValue":"","Fingerprint":"737alhwmv6","Integrity":"nSSnqivMyHj0KrL5LyncMolGe+qfnfOVx4QqTOU2VdM=","CopyToOutputDirectory":"Never","CopyToPublishDirectory":"PreserveNewest","OriginalItemSpec":"wwwroot\\uploads\\6e6862ec-8ef7-42cf-96f0-c851cb5e72b0.jpg","FileLength":249569,"LastWriteTime":"2025-12-22T20:49:28+00:00"},{"Identity":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\7879d296-03dd-41c4-aee4-e54b8bde4b3a.jpg","SourceId":"Backend_WebBanHang","SourceType":"Discovered","ContentRoot":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\","BasePath":"_content/Backend_WebBanHang","RelativePath":"uploads/7879d296-03dd-41c4-aee4-e54b8bde4b3a#[.{fingerprint}]?.jpg","AssetKind":"All","AssetMode":"All","AssetRole":"Primary","AssetMergeBehavior":"","AssetMergeSource":"","RelatedAsset":"","AssetTraitName":"","AssetTraitValue":"","Fingerprint":"p2s1j7whq0","Integrity":"nwwfotwQHLnM8UtZ6yQOmzQv5FNIE12JtZOV4cO4EuY=","CopyToOutputDirectory":"Never","CopyToPublishDirectory":"PreserveNewest","OriginalItemSpec":"wwwroot\\uploads\\7879d296-03dd-41c4-aee4-e54b8bde4b3a.jpg","FileLength":243774,"LastWriteTime":"2025-12-22T21:06:08+00:00"},{"Identity":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\8027b393-c3fb-4f87-b934-7fa8cecfc0ae.png","SourceId":"Backend_WebBanHang","SourceType":"Discovered","ContentRoot":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\","BasePath":"_content/Backend_WebBanHang","RelativePath":"uploads/8027b393-c3fb-4f87-b934-7fa8cecfc0ae#[.{fingerprint}]?.png","AssetKind":"All","AssetMode":"All","AssetRole":"Primary","AssetMergeBehavior":"","AssetMergeSource":"","RelatedAsset":"","AssetTraitName":"","AssetTraitValue":"","Fingerprint":"n6rsf24p60","Integrity":"n6/wl6apsuIIcdmk6k1qmmgBpaPgHkYjEJajaI986eA=","CopyToOutputDirectory":"Never","CopyToPublishDirectory":"PreserveNewest","OriginalItemSpec":"wwwroot\\uploads\\8027b393-c3fb-4f87-b934-7fa8cecfc0ae.png","FileLength":231606,"LastWriteTime":"2025-12-22T20:31:06+00:00"},{"Identity":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\960f3683-3c3c-4fca-8460-4889af8e87ed.jpg","SourceId":"Backend_WebBanHang","SourceType":"Discovered","ContentRoot":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\","BasePath":"_content/Backend_WebBanHang","RelativePath":"uploads/960f3683-3c3c-4fca-8460-4889af8e87ed#[.{fingerprint}]?.jpg","AssetKind":"All","AssetMode":"All","AssetRole":"Primary","AssetMergeBehavior":"","AssetMergeSource":"","RelatedAsset":"","AssetTraitName":"","AssetTraitValue":"","Fingerprint":"p2s1j7whq0","Integrity":"nwwfotwQHLnM8UtZ6yQOmzQv5FNIE12JtZOV4cO4EuY=","CopyToOutputDirectory":"Never","CopyToPublishDirectory":"PreserveNewest","OriginalItemSpec":"wwwroot\\uploads\\960f3683-3c3c-4fca-8460-4889af8e87ed.jpg","FileLength":243774,"LastWriteTime":"2025-12-22T21:04:41+00:00"},{"Identity":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\9cc79dbf-a3df-4986-8145-e555debc2bf0.png","SourceId":"Backend_WebBanHang","SourceType":"Discovered","ContentRoot":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\","BasePath":"_content/Backend_WebBanHang","RelativePath":"uploads/9cc79dbf-a3df-4986-8145-e555debc2bf0#[.{fingerprint}]?.png","AssetKind":"All","AssetMode":"All","AssetRole":"Primary","AssetMergeBehavior":"","AssetMergeSource":"","RelatedAsset":"","AssetTraitName":"","AssetTraitValue":"","Fingerprint":"bekl0qaw1d","Integrity":"fV3Y2tq7N03HuFPXcr9PN6Im/eV/24J0WnaBIWglO9E=","CopyToOutputDirectory":"Never","CopyToPublishDirectory":"PreserveNewest","OriginalItemSpec":"wwwroot\\uploads\\9cc79dbf-a3df-4986-8145-e555debc2bf0.png","FileLength":451948,"LastWriteTime":"2025-12-22T20:35:23+00:00"},{"Identity":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\a81b76fe-59e1-4e01-b85c-f55aad2b0d66.jpg","SourceId":"Backend_WebBanHang","SourceType":"Discovered","ContentRoot":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\","BasePath":"_content/Backend_WebBanHang","RelativePath":"uploads/a81b76fe-59e1-4e01-b85c-f55aad2b0d66#[.{fingerprint}]?.jpg","AssetKind":"All","AssetMode":"All","AssetRole":"Primary","AssetMergeBehavior":"","AssetMergeSource":"","RelatedAsset":"","AssetTraitName":"","AssetTraitValue":"","Fingerprint":"80ufk9h0qt","Integrity":"qK2ZUeVFOrEumcXweqK9ll9DKzUXNeVM4iE3VzhxviQ=","CopyToOutputDirectory":"Never","CopyToPublishDirectory":"PreserveNewest","OriginalItemSpec":"wwwroot\\uploads\\a81b76fe-59e1-4e01-b85c-f55aad2b0d66.jpg","FileLength":244891,"LastWriteTime":"2025-12-22T21:14:49+00:00"},{"Identity":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\c75410bf-574d-4d4b-bb44-f628e3e98587.png","SourceId":"Backend_WebBanHang","SourceType":"Discovered","ContentRoot":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\","BasePath":"_content/Backend_WebBanHang","RelativePath":"uploads/c75410bf-574d-4d4b-bb44-f628e3e98587#[.{fingerprint}]?.png","AssetKind":"All","AssetMode":"All","AssetRole":"Primary","AssetMergeBehavior":"","AssetMergeSource":"","RelatedAsset":"","AssetTraitName":"","AssetTraitValue":"","Fingerprint":"bekl0qaw1d","Integrity":"fV3Y2tq7N03HuFPXcr9PN6Im/eV/24J0WnaBIWglO9E=","CopyToOutputDirectory":"Never","CopyToPublishDirectory":"PreserveNewest","OriginalItemSpec":"wwwroot\\uploads\\c75410bf-574d-4d4b-bb44-f628e3e98587.png","FileLength":451948,"LastWriteTime":"2025-12-22T20:34:04+00:00"},{"Identity":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\cac61641-6e40-4635-9a40-1f838f75775e.jpg","SourceId":"Backend_WebBanHang","SourceType":"Discovered","ContentRoot":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\","BasePath":"_content/Backend_WebBanHang","RelativePath":"uploads/cac61641-6e40-4635-9a40-1f838f75775e#[.{fingerprint}]?.jpg","AssetKind":"All","AssetMode":"All","AssetRole":"Primary","AssetMergeBehavior":"","AssetMergeSource":"","RelatedAsset":"","AssetTraitName":"","AssetTraitValue":"","Fingerprint":"h52bxd28nv","Integrity":"W+vsJ4J3kgqjkzuqISs3hV4lmT9182qFTKW/it0E9LQ=","CopyToOutputDirectory":"Never","CopyToPublishDirectory":"PreserveNewest","OriginalItemSpec":"wwwroot\\uploads\\cac61641-6e40-4635-9a40-1f838f75775e.jpg","FileLength":231057,"LastWriteTime":"2025-12-22T21:14:49+00:00"},{"Identity":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\cc1a9fba-e261-4860-89be-a8c536ceecb1.jpg","SourceId":"Backend_WebBanHang","SourceType":"Discovered","ContentRoot":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\","BasePath":"_content/Backend_WebBanHang","RelativePath":"uploads/cc1a9fba-e261-4860-89be-a8c536ceecb1#[.{fingerprint}]?.jpg","AssetKind":"All","AssetMode":"All","AssetRole":"Primary","AssetMergeBehavior":"","AssetMergeSource":"","RelatedAsset":"","AssetTraitName":"","AssetTraitValue":"","Fingerprint":"3vgj90tm0b","Integrity":"H9WeJ4huSfVIakeByxezq/FL1prQIWcIpUNG3yJkb8o=","CopyToOutputDirectory":"Never","CopyToPublishDirectory":"PreserveNewest","OriginalItemSpec":"wwwroot\\uploads\\cc1a9fba-e261-4860-89be-a8c536ceecb1.jpg","FileLength":227484,"LastWriteTime":"2025-12-22T21:01:39+00:00"},{"Identity":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\cf1ac682-13de-4979-ae07-1f5bc0262712.jpg","SourceId":"Backend_WebBanHang","SourceType":"Discovered","ContentRoot":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\","BasePath":"_content/Backend_WebBanHang","RelativePath":"uploads/cf1ac682-13de-4979-ae07-1f5bc0262712#[.{fingerprint}]?.jpg","AssetKind":"All","AssetMode":"All","AssetRole":"Primary","AssetMergeBehavior":"","AssetMergeSource":"","RelatedAsset":"","AssetTraitName":"","AssetTraitValue":"","Fingerprint":"t5xy5mvabe","Integrity":"n3boFcEIhDDqiWNmKM3u3in0CYXcJvVBfM6GRMkNsFY=","CopyToOutputDirectory":"Never","CopyToPublishDirectory":"PreserveNewest","OriginalItemSpec":"wwwroot\\uploads\\cf1ac682-13de-4979-ae07-1f5bc0262712.jpg","FileLength":250510,"LastWriteTime":"2025-12-22T21:14:49+00:00"},{"Identity":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\d0334884-4d7c-4b7e-94ae-806898aaac33.jpg","SourceId":"Backend_WebBanHang","SourceType":"Discovered","ContentRoot":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\","BasePath":"_content/Backend_WebBanHang","RelativePath":"uploads/d0334884-4d7c-4b7e-94ae-806898aaac33#[.{fingerprint}]?.jpg","AssetKind":"All","AssetMode":"All","AssetRole":"Primary","AssetMergeBehavior":"","AssetMergeSource":"","RelatedAsset":"","AssetTraitName":"","AssetTraitValue":"","Fingerprint":"2h9r7s23sb","Integrity":"SmAel/kjaGiPZmxiZC51xTiybYHLRXqc8xk9ifYNiIs=","CopyToOutputDirectory":"Never","CopyToPublishDirectory":"PreserveNewest","OriginalItemSpec":"wwwroot\\uploads\\d0334884-4d7c-4b7e-94ae-806898aaac33.jpg","FileLength":240409,"LastWriteTime":"2025-12-22T21:14:49+00:00"},{"Identity":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\d45c66af-e8d9-41cd-9058-e9f9d9e9b27f.jpg","SourceId":"Backend_WebBanHang","SourceType":"Discovered","ContentRoot":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\","BasePath":"_content/Backend_WebBanHang","RelativePath":"uploads/d45c66af-e8d9-41cd-9058-e9f9d9e9b27f#[.{fingerprint}]?.jpg","AssetKind":"All","AssetMode":"All","AssetRole":"Primary","AssetMergeBehavior":"","AssetMergeSource":"","RelatedAsset":"","AssetTraitName":"","AssetTraitValue":"","Fingerprint":"bgkf4c8ope","Integrity":"tTaPNqeldGPTpVhS1Fla6LtBhseM3pcAeSvfpYKSmEw=","CopyToOutputDirectory":"Never","CopyToPublishDirectory":"PreserveNewest","OriginalItemSpec":"wwwroot\\uploads\\d45c66af-e8d9-41cd-9058-e9f9d9e9b27f.jpg","FileLength":283775,"LastWriteTime":"2025-12-22T20:49:10+00:00"},{"Identity":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\d4958909-eb4e-4d66-84e5-452334c77c3a.jpg","SourceId":"Backend_WebBanHang","SourceType":"Discovered","ContentRoot":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\","BasePath":"_content/Backend_WebBanHang","RelativePath":"uploads/d4958909-eb4e-4d66-84e5-452334c77c3a#[.{fingerprint}]?.jpg","AssetKind":"All","AssetMode":"All","AssetRole":"Primary","AssetMergeBehavior":"","AssetMergeSource":"","RelatedAsset":"","AssetTraitName":"","AssetTraitValue":"","Fingerprint":"hg5gxdguq5","Integrity":"X+txQteGhE/6mi6G19aRwqHd+hM+8y+T9rbk8CoZcx4=","CopyToOutputDirectory":"Never","CopyToPublishDirectory":"PreserveNewest","OriginalItemSpec":"wwwroot\\uploads\\d4958909-eb4e-4d66-84e5-452334c77c3a.jpg","FileLength":381087,"LastWriteTime":"2025-12-22T20:55:07+00:00"},{"Identity":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\e1592f57-3fa8-49b4-ba00-42e084abb9d8.jpg","SourceId":"Backend_WebBanHang","SourceType":"Discovered","ContentRoot":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\","BasePath":"_content/Backend_WebBanHang","RelativePath":"uploads/e1592f57-3fa8-49b4-ba00-42e084abb9d8#[.{fingerprint}]?.jpg","AssetKind":"All","AssetMode":"All","AssetRole":"Primary","AssetMergeBehavior":"","AssetMergeSource":"","RelatedAsset":"","AssetTraitName":"","AssetTraitValue":"","Fingerprint":"occqsyk8t8","Integrity":"CGVGQaub1xMVrKBngDnkH0m56XD+Ce88rBFXfsvPpeo=","CopyToOutputDirectory":"Never","CopyToPublishDirectory":"PreserveNewest","OriginalItemSpec":"wwwroot\\uploads\\e1592f57-3fa8-49b4-ba00-42e084abb9d8.jpg","FileLength":247457,"LastWriteTime":"2025-12-22T20:59:16+00:00"},{"Identity":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\e7016e72-1055-47d3-ae36-0c9b4582e5d4.jpg","SourceId":"Backend_WebBanHang","SourceType":"Discovered","ContentRoot":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\","BasePath":"_content/Backend_WebBanHang","RelativePath":"uploads/e7016e72-1055-47d3-ae36-0c9b4582e5d4#[.{fingerprint}]?.jpg","AssetKind":"All","AssetMode":"All","AssetRole":"Primary","AssetMergeBehavior":"","AssetMergeSource":"","RelatedAsset":"","AssetTraitName":"","AssetTraitValue":"","Fingerprint":"p5rcr0zlfz","Integrity":"g4C9WkbFHTqJt6F1bD+ZSZisnH2I77/l6S03F9IN764=","CopyToOutputDirectory":"Never","CopyToPublishDirectory":"PreserveNewest","OriginalItemSpec":"wwwroot\\uploads\\e7016e72-1055-47d3-ae36-0c9b4582e5d4.jpg","FileLength":310948,"LastWriteTime":"2025-12-22T20:53:04+00:00"},{"Identity":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\f743d8f2-c7cf-499d-8d8f-d1fbbacd2bdf.jpg","SourceId":"Backend_WebBanHang","SourceType":"Discovered","ContentRoot":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\","BasePath":"_content/Backend_WebBanHang","RelativePath":"uploads/f743d8f2-c7cf-499d-8d8f-d1fbbacd2bdf#[.{fingerprint}]?.jpg","AssetKind":"All","AssetMode":"All","AssetRole":"Primary","AssetMergeBehavior":"","AssetMergeSource":"","RelatedAsset":"","AssetTraitName":"","AssetTraitValue":"","Fingerprint":"g3cg0whi8x","Integrity":"PLHs28CsWfVy6x0Uaxd0HqD6vEMpCjE/8Vl8NONXJnI=","CopyToOutputDirectory":"Never","CopyToPublishDirectory":"PreserveNewest","OriginalItemSpec":"wwwroot\\uploads\\f743d8f2-c7cf-499d-8d8f-d1fbbacd2bdf.jpg","FileLength":306456,"LastWriteTime":"2025-12-22T20:49:56+00:00"}],"Endpoints":[{"Route":"uploads/0b553b43-4b2b-4e02-baf2-3a7a670468be.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\0b553b43-4b2b-4e02-baf2-3a7a670468be.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"243774"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"nwwfotwQHLnM8UtZ6yQOmzQv5FNIE12JtZOV4cO4EuY=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 21:14:49 GMT"},{"Name":"Cache-Control","Value":"no-cache"}],"EndpointProperties":[{"Name":"integrity","Value":"sha256-nwwfotwQHLnM8UtZ6yQOmzQv5FNIE12JtZOV4cO4EuY="}]},{"Route":"uploads/0b553b43-4b2b-4e02-baf2-3a7a670468be.p2s1j7whq0.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\0b553b43-4b2b-4e02-baf2-3a7a670468be.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"243774"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"nwwfotwQHLnM8UtZ6yQOmzQv5FNIE12JtZOV4cO4EuY=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 21:14:49 GMT"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"}],"EndpointProperties":[{"Name":"fingerprint","Value":"p2s1j7whq0"},{"Name":"label","Value":"uploads/0b553b43-4b2b-4e02-baf2-3a7a670468be.jpg"},{"Name":"integrity","Value":"sha256-nwwfotwQHLnM8UtZ6yQOmzQv5FNIE12JtZOV4cO4EuY="}]},{"Route":"uploads/1a7f5751-5952-4fb9-87a2-360b3cf3bca8.3vgj90tm0b.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\1a7f5751-5952-4fb9-87a2-360b3cf3bca8.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"227484"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"H9WeJ4huSfVIakeByxezq/FL1prQIWcIpUNG3yJkb8o=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 21:14:49 GMT"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"}],"EndpointProperties":[{"Name":"fingerprint","Value":"3vgj90tm0b"},{"Name":"label","Value":"uploads/1a7f5751-5952-4fb9-87a2-360b3cf3bca8.jpg"},{"Name":"integrity","Value":"sha256-H9WeJ4huSfVIakeByxezq/FL1prQIWcIpUNG3yJkb8o="}]},{"Route":"uploads/1a7f5751-5952-4fb9-87a2-360b3cf3bca8.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\1a7f5751-5952-4fb9-87a2-360b3cf3bca8.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"227484"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"H9WeJ4huSfVIakeByxezq/FL1prQIWcIpUNG3yJkb8o=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 21:14:49 GMT"},{"Name":"Cache-Control","Value":"no-cache"}],"EndpointProperties":[{"Name":"integrity","Value":"sha256-H9WeJ4huSfVIakeByxezq/FL1prQIWcIpUNG3yJkb8o="}]},{"Route":"uploads/1f76c211-dd7f-4996-96f9-e813e1237db8.8l2b6cmdlw.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\1f76c211-dd7f-4996-96f9-e813e1237db8.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"297930"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"JAjFpffq/7avPhFKA/dL5sF150/1VZa66E6OIRhj/7A=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 20:50:37 GMT"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"}],"EndpointProperties":[{"Name":"fingerprint","Value":"8l2b6cmdlw"},{"Name":"label","Value":"uploads/1f76c211-dd7f-4996-96f9-e813e1237db8.jpg"},{"Name":"integrity","Value":"sha256-JAjFpffq/7avPhFKA/dL5sF150/1VZa66E6OIRhj/7A="}]},{"Route":"uploads/1f76c211-dd7f-4996-96f9-e813e1237db8.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\1f76c211-dd7f-4996-96f9-e813e1237db8.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"297930"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"JAjFpffq/7avPhFKA/dL5sF150/1VZa66E6OIRhj/7A=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 20:50:37 GMT"},{"Name":"Cache-Control","Value":"no-cache"}],"EndpointProperties":[{"Name":"integrity","Value":"sha256-JAjFpffq/7avPhFKA/dL5sF150/1VZa66E6OIRhj/7A="}]},{"Route":"uploads/2db42555-1526-41ee-8252-9e0582f529fe.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\2db42555-1526-41ee-8252-9e0582f529fe.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"77028"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"iwSao7Lp4vNKahCrEnG5vy3AUUDZp7rPmWr9/nb0RpU=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 20:49:43 GMT"},{"Name":"Cache-Control","Value":"no-cache"}],"EndpointProperties":[{"Name":"integrity","Value":"sha256-iwSao7Lp4vNKahCrEnG5vy3AUUDZp7rPmWr9/nb0RpU="}]},{"Route":"uploads/2db42555-1526-41ee-8252-9e0582f529fe.jyz69gqmfh.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\2db42555-1526-41ee-8252-9e0582f529fe.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"77028"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"iwSao7Lp4vNKahCrEnG5vy3AUUDZp7rPmWr9/nb0RpU=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 20:49:43 GMT"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"}],"EndpointProperties":[{"Name":"fingerprint","Value":"jyz69gqmfh"},{"Name":"label","Value":"uploads/2db42555-1526-41ee-8252-9e0582f529fe.jpg"},{"Name":"integrity","Value":"sha256-iwSao7Lp4vNKahCrEnG5vy3AUUDZp7rPmWr9/nb0RpU="}]},{"Route":"uploads/4731c614-3927-4b1b-87bb-9e0e9c75ab45.afw1rpa0at.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\4731c614-3927-4b1b-87bb-9e0e9c75ab45.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"338381"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"ZvmjmLmBDyt5z6AXkKzuvB84uvnVDquzOduWkR+wi7E=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 20:54:08 GMT"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"}],"EndpointProperties":[{"Name":"fingerprint","Value":"afw1rpa0at"},{"Name":"label","Value":"uploads/4731c614-3927-4b1b-87bb-9e0e9c75ab45.jpg"},{"Name":"integrity","Value":"sha256-ZvmjmLmBDyt5z6AXkKzuvB84uvnVDquzOduWkR+wi7E="}]},{"Route":"uploads/4731c614-3927-4b1b-87bb-9e0e9c75ab45.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\4731c614-3927-4b1b-87bb-9e0e9c75ab45.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"338381"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"ZvmjmLmBDyt5z6AXkKzuvB84uvnVDquzOduWkR+wi7E=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 20:54:08 GMT"},{"Name":"Cache-Control","Value":"no-cache"}],"EndpointProperties":[{"Name":"integrity","Value":"sha256-ZvmjmLmBDyt5z6AXkKzuvB84uvnVDquzOduWkR+wi7E="}]},{"Route":"uploads/64afb0c7-d591-416e-a6ac-fb5a96186df2.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\64afb0c7-d591-416e-a6ac-fb5a96186df2.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"241867"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"P60Fp5pGycuEgkriSkVf5Mj70iV8F7ozQS5C3EVDm70=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 21:14:49 GMT"},{"Name":"Cache-Control","Value":"no-cache"}],"EndpointProperties":[{"Name":"integrity","Value":"sha256-P60Fp5pGycuEgkriSkVf5Mj70iV8F7ozQS5C3EVDm70="}]},{"Route":"uploads/64afb0c7-d591-416e-a6ac-fb5a96186df2.x4p2j9fjlz.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\64afb0c7-d591-416e-a6ac-fb5a96186df2.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"241867"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"P60Fp5pGycuEgkriSkVf5Mj70iV8F7ozQS5C3EVDm70=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 21:14:49 GMT"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"}],"EndpointProperties":[{"Name":"fingerprint","Value":"x4p2j9fjlz"},{"Name":"label","Value":"uploads/64afb0c7-d591-416e-a6ac-fb5a96186df2.jpg"},{"Name":"integrity","Value":"sha256-P60Fp5pGycuEgkriSkVf5Mj70iV8F7ozQS5C3EVDm70="}]},{"Route":"uploads/6e6862ec-8ef7-42cf-96f0-c851cb5e72b0.737alhwmv6.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\6e6862ec-8ef7-42cf-96f0-c851cb5e72b0.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"249569"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"nSSnqivMyHj0KrL5LyncMolGe+qfnfOVx4QqTOU2VdM=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 20:49:28 GMT"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"}],"EndpointProperties":[{"Name":"fingerprint","Value":"737alhwmv6"},{"Name":"label","Value":"uploads/6e6862ec-8ef7-42cf-96f0-c851cb5e72b0.jpg"},{"Name":"integrity","Value":"sha256-nSSnqivMyHj0KrL5LyncMolGe+qfnfOVx4QqTOU2VdM="}]},{"Route":"uploads/6e6862ec-8ef7-42cf-96f0-c851cb5e72b0.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\6e6862ec-8ef7-42cf-96f0-c851cb5e72b0.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"249569"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"nSSnqivMyHj0KrL5LyncMolGe+qfnfOVx4QqTOU2VdM=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 20:49:28 GMT"},{"Name":"Cache-Control","Value":"no-cache"}],"EndpointProperties":[{"Name":"integrity","Value":"sha256-nSSnqivMyHj0KrL5LyncMolGe+qfnfOVx4QqTOU2VdM="}]},{"Route":"uploads/7879d296-03dd-41c4-aee4-e54b8bde4b3a.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\7879d296-03dd-41c4-aee4-e54b8bde4b3a.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"243774"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"nwwfotwQHLnM8UtZ6yQOmzQv5FNIE12JtZOV4cO4EuY=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 21:06:08 GMT"},{"Name":"Cache-Control","Value":"no-cache"}],"EndpointProperties":[{"Name":"integrity","Value":"sha256-nwwfotwQHLnM8UtZ6yQOmzQv5FNIE12JtZOV4cO4EuY="}]},{"Route":"uploads/7879d296-03dd-41c4-aee4-e54b8bde4b3a.p2s1j7whq0.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\7879d296-03dd-41c4-aee4-e54b8bde4b3a.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"243774"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"nwwfotwQHLnM8UtZ6yQOmzQv5FNIE12JtZOV4cO4EuY=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 21:06:08 GMT"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"}],"EndpointProperties":[{"Name":"fingerprint","Value":"p2s1j7whq0"},{"Name":"label","Value":"uploads/7879d296-03dd-41c4-aee4-e54b8bde4b3a.jpg"},{"Name":"integrity","Value":"sha256-nwwfotwQHLnM8UtZ6yQOmzQv5FNIE12JtZOV4cO4EuY="}]},{"Route":"uploads/8027b393-c3fb-4f87-b934-7fa8cecfc0ae.n6rsf24p60.png","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\8027b393-c3fb-4f87-b934-7fa8cecfc0ae.png","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"231606"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\"n6/wl6apsuIIcdmk6k1qmmgBpaPgHkYjEJajaI986eA=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 20:31:06 GMT"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"}],"EndpointProperties":[{"Name":"fingerprint","Value":"n6rsf24p60"},{"Name":"label","Value":"uploads/8027b393-c3fb-4f87-b934-7fa8cecfc0ae.png"},{"Name":"integrity","Value":"sha256-n6/wl6apsuIIcdmk6k1qmmgBpaPgHkYjEJajaI986eA="}]},{"Route":"uploads/8027b393-c3fb-4f87-b934-7fa8cecfc0ae.png","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\8027b393-c3fb-4f87-b934-7fa8cecfc0ae.png","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"231606"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\"n6/wl6apsuIIcdmk6k1qmmgBpaPgHkYjEJajaI986eA=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 20:31:06 GMT"},{"Name":"Cache-Control","Value":"no-cache"}],"EndpointProperties":[{"Name":"integrity","Value":"sha256-n6/wl6apsuIIcdmk6k1qmmgBpaPgHkYjEJajaI986eA="}]},{"Route":"uploads/960f3683-3c3c-4fca-8460-4889af8e87ed.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\960f3683-3c3c-4fca-8460-4889af8e87ed.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"243774"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"nwwfotwQHLnM8UtZ6yQOmzQv5FNIE12JtZOV4cO4EuY=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 21:04:41 GMT"},{"Name":"Cache-Control","Value":"no-cache"}],"EndpointProperties":[{"Name":"integrity","Value":"sha256-nwwfotwQHLnM8UtZ6yQOmzQv5FNIE12JtZOV4cO4EuY="}]},{"Route":"uploads/960f3683-3c3c-4fca-8460-4889af8e87ed.p2s1j7whq0.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\960f3683-3c3c-4fca-8460-4889af8e87ed.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"243774"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"nwwfotwQHLnM8UtZ6yQOmzQv5FNIE12JtZOV4cO4EuY=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 21:04:41 GMT"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"}],"EndpointProperties":[{"Name":"fingerprint","Value":"p2s1j7whq0"},{"Name":"label","Value":"uploads/960f3683-3c3c-4fca-8460-4889af8e87ed.jpg"},{"Name":"integrity","Value":"sha256-nwwfotwQHLnM8UtZ6yQOmzQv5FNIE12JtZOV4cO4EuY="}]},{"Route":"uploads/9cc79dbf-a3df-4986-8145-e555debc2bf0.bekl0qaw1d.png","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\9cc79dbf-a3df-4986-8145-e555debc2bf0.png","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"451948"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\"fV3Y2tq7N03HuFPXcr9PN6Im/eV/24J0WnaBIWglO9E=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 20:35:23 GMT"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"}],"EndpointProperties":[{"Name":"fingerprint","Value":"bekl0qaw1d"},{"Name":"label","Value":"uploads/9cc79dbf-a3df-4986-8145-e555debc2bf0.png"},{"Name":"integrity","Value":"sha256-fV3Y2tq7N03HuFPXcr9PN6Im/eV/24J0WnaBIWglO9E="}]},{"Route":"uploads/9cc79dbf-a3df-4986-8145-e555debc2bf0.png","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\9cc79dbf-a3df-4986-8145-e555debc2bf0.png","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"451948"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\"fV3Y2tq7N03HuFPXcr9PN6Im/eV/24J0WnaBIWglO9E=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 20:35:23 GMT"},{"Name":"Cache-Control","Value":"no-cache"}],"EndpointProperties":[{"Name":"integrity","Value":"sha256-fV3Y2tq7N03HuFPXcr9PN6Im/eV/24J0WnaBIWglO9E="}]},{"Route":"uploads/a81b76fe-59e1-4e01-b85c-f55aad2b0d66.80ufk9h0qt.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\a81b76fe-59e1-4e01-b85c-f55aad2b0d66.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"244891"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"qK2ZUeVFOrEumcXweqK9ll9DKzUXNeVM4iE3VzhxviQ=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 21:14:49 GMT"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"}],"EndpointProperties":[{"Name":"fingerprint","Value":"80ufk9h0qt"},{"Name":"label","Value":"uploads/a81b76fe-59e1-4e01-b85c-f55aad2b0d66.jpg"},{"Name":"integrity","Value":"sha256-qK2ZUeVFOrEumcXweqK9ll9DKzUXNeVM4iE3VzhxviQ="}]},{"Route":"uploads/a81b76fe-59e1-4e01-b85c-f55aad2b0d66.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\a81b76fe-59e1-4e01-b85c-f55aad2b0d66.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"244891"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"qK2ZUeVFOrEumcXweqK9ll9DKzUXNeVM4iE3VzhxviQ=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 21:14:49 GMT"},{"Name":"Cache-Control","Value":"no-cache"}],"EndpointProperties":[{"Name":"integrity","Value":"sha256-qK2ZUeVFOrEumcXweqK9ll9DKzUXNeVM4iE3VzhxviQ="}]},{"Route":"uploads/c75410bf-574d-4d4b-bb44-f628e3e98587.bekl0qaw1d.png","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\c75410bf-574d-4d4b-bb44-f628e3e98587.png","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"451948"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\"fV3Y2tq7N03HuFPXcr9PN6Im/eV/24J0WnaBIWglO9E=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 20:34:04 GMT"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"}],"EndpointProperties":[{"Name":"fingerprint","Value":"bekl0qaw1d"},{"Name":"label","Value":"uploads/c75410bf-574d-4d4b-bb44-f628e3e98587.png"},{"Name":"integrity","Value":"sha256-fV3Y2tq7N03HuFPXcr9PN6Im/eV/24J0WnaBIWglO9E="}]},{"Route":"uploads/c75410bf-574d-4d4b-bb44-f628e3e98587.png","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\c75410bf-574d-4d4b-bb44-f628e3e98587.png","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"451948"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\"fV3Y2tq7N03HuFPXcr9PN6Im/eV/24J0WnaBIWglO9E=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 20:34:04 GMT"},{"Name":"Cache-Control","Value":"no-cache"}],"EndpointProperties":[{"Name":"integrity","Value":"sha256-fV3Y2tq7N03HuFPXcr9PN6Im/eV/24J0WnaBIWglO9E="}]},{"Route":"uploads/cac61641-6e40-4635-9a40-1f838f75775e.h52bxd28nv.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\cac61641-6e40-4635-9a40-1f838f75775e.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"231057"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"W+vsJ4J3kgqjkzuqISs3hV4lmT9182qFTKW/it0E9LQ=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 21:14:49 GMT"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"}],"EndpointProperties":[{"Name":"fingerprint","Value":"h52bxd28nv"},{"Name":"label","Value":"uploads/cac61641-6e40-4635-9a40-1f838f75775e.jpg"},{"Name":"integrity","Value":"sha256-W+vsJ4J3kgqjkzuqISs3hV4lmT9182qFTKW/it0E9LQ="}]},{"Route":"uploads/cac61641-6e40-4635-9a40-1f838f75775e.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\cac61641-6e40-4635-9a40-1f838f75775e.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"231057"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"W+vsJ4J3kgqjkzuqISs3hV4lmT9182qFTKW/it0E9LQ=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 21:14:49 GMT"},{"Name":"Cache-Control","Value":"no-cache"}],"EndpointProperties":[{"Name":"integrity","Value":"sha256-W+vsJ4J3kgqjkzuqISs3hV4lmT9182qFTKW/it0E9LQ="}]},{"Route":"uploads/cc1a9fba-e261-4860-89be-a8c536ceecb1.3vgj90tm0b.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\cc1a9fba-e261-4860-89be-a8c536ceecb1.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"227484"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"H9WeJ4huSfVIakeByxezq/FL1prQIWcIpUNG3yJkb8o=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 21:01:39 GMT"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"}],"EndpointProperties":[{"Name":"fingerprint","Value":"3vgj90tm0b"},{"Name":"label","Value":"uploads/cc1a9fba-e261-4860-89be-a8c536ceecb1.jpg"},{"Name":"integrity","Value":"sha256-H9WeJ4huSfVIakeByxezq/FL1prQIWcIpUNG3yJkb8o="}]},{"Route":"uploads/cc1a9fba-e261-4860-89be-a8c536ceecb1.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\cc1a9fba-e261-4860-89be-a8c536ceecb1.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"227484"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"H9WeJ4huSfVIakeByxezq/FL1prQIWcIpUNG3yJkb8o=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 21:01:39 GMT"},{"Name":"Cache-Control","Value":"no-cache"}],"EndpointProperties":[{"Name":"integrity","Value":"sha256-H9WeJ4huSfVIakeByxezq/FL1prQIWcIpUNG3yJkb8o="}]},{"Route":"uploads/cf1ac682-13de-4979-ae07-1f5bc0262712.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\cf1ac682-13de-4979-ae07-1f5bc0262712.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"250510"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"n3boFcEIhDDqiWNmKM3u3in0CYXcJvVBfM6GRMkNsFY=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 21:14:49 GMT"},{"Name":"Cache-Control","Value":"no-cache"}],"EndpointProperties":[{"Name":"integrity","Value":"sha256-n3boFcEIhDDqiWNmKM3u3in0CYXcJvVBfM6GRMkNsFY="}]},{"Route":"uploads/cf1ac682-13de-4979-ae07-1f5bc0262712.t5xy5mvabe.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\cf1ac682-13de-4979-ae07-1f5bc0262712.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"250510"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"n3boFcEIhDDqiWNmKM3u3in0CYXcJvVBfM6GRMkNsFY=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 21:14:49 GMT"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"}],"EndpointProperties":[{"Name":"fingerprint","Value":"t5xy5mvabe"},{"Name":"label","Value":"uploads/cf1ac682-13de-4979-ae07-1f5bc0262712.jpg"},{"Name":"integrity","Value":"sha256-n3boFcEIhDDqiWNmKM3u3in0CYXcJvVBfM6GRMkNsFY="}]},{"Route":"uploads/d0334884-4d7c-4b7e-94ae-806898aaac33.2h9r7s23sb.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\d0334884-4d7c-4b7e-94ae-806898aaac33.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"240409"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"SmAel/kjaGiPZmxiZC51xTiybYHLRXqc8xk9ifYNiIs=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 21:14:49 GMT"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"}],"EndpointProperties":[{"Name":"fingerprint","Value":"2h9r7s23sb"},{"Name":"label","Value":"uploads/d0334884-4d7c-4b7e-94ae-806898aaac33.jpg"},{"Name":"integrity","Value":"sha256-SmAel/kjaGiPZmxiZC51xTiybYHLRXqc8xk9ifYNiIs="}]},{"Route":"uploads/d0334884-4d7c-4b7e-94ae-806898aaac33.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\d0334884-4d7c-4b7e-94ae-806898aaac33.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"240409"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"SmAel/kjaGiPZmxiZC51xTiybYHLRXqc8xk9ifYNiIs=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 21:14:49 GMT"},{"Name":"Cache-Control","Value":"no-cache"}],"EndpointProperties":[{"Name":"integrity","Value":"sha256-SmAel/kjaGiPZmxiZC51xTiybYHLRXqc8xk9ifYNiIs="}]},{"Route":"uploads/d45c66af-e8d9-41cd-9058-e9f9d9e9b27f.bgkf4c8ope.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\d45c66af-e8d9-41cd-9058-e9f9d9e9b27f.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"283775"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"tTaPNqeldGPTpVhS1Fla6LtBhseM3pcAeSvfpYKSmEw=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 20:49:10 GMT"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"}],"EndpointProperties":[{"Name":"fingerprint","Value":"bgkf4c8ope"},{"Name":"label","Value":"uploads/d45c66af-e8d9-41cd-9058-e9f9d9e9b27f.jpg"},{"Name":"integrity","Value":"sha256-tTaPNqeldGPTpVhS1Fla6LtBhseM3pcAeSvfpYKSmEw="}]},{"Route":"uploads/d45c66af-e8d9-41cd-9058-e9f9d9e9b27f.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\d45c66af-e8d9-41cd-9058-e9f9d9e9b27f.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"283775"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"tTaPNqeldGPTpVhS1Fla6LtBhseM3pcAeSvfpYKSmEw=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 20:49:10 GMT"},{"Name":"Cache-Control","Value":"no-cache"}],"EndpointProperties":[{"Name":"integrity","Value":"sha256-tTaPNqeldGPTpVhS1Fla6LtBhseM3pcAeSvfpYKSmEw="}]},{"Route":"uploads/d4958909-eb4e-4d66-84e5-452334c77c3a.hg5gxdguq5.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\d4958909-eb4e-4d66-84e5-452334c77c3a.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"381087"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"X+txQteGhE/6mi6G19aRwqHd+hM+8y+T9rbk8CoZcx4=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 20:55:07 GMT"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"}],"EndpointProperties":[{"Name":"fingerprint","Value":"hg5gxdguq5"},{"Name":"label","Value":"uploads/d4958909-eb4e-4d66-84e5-452334c77c3a.jpg"},{"Name":"integrity","Value":"sha256-X+txQteGhE/6mi6G19aRwqHd+hM+8y+T9rbk8CoZcx4="}]},{"Route":"uploads/d4958909-eb4e-4d66-84e5-452334c77c3a.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\d4958909-eb4e-4d66-84e5-452334c77c3a.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"381087"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"X+txQteGhE/6mi6G19aRwqHd+hM+8y+T9rbk8CoZcx4=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 20:55:07 GMT"},{"Name":"Cache-Control","Value":"no-cache"}],"EndpointProperties":[{"Name":"integrity","Value":"sha256-X+txQteGhE/6mi6G19aRwqHd+hM+8y+T9rbk8CoZcx4="}]},{"Route":"uploads/e1592f57-3fa8-49b4-ba00-42e084abb9d8.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\e1592f57-3fa8-49b4-ba00-42e084abb9d8.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"247457"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"CGVGQaub1xMVrKBngDnkH0m56XD+Ce88rBFXfsvPpeo=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 20:59:16 GMT"},{"Name":"Cache-Control","Value":"no-cache"}],"EndpointProperties":[{"Name":"integrity","Value":"sha256-CGVGQaub1xMVrKBngDnkH0m56XD+Ce88rBFXfsvPpeo="}]},{"Route":"uploads/e1592f57-3fa8-49b4-ba00-42e084abb9d8.occqsyk8t8.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\e1592f57-3fa8-49b4-ba00-42e084abb9d8.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"247457"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"CGVGQaub1xMVrKBngDnkH0m56XD+Ce88rBFXfsvPpeo=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 20:59:16 GMT"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"}],"EndpointProperties":[{"Name":"fingerprint","Value":"occqsyk8t8"},{"Name":"label","Value":"uploads/e1592f57-3fa8-49b4-ba00-42e084abb9d8.jpg"},{"Name":"integrity","Value":"sha256-CGVGQaub1xMVrKBngDnkH0m56XD+Ce88rBFXfsvPpeo="}]},{"Route":"uploads/e7016e72-1055-47d3-ae36-0c9b4582e5d4.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\e7016e72-1055-47d3-ae36-0c9b4582e5d4.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"310948"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"g4C9WkbFHTqJt6F1bD+ZSZisnH2I77/l6S03F9IN764=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 20:53:04 GMT"},{"Name":"Cache-Control","Value":"no-cache"}],"EndpointProperties":[{"Name":"integrity","Value":"sha256-g4C9WkbFHTqJt6F1bD+ZSZisnH2I77/l6S03F9IN764="}]},{"Route":"uploads/e7016e72-1055-47d3-ae36-0c9b4582e5d4.p5rcr0zlfz.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\e7016e72-1055-47d3-ae36-0c9b4582e5d4.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"310948"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"g4C9WkbFHTqJt6F1bD+ZSZisnH2I77/l6S03F9IN764=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 20:53:04 GMT"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"}],"EndpointProperties":[{"Name":"fingerprint","Value":"p5rcr0zlfz"},{"Name":"label","Value":"uploads/e7016e72-1055-47d3-ae36-0c9b4582e5d4.jpg"},{"Name":"integrity","Value":"sha256-g4C9WkbFHTqJt6F1bD+ZSZisnH2I77/l6S03F9IN764="}]},{"Route":"uploads/f743d8f2-c7cf-499d-8d8f-d1fbbacd2bdf.g3cg0whi8x.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\f743d8f2-c7cf-499d-8d8f-d1fbbacd2bdf.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"306456"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"PLHs28CsWfVy6x0Uaxd0HqD6vEMpCjE/8Vl8NONXJnI=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 20:49:56 GMT"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"}],"EndpointProperties":[{"Name":"fingerprint","Value":"g3cg0whi8x"},{"Name":"label","Value":"uploads/f743d8f2-c7cf-499d-8d8f-d1fbbacd2bdf.jpg"},{"Name":"integrity","Value":"sha256-PLHs28CsWfVy6x0Uaxd0HqD6vEMpCjE/8Vl8NONXJnI="}]},{"Route":"uploads/f743d8f2-c7cf-499d-8d8f-d1fbbacd2bdf.jpg","AssetFile":"C:\\Users\\Admin\\Desktop\\New folder\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\f743d8f2-c7cf-499d-8d8f-d1fbbacd2bdf.jpg","Selectors":[],"ResponseHeaders":[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Content-Length","Value":"306456"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\"PLHs28CsWfVy6x0Uaxd0HqD6vEMpCjE/8Vl8NONXJnI=\""},{"Name":"Last-Modified","Value":"Mon, 22 Dec 2025 20:49:56 GMT"},{"Name":"Cache-Control","Value":"no-cache"}],"EndpointProperties":[{"Name":"integrity","Value":"sha256-PLHs28CsWfVy6x0Uaxd0HqD6vEMpCjE/8Vl8NONXJnI="}]}]}
+{
+  "Version": 1,
+  "Hash": "gRZJxYG2t1yLmP4Ov6pErE5ToTgOh/qdPLkAXX5Cx84=",
+  "Source": "Backend_WebBanHang",
+  "BasePath": "_content/Backend_WebBanHang",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Backend_WebBanHang\\wwwroot",
+      "Source": "Backend_WebBanHang",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\",
+      "BasePath": "_content/Backend_WebBanHang",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\015ab087-7fa9-4b0b-a6a2-0241f7a0674b.jpg",
+      "SourceId": "Backend_WebBanHang",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\",
+      "BasePath": "_content/Backend_WebBanHang",
+      "RelativePath": "uploads/015ab087-7fa9-4b0b-a6a2-0241f7a0674b#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "m5q9rkh1w8",
+      "Integrity": "qgfu23Aji4Ea3km3ieF5W0TsqnIXJkJx3R4Gg53T9eg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\015ab087-7fa9-4b0b-a6a2-0241f7a0674b.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\0b553b43-4b2b-4e02-baf2-3a7a670468be.jpg",
+      "SourceId": "Backend_WebBanHang",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\",
+      "BasePath": "_content/Backend_WebBanHang",
+      "RelativePath": "uploads/0b553b43-4b2b-4e02-baf2-3a7a670468be#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "p2s1j7whq0",
+      "Integrity": "nwwfotwQHLnM8UtZ6yQOmzQv5FNIE12JtZOV4cO4EuY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\0b553b43-4b2b-4e02-baf2-3a7a670468be.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\1a7f5751-5952-4fb9-87a2-360b3cf3bca8.jpg",
+      "SourceId": "Backend_WebBanHang",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\",
+      "BasePath": "_content/Backend_WebBanHang",
+      "RelativePath": "uploads/1a7f5751-5952-4fb9-87a2-360b3cf3bca8#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "3vgj90tm0b",
+      "Integrity": "H9WeJ4huSfVIakeByxezq/FL1prQIWcIpUNG3yJkb8o=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\1a7f5751-5952-4fb9-87a2-360b3cf3bca8.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\1f76c211-dd7f-4996-96f9-e813e1237db8.jpg",
+      "SourceId": "Backend_WebBanHang",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\",
+      "BasePath": "_content/Backend_WebBanHang",
+      "RelativePath": "uploads/1f76c211-dd7f-4996-96f9-e813e1237db8#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "8l2b6cmdlw",
+      "Integrity": "JAjFpffq/7avPhFKA/dL5sF150/1VZa66E6OIRhj/7A=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\1f76c211-dd7f-4996-96f9-e813e1237db8.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\2db42555-1526-41ee-8252-9e0582f529fe.jpg",
+      "SourceId": "Backend_WebBanHang",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\",
+      "BasePath": "_content/Backend_WebBanHang",
+      "RelativePath": "uploads/2db42555-1526-41ee-8252-9e0582f529fe#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "jyz69gqmfh",
+      "Integrity": "iwSao7Lp4vNKahCrEnG5vy3AUUDZp7rPmWr9/nb0RpU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\2db42555-1526-41ee-8252-9e0582f529fe.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\4731c614-3927-4b1b-87bb-9e0e9c75ab45.jpg",
+      "SourceId": "Backend_WebBanHang",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\",
+      "BasePath": "_content/Backend_WebBanHang",
+      "RelativePath": "uploads/4731c614-3927-4b1b-87bb-9e0e9c75ab45#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "afw1rpa0at",
+      "Integrity": "ZvmjmLmBDyt5z6AXkKzuvB84uvnVDquzOduWkR+wi7E=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\4731c614-3927-4b1b-87bb-9e0e9c75ab45.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\4e71bd83-2b2e-43f7-b458-3c80e4e78d98.png",
+      "SourceId": "Backend_WebBanHang",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\",
+      "BasePath": "_content/Backend_WebBanHang",
+      "RelativePath": "uploads/4e71bd83-2b2e-43f7-b458-3c80e4e78d98#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "02fmmzhcph",
+      "Integrity": "uEcgavE+3hYUcLtQP/p/36EJYdQQOzvX23KgL/JU8Vg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\4e71bd83-2b2e-43f7-b458-3c80e4e78d98.png"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\6279bead-c69b-4654-9059-a40f6c85e0a1.png",
+      "SourceId": "Backend_WebBanHang",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\",
+      "BasePath": "_content/Backend_WebBanHang",
+      "RelativePath": "uploads/6279bead-c69b-4654-9059-a40f6c85e0a1#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "02fmmzhcph",
+      "Integrity": "uEcgavE+3hYUcLtQP/p/36EJYdQQOzvX23KgL/JU8Vg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\6279bead-c69b-4654-9059-a40f6c85e0a1.png"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\64afb0c7-d591-416e-a6ac-fb5a96186df2.jpg",
+      "SourceId": "Backend_WebBanHang",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\",
+      "BasePath": "_content/Backend_WebBanHang",
+      "RelativePath": "uploads/64afb0c7-d591-416e-a6ac-fb5a96186df2#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "x4p2j9fjlz",
+      "Integrity": "P60Fp5pGycuEgkriSkVf5Mj70iV8F7ozQS5C3EVDm70=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\64afb0c7-d591-416e-a6ac-fb5a96186df2.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\6d30a53a-8849-4199-99af-76dd27b51794.jpg",
+      "SourceId": "Backend_WebBanHang",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\",
+      "BasePath": "_content/Backend_WebBanHang",
+      "RelativePath": "uploads/6d30a53a-8849-4199-99af-76dd27b51794#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "s2irj74fzk",
+      "Integrity": "RANqSuL1nqNc186QQ2CDP459+LWogo5HP2rwWqSkCxY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\6d30a53a-8849-4199-99af-76dd27b51794.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\6e6862ec-8ef7-42cf-96f0-c851cb5e72b0.jpg",
+      "SourceId": "Backend_WebBanHang",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\",
+      "BasePath": "_content/Backend_WebBanHang",
+      "RelativePath": "uploads/6e6862ec-8ef7-42cf-96f0-c851cb5e72b0#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "737alhwmv6",
+      "Integrity": "nSSnqivMyHj0KrL5LyncMolGe+qfnfOVx4QqTOU2VdM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\6e6862ec-8ef7-42cf-96f0-c851cb5e72b0.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\730e8405-c61f-4282-a595-74261020c23e.jpg",
+      "SourceId": "Backend_WebBanHang",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\",
+      "BasePath": "_content/Backend_WebBanHang",
+      "RelativePath": "uploads/730e8405-c61f-4282-a595-74261020c23e#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "anqyc3oygz",
+      "Integrity": "ZjN2JPejNQ1wbvU2UoU+meZibvQG3iWLrktF0vDijOc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\730e8405-c61f-4282-a595-74261020c23e.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\7879d296-03dd-41c4-aee4-e54b8bde4b3a.jpg",
+      "SourceId": "Backend_WebBanHang",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\",
+      "BasePath": "_content/Backend_WebBanHang",
+      "RelativePath": "uploads/7879d296-03dd-41c4-aee4-e54b8bde4b3a#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "p2s1j7whq0",
+      "Integrity": "nwwfotwQHLnM8UtZ6yQOmzQv5FNIE12JtZOV4cO4EuY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\7879d296-03dd-41c4-aee4-e54b8bde4b3a.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\8027b393-c3fb-4f87-b934-7fa8cecfc0ae.png",
+      "SourceId": "Backend_WebBanHang",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\",
+      "BasePath": "_content/Backend_WebBanHang",
+      "RelativePath": "uploads/8027b393-c3fb-4f87-b934-7fa8cecfc0ae#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "n6rsf24p60",
+      "Integrity": "n6/wl6apsuIIcdmk6k1qmmgBpaPgHkYjEJajaI986eA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\8027b393-c3fb-4f87-b934-7fa8cecfc0ae.png"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\960f3683-3c3c-4fca-8460-4889af8e87ed.jpg",
+      "SourceId": "Backend_WebBanHang",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\",
+      "BasePath": "_content/Backend_WebBanHang",
+      "RelativePath": "uploads/960f3683-3c3c-4fca-8460-4889af8e87ed#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "p2s1j7whq0",
+      "Integrity": "nwwfotwQHLnM8UtZ6yQOmzQv5FNIE12JtZOV4cO4EuY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\960f3683-3c3c-4fca-8460-4889af8e87ed.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\9cc79dbf-a3df-4986-8145-e555debc2bf0.png",
+      "SourceId": "Backend_WebBanHang",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\",
+      "BasePath": "_content/Backend_WebBanHang",
+      "RelativePath": "uploads/9cc79dbf-a3df-4986-8145-e555debc2bf0#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "bekl0qaw1d",
+      "Integrity": "fV3Y2tq7N03HuFPXcr9PN6Im/eV/24J0WnaBIWglO9E=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\9cc79dbf-a3df-4986-8145-e555debc2bf0.png"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\a81b76fe-59e1-4e01-b85c-f55aad2b0d66.jpg",
+      "SourceId": "Backend_WebBanHang",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\",
+      "BasePath": "_content/Backend_WebBanHang",
+      "RelativePath": "uploads/a81b76fe-59e1-4e01-b85c-f55aad2b0d66#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "80ufk9h0qt",
+      "Integrity": "qK2ZUeVFOrEumcXweqK9ll9DKzUXNeVM4iE3VzhxviQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\a81b76fe-59e1-4e01-b85c-f55aad2b0d66.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\c75410bf-574d-4d4b-bb44-f628e3e98587.png",
+      "SourceId": "Backend_WebBanHang",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\",
+      "BasePath": "_content/Backend_WebBanHang",
+      "RelativePath": "uploads/c75410bf-574d-4d4b-bb44-f628e3e98587#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "bekl0qaw1d",
+      "Integrity": "fV3Y2tq7N03HuFPXcr9PN6Im/eV/24J0WnaBIWglO9E=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\c75410bf-574d-4d4b-bb44-f628e3e98587.png"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\cac61641-6e40-4635-9a40-1f838f75775e.jpg",
+      "SourceId": "Backend_WebBanHang",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\",
+      "BasePath": "_content/Backend_WebBanHang",
+      "RelativePath": "uploads/cac61641-6e40-4635-9a40-1f838f75775e#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "h52bxd28nv",
+      "Integrity": "W+vsJ4J3kgqjkzuqISs3hV4lmT9182qFTKW/it0E9LQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\cac61641-6e40-4635-9a40-1f838f75775e.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\cc1a9fba-e261-4860-89be-a8c536ceecb1.jpg",
+      "SourceId": "Backend_WebBanHang",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\",
+      "BasePath": "_content/Backend_WebBanHang",
+      "RelativePath": "uploads/cc1a9fba-e261-4860-89be-a8c536ceecb1#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "3vgj90tm0b",
+      "Integrity": "H9WeJ4huSfVIakeByxezq/FL1prQIWcIpUNG3yJkb8o=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\cc1a9fba-e261-4860-89be-a8c536ceecb1.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\cf1ac682-13de-4979-ae07-1f5bc0262712.jpg",
+      "SourceId": "Backend_WebBanHang",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\",
+      "BasePath": "_content/Backend_WebBanHang",
+      "RelativePath": "uploads/cf1ac682-13de-4979-ae07-1f5bc0262712#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "t5xy5mvabe",
+      "Integrity": "n3boFcEIhDDqiWNmKM3u3in0CYXcJvVBfM6GRMkNsFY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\cf1ac682-13de-4979-ae07-1f5bc0262712.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\d0334884-4d7c-4b7e-94ae-806898aaac33.jpg",
+      "SourceId": "Backend_WebBanHang",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\",
+      "BasePath": "_content/Backend_WebBanHang",
+      "RelativePath": "uploads/d0334884-4d7c-4b7e-94ae-806898aaac33#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "2h9r7s23sb",
+      "Integrity": "SmAel/kjaGiPZmxiZC51xTiybYHLRXqc8xk9ifYNiIs=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\d0334884-4d7c-4b7e-94ae-806898aaac33.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\d45c66af-e8d9-41cd-9058-e9f9d9e9b27f.jpg",
+      "SourceId": "Backend_WebBanHang",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\",
+      "BasePath": "_content/Backend_WebBanHang",
+      "RelativePath": "uploads/d45c66af-e8d9-41cd-9058-e9f9d9e9b27f#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "bgkf4c8ope",
+      "Integrity": "tTaPNqeldGPTpVhS1Fla6LtBhseM3pcAeSvfpYKSmEw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\d45c66af-e8d9-41cd-9058-e9f9d9e9b27f.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\d4958909-eb4e-4d66-84e5-452334c77c3a.jpg",
+      "SourceId": "Backend_WebBanHang",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\",
+      "BasePath": "_content/Backend_WebBanHang",
+      "RelativePath": "uploads/d4958909-eb4e-4d66-84e5-452334c77c3a#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "hg5gxdguq5",
+      "Integrity": "X+txQteGhE/6mi6G19aRwqHd+hM+8y+T9rbk8CoZcx4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\d4958909-eb4e-4d66-84e5-452334c77c3a.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\e1592f57-3fa8-49b4-ba00-42e084abb9d8.jpg",
+      "SourceId": "Backend_WebBanHang",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\",
+      "BasePath": "_content/Backend_WebBanHang",
+      "RelativePath": "uploads/e1592f57-3fa8-49b4-ba00-42e084abb9d8#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "occqsyk8t8",
+      "Integrity": "CGVGQaub1xMVrKBngDnkH0m56XD+Ce88rBFXfsvPpeo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\e1592f57-3fa8-49b4-ba00-42e084abb9d8.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\e7016e72-1055-47d3-ae36-0c9b4582e5d4.jpg",
+      "SourceId": "Backend_WebBanHang",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\",
+      "BasePath": "_content/Backend_WebBanHang",
+      "RelativePath": "uploads/e7016e72-1055-47d3-ae36-0c9b4582e5d4#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "p5rcr0zlfz",
+      "Integrity": "g4C9WkbFHTqJt6F1bD+ZSZisnH2I77/l6S03F9IN764=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\e7016e72-1055-47d3-ae36-0c9b4582e5d4.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\f743d8f2-c7cf-499d-8d8f-d1fbbacd2bdf.jpg",
+      "SourceId": "Backend_WebBanHang",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\",
+      "BasePath": "_content/Backend_WebBanHang",
+      "RelativePath": "uploads/f743d8f2-c7cf-499d-8d8f-d1fbbacd2bdf#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "g3cg0whi8x",
+      "Integrity": "PLHs28CsWfVy6x0Uaxd0HqD6vEMpCjE/8Vl8NONXJnI=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\f743d8f2-c7cf-499d-8d8f-d1fbbacd2bdf.jpg"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "uploads/015ab087-7fa9-4b0b-a6a2-0241f7a0674b.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\015ab087-7fa9-4b0b-a6a2-0241f7a0674b.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "41927"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"qgfu23Aji4Ea3km3ieF5W0TsqnIXJkJx3R4Gg53T9eg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 23:00:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-qgfu23Aji4Ea3km3ieF5W0TsqnIXJkJx3R4Gg53T9eg="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/015ab087-7fa9-4b0b-a6a2-0241f7a0674b.m5q9rkh1w8.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\015ab087-7fa9-4b0b-a6a2-0241f7a0674b.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "41927"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"qgfu23Aji4Ea3km3ieF5W0TsqnIXJkJx3R4Gg53T9eg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 23:00:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "m5q9rkh1w8"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/015ab087-7fa9-4b0b-a6a2-0241f7a0674b.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-qgfu23Aji4Ea3km3ieF5W0TsqnIXJkJx3R4Gg53T9eg="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/0b553b43-4b2b-4e02-baf2-3a7a670468be.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\0b553b43-4b2b-4e02-baf2-3a7a670468be.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "243774"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"nwwfotwQHLnM8UtZ6yQOmzQv5FNIE12JtZOV4cO4EuY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-nwwfotwQHLnM8UtZ6yQOmzQv5FNIE12JtZOV4cO4EuY="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/0b553b43-4b2b-4e02-baf2-3a7a670468be.p2s1j7whq0.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\0b553b43-4b2b-4e02-baf2-3a7a670468be.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "243774"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"nwwfotwQHLnM8UtZ6yQOmzQv5FNIE12JtZOV4cO4EuY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "p2s1j7whq0"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/0b553b43-4b2b-4e02-baf2-3a7a670468be.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-nwwfotwQHLnM8UtZ6yQOmzQv5FNIE12JtZOV4cO4EuY="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/1a7f5751-5952-4fb9-87a2-360b3cf3bca8.3vgj90tm0b.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\1a7f5751-5952-4fb9-87a2-360b3cf3bca8.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "227484"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"H9WeJ4huSfVIakeByxezq/FL1prQIWcIpUNG3yJkb8o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "3vgj90tm0b"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/1a7f5751-5952-4fb9-87a2-360b3cf3bca8.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-H9WeJ4huSfVIakeByxezq/FL1prQIWcIpUNG3yJkb8o="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/1a7f5751-5952-4fb9-87a2-360b3cf3bca8.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\1a7f5751-5952-4fb9-87a2-360b3cf3bca8.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "227484"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"H9WeJ4huSfVIakeByxezq/FL1prQIWcIpUNG3yJkb8o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-H9WeJ4huSfVIakeByxezq/FL1prQIWcIpUNG3yJkb8o="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/1f76c211-dd7f-4996-96f9-e813e1237db8.8l2b6cmdlw.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\1f76c211-dd7f-4996-96f9-e813e1237db8.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "297930"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"JAjFpffq/7avPhFKA/dL5sF150/1VZa66E6OIRhj/7A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8l2b6cmdlw"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/1f76c211-dd7f-4996-96f9-e813e1237db8.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-JAjFpffq/7avPhFKA/dL5sF150/1VZa66E6OIRhj/7A="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/1f76c211-dd7f-4996-96f9-e813e1237db8.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\1f76c211-dd7f-4996-96f9-e813e1237db8.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "297930"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"JAjFpffq/7avPhFKA/dL5sF150/1VZa66E6OIRhj/7A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-JAjFpffq/7avPhFKA/dL5sF150/1VZa66E6OIRhj/7A="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/2db42555-1526-41ee-8252-9e0582f529fe.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\2db42555-1526-41ee-8252-9e0582f529fe.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "77028"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"iwSao7Lp4vNKahCrEnG5vy3AUUDZp7rPmWr9/nb0RpU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-iwSao7Lp4vNKahCrEnG5vy3AUUDZp7rPmWr9/nb0RpU="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/2db42555-1526-41ee-8252-9e0582f529fe.jyz69gqmfh.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\2db42555-1526-41ee-8252-9e0582f529fe.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "77028"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"iwSao7Lp4vNKahCrEnG5vy3AUUDZp7rPmWr9/nb0RpU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "jyz69gqmfh"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/2db42555-1526-41ee-8252-9e0582f529fe.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-iwSao7Lp4vNKahCrEnG5vy3AUUDZp7rPmWr9/nb0RpU="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/4731c614-3927-4b1b-87bb-9e0e9c75ab45.afw1rpa0at.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\4731c614-3927-4b1b-87bb-9e0e9c75ab45.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "338381"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZvmjmLmBDyt5z6AXkKzuvB84uvnVDquzOduWkR+wi7E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "afw1rpa0at"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/4731c614-3927-4b1b-87bb-9e0e9c75ab45.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZvmjmLmBDyt5z6AXkKzuvB84uvnVDquzOduWkR+wi7E="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/4731c614-3927-4b1b-87bb-9e0e9c75ab45.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\4731c614-3927-4b1b-87bb-9e0e9c75ab45.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "338381"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZvmjmLmBDyt5z6AXkKzuvB84uvnVDquzOduWkR+wi7E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZvmjmLmBDyt5z6AXkKzuvB84uvnVDquzOduWkR+wi7E="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/4e71bd83-2b2e-43f7-b458-3c80e4e78d98.02fmmzhcph.png",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\4e71bd83-2b2e-43f7-b458-3c80e4e78d98.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "158367"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uEcgavE+3hYUcLtQP/p/36EJYdQQOzvX23KgL/JU8Vg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:59:31 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "02fmmzhcph"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/4e71bd83-2b2e-43f7-b458-3c80e4e78d98.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-uEcgavE+3hYUcLtQP/p/36EJYdQQOzvX23KgL/JU8Vg="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/4e71bd83-2b2e-43f7-b458-3c80e4e78d98.png",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\4e71bd83-2b2e-43f7-b458-3c80e4e78d98.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "158367"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uEcgavE+3hYUcLtQP/p/36EJYdQQOzvX23KgL/JU8Vg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:59:31 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-uEcgavE+3hYUcLtQP/p/36EJYdQQOzvX23KgL/JU8Vg="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/6279bead-c69b-4654-9059-a40f6c85e0a1.02fmmzhcph.png",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\6279bead-c69b-4654-9059-a40f6c85e0a1.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "158367"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uEcgavE+3hYUcLtQP/p/36EJYdQQOzvX23KgL/JU8Vg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:55:13 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "02fmmzhcph"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/6279bead-c69b-4654-9059-a40f6c85e0a1.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-uEcgavE+3hYUcLtQP/p/36EJYdQQOzvX23KgL/JU8Vg="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/6279bead-c69b-4654-9059-a40f6c85e0a1.png",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\6279bead-c69b-4654-9059-a40f6c85e0a1.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "158367"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uEcgavE+3hYUcLtQP/p/36EJYdQQOzvX23KgL/JU8Vg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:55:13 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-uEcgavE+3hYUcLtQP/p/36EJYdQQOzvX23KgL/JU8Vg="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/64afb0c7-d591-416e-a6ac-fb5a96186df2.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\64afb0c7-d591-416e-a6ac-fb5a96186df2.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "241867"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"P60Fp5pGycuEgkriSkVf5Mj70iV8F7ozQS5C3EVDm70=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-P60Fp5pGycuEgkriSkVf5Mj70iV8F7ozQS5C3EVDm70="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/64afb0c7-d591-416e-a6ac-fb5a96186df2.x4p2j9fjlz.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\64afb0c7-d591-416e-a6ac-fb5a96186df2.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "241867"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"P60Fp5pGycuEgkriSkVf5Mj70iV8F7ozQS5C3EVDm70=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "x4p2j9fjlz"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/64afb0c7-d591-416e-a6ac-fb5a96186df2.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-P60Fp5pGycuEgkriSkVf5Mj70iV8F7ozQS5C3EVDm70="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/6d30a53a-8849-4199-99af-76dd27b51794.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\6d30a53a-8849-4199-99af-76dd27b51794.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "197545"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"RANqSuL1nqNc186QQ2CDP459+LWogo5HP2rwWqSkCxY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:55:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-RANqSuL1nqNc186QQ2CDP459+LWogo5HP2rwWqSkCxY="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/6d30a53a-8849-4199-99af-76dd27b51794.s2irj74fzk.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\6d30a53a-8849-4199-99af-76dd27b51794.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "197545"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"RANqSuL1nqNc186QQ2CDP459+LWogo5HP2rwWqSkCxY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:55:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "s2irj74fzk"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/6d30a53a-8849-4199-99af-76dd27b51794.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-RANqSuL1nqNc186QQ2CDP459+LWogo5HP2rwWqSkCxY="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/6e6862ec-8ef7-42cf-96f0-c851cb5e72b0.737alhwmv6.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\6e6862ec-8ef7-42cf-96f0-c851cb5e72b0.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "249569"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"nSSnqivMyHj0KrL5LyncMolGe+qfnfOVx4QqTOU2VdM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "737alhwmv6"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/6e6862ec-8ef7-42cf-96f0-c851cb5e72b0.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-nSSnqivMyHj0KrL5LyncMolGe+qfnfOVx4QqTOU2VdM="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/6e6862ec-8ef7-42cf-96f0-c851cb5e72b0.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\6e6862ec-8ef7-42cf-96f0-c851cb5e72b0.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "249569"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"nSSnqivMyHj0KrL5LyncMolGe+qfnfOVx4QqTOU2VdM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-nSSnqivMyHj0KrL5LyncMolGe+qfnfOVx4QqTOU2VdM="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/730e8405-c61f-4282-a595-74261020c23e.anqyc3oygz.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\730e8405-c61f-4282-a595-74261020c23e.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "38002"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZjN2JPejNQ1wbvU2UoU+meZibvQG3iWLrktF0vDijOc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 23:00:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "anqyc3oygz"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/730e8405-c61f-4282-a595-74261020c23e.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZjN2JPejNQ1wbvU2UoU+meZibvQG3iWLrktF0vDijOc="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/730e8405-c61f-4282-a595-74261020c23e.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\730e8405-c61f-4282-a595-74261020c23e.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "38002"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZjN2JPejNQ1wbvU2UoU+meZibvQG3iWLrktF0vDijOc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 23:00:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZjN2JPejNQ1wbvU2UoU+meZibvQG3iWLrktF0vDijOc="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/7879d296-03dd-41c4-aee4-e54b8bde4b3a.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\7879d296-03dd-41c4-aee4-e54b8bde4b3a.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "243774"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"nwwfotwQHLnM8UtZ6yQOmzQv5FNIE12JtZOV4cO4EuY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-nwwfotwQHLnM8UtZ6yQOmzQv5FNIE12JtZOV4cO4EuY="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/7879d296-03dd-41c4-aee4-e54b8bde4b3a.p2s1j7whq0.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\7879d296-03dd-41c4-aee4-e54b8bde4b3a.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "243774"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"nwwfotwQHLnM8UtZ6yQOmzQv5FNIE12JtZOV4cO4EuY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "p2s1j7whq0"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/7879d296-03dd-41c4-aee4-e54b8bde4b3a.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-nwwfotwQHLnM8UtZ6yQOmzQv5FNIE12JtZOV4cO4EuY="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/8027b393-c3fb-4f87-b934-7fa8cecfc0ae.n6rsf24p60.png",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\8027b393-c3fb-4f87-b934-7fa8cecfc0ae.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "231606"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"n6/wl6apsuIIcdmk6k1qmmgBpaPgHkYjEJajaI986eA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "n6rsf24p60"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/8027b393-c3fb-4f87-b934-7fa8cecfc0ae.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-n6/wl6apsuIIcdmk6k1qmmgBpaPgHkYjEJajaI986eA="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/8027b393-c3fb-4f87-b934-7fa8cecfc0ae.png",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\8027b393-c3fb-4f87-b934-7fa8cecfc0ae.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "231606"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"n6/wl6apsuIIcdmk6k1qmmgBpaPgHkYjEJajaI986eA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-n6/wl6apsuIIcdmk6k1qmmgBpaPgHkYjEJajaI986eA="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/960f3683-3c3c-4fca-8460-4889af8e87ed.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\960f3683-3c3c-4fca-8460-4889af8e87ed.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "243774"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"nwwfotwQHLnM8UtZ6yQOmzQv5FNIE12JtZOV4cO4EuY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-nwwfotwQHLnM8UtZ6yQOmzQv5FNIE12JtZOV4cO4EuY="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/960f3683-3c3c-4fca-8460-4889af8e87ed.p2s1j7whq0.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\960f3683-3c3c-4fca-8460-4889af8e87ed.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "243774"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"nwwfotwQHLnM8UtZ6yQOmzQv5FNIE12JtZOV4cO4EuY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "p2s1j7whq0"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/960f3683-3c3c-4fca-8460-4889af8e87ed.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-nwwfotwQHLnM8UtZ6yQOmzQv5FNIE12JtZOV4cO4EuY="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/9cc79dbf-a3df-4986-8145-e555debc2bf0.bekl0qaw1d.png",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\9cc79dbf-a3df-4986-8145-e555debc2bf0.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "451948"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fV3Y2tq7N03HuFPXcr9PN6Im/eV/24J0WnaBIWglO9E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bekl0qaw1d"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/9cc79dbf-a3df-4986-8145-e555debc2bf0.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-fV3Y2tq7N03HuFPXcr9PN6Im/eV/24J0WnaBIWglO9E="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/9cc79dbf-a3df-4986-8145-e555debc2bf0.png",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\9cc79dbf-a3df-4986-8145-e555debc2bf0.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "451948"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fV3Y2tq7N03HuFPXcr9PN6Im/eV/24J0WnaBIWglO9E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-fV3Y2tq7N03HuFPXcr9PN6Im/eV/24J0WnaBIWglO9E="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/a81b76fe-59e1-4e01-b85c-f55aad2b0d66.80ufk9h0qt.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\a81b76fe-59e1-4e01-b85c-f55aad2b0d66.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "244891"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"qK2ZUeVFOrEumcXweqK9ll9DKzUXNeVM4iE3VzhxviQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "80ufk9h0qt"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/a81b76fe-59e1-4e01-b85c-f55aad2b0d66.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-qK2ZUeVFOrEumcXweqK9ll9DKzUXNeVM4iE3VzhxviQ="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/a81b76fe-59e1-4e01-b85c-f55aad2b0d66.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\a81b76fe-59e1-4e01-b85c-f55aad2b0d66.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "244891"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"qK2ZUeVFOrEumcXweqK9ll9DKzUXNeVM4iE3VzhxviQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-qK2ZUeVFOrEumcXweqK9ll9DKzUXNeVM4iE3VzhxviQ="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/c75410bf-574d-4d4b-bb44-f628e3e98587.bekl0qaw1d.png",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\c75410bf-574d-4d4b-bb44-f628e3e98587.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "451948"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fV3Y2tq7N03HuFPXcr9PN6Im/eV/24J0WnaBIWglO9E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bekl0qaw1d"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/c75410bf-574d-4d4b-bb44-f628e3e98587.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-fV3Y2tq7N03HuFPXcr9PN6Im/eV/24J0WnaBIWglO9E="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/c75410bf-574d-4d4b-bb44-f628e3e98587.png",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\c75410bf-574d-4d4b-bb44-f628e3e98587.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "451948"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fV3Y2tq7N03HuFPXcr9PN6Im/eV/24J0WnaBIWglO9E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-fV3Y2tq7N03HuFPXcr9PN6Im/eV/24J0WnaBIWglO9E="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/cac61641-6e40-4635-9a40-1f838f75775e.h52bxd28nv.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\cac61641-6e40-4635-9a40-1f838f75775e.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "231057"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"W+vsJ4J3kgqjkzuqISs3hV4lmT9182qFTKW/it0E9LQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "h52bxd28nv"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/cac61641-6e40-4635-9a40-1f838f75775e.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-W+vsJ4J3kgqjkzuqISs3hV4lmT9182qFTKW/it0E9LQ="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/cac61641-6e40-4635-9a40-1f838f75775e.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\cac61641-6e40-4635-9a40-1f838f75775e.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "231057"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"W+vsJ4J3kgqjkzuqISs3hV4lmT9182qFTKW/it0E9LQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-W+vsJ4J3kgqjkzuqISs3hV4lmT9182qFTKW/it0E9LQ="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/cc1a9fba-e261-4860-89be-a8c536ceecb1.3vgj90tm0b.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\cc1a9fba-e261-4860-89be-a8c536ceecb1.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "227484"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"H9WeJ4huSfVIakeByxezq/FL1prQIWcIpUNG3yJkb8o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "3vgj90tm0b"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/cc1a9fba-e261-4860-89be-a8c536ceecb1.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-H9WeJ4huSfVIakeByxezq/FL1prQIWcIpUNG3yJkb8o="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/cc1a9fba-e261-4860-89be-a8c536ceecb1.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\cc1a9fba-e261-4860-89be-a8c536ceecb1.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "227484"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"H9WeJ4huSfVIakeByxezq/FL1prQIWcIpUNG3yJkb8o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-H9WeJ4huSfVIakeByxezq/FL1prQIWcIpUNG3yJkb8o="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/cf1ac682-13de-4979-ae07-1f5bc0262712.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\cf1ac682-13de-4979-ae07-1f5bc0262712.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "250510"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"n3boFcEIhDDqiWNmKM3u3in0CYXcJvVBfM6GRMkNsFY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-n3boFcEIhDDqiWNmKM3u3in0CYXcJvVBfM6GRMkNsFY="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/cf1ac682-13de-4979-ae07-1f5bc0262712.t5xy5mvabe.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\cf1ac682-13de-4979-ae07-1f5bc0262712.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "250510"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"n3boFcEIhDDqiWNmKM3u3in0CYXcJvVBfM6GRMkNsFY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "t5xy5mvabe"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/cf1ac682-13de-4979-ae07-1f5bc0262712.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-n3boFcEIhDDqiWNmKM3u3in0CYXcJvVBfM6GRMkNsFY="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/d0334884-4d7c-4b7e-94ae-806898aaac33.2h9r7s23sb.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\d0334884-4d7c-4b7e-94ae-806898aaac33.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "240409"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SmAel/kjaGiPZmxiZC51xTiybYHLRXqc8xk9ifYNiIs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2h9r7s23sb"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/d0334884-4d7c-4b7e-94ae-806898aaac33.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-SmAel/kjaGiPZmxiZC51xTiybYHLRXqc8xk9ifYNiIs="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/d0334884-4d7c-4b7e-94ae-806898aaac33.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\d0334884-4d7c-4b7e-94ae-806898aaac33.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "240409"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SmAel/kjaGiPZmxiZC51xTiybYHLRXqc8xk9ifYNiIs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-SmAel/kjaGiPZmxiZC51xTiybYHLRXqc8xk9ifYNiIs="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/d45c66af-e8d9-41cd-9058-e9f9d9e9b27f.bgkf4c8ope.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\d45c66af-e8d9-41cd-9058-e9f9d9e9b27f.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "283775"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tTaPNqeldGPTpVhS1Fla6LtBhseM3pcAeSvfpYKSmEw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bgkf4c8ope"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/d45c66af-e8d9-41cd-9058-e9f9d9e9b27f.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-tTaPNqeldGPTpVhS1Fla6LtBhseM3pcAeSvfpYKSmEw="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/d45c66af-e8d9-41cd-9058-e9f9d9e9b27f.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\d45c66af-e8d9-41cd-9058-e9f9d9e9b27f.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "283775"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tTaPNqeldGPTpVhS1Fla6LtBhseM3pcAeSvfpYKSmEw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-tTaPNqeldGPTpVhS1Fla6LtBhseM3pcAeSvfpYKSmEw="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/d4958909-eb4e-4d66-84e5-452334c77c3a.hg5gxdguq5.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\d4958909-eb4e-4d66-84e5-452334c77c3a.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "381087"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"X+txQteGhE/6mi6G19aRwqHd+hM+8y+T9rbk8CoZcx4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "hg5gxdguq5"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/d4958909-eb4e-4d66-84e5-452334c77c3a.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-X+txQteGhE/6mi6G19aRwqHd+hM+8y+T9rbk8CoZcx4="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/d4958909-eb4e-4d66-84e5-452334c77c3a.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\d4958909-eb4e-4d66-84e5-452334c77c3a.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "381087"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"X+txQteGhE/6mi6G19aRwqHd+hM+8y+T9rbk8CoZcx4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-X+txQteGhE/6mi6G19aRwqHd+hM+8y+T9rbk8CoZcx4="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/e1592f57-3fa8-49b4-ba00-42e084abb9d8.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\e1592f57-3fa8-49b4-ba00-42e084abb9d8.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "247457"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CGVGQaub1xMVrKBngDnkH0m56XD+Ce88rBFXfsvPpeo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-CGVGQaub1xMVrKBngDnkH0m56XD+Ce88rBFXfsvPpeo="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/e1592f57-3fa8-49b4-ba00-42e084abb9d8.occqsyk8t8.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\e1592f57-3fa8-49b4-ba00-42e084abb9d8.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "247457"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CGVGQaub1xMVrKBngDnkH0m56XD+Ce88rBFXfsvPpeo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "occqsyk8t8"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/e1592f57-3fa8-49b4-ba00-42e084abb9d8.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-CGVGQaub1xMVrKBngDnkH0m56XD+Ce88rBFXfsvPpeo="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/e7016e72-1055-47d3-ae36-0c9b4582e5d4.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\e7016e72-1055-47d3-ae36-0c9b4582e5d4.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "310948"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"g4C9WkbFHTqJt6F1bD+ZSZisnH2I77/l6S03F9IN764=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-g4C9WkbFHTqJt6F1bD+ZSZisnH2I77/l6S03F9IN764="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/e7016e72-1055-47d3-ae36-0c9b4582e5d4.p5rcr0zlfz.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\e7016e72-1055-47d3-ae36-0c9b4582e5d4.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "310948"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"g4C9WkbFHTqJt6F1bD+ZSZisnH2I77/l6S03F9IN764=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "p5rcr0zlfz"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/e7016e72-1055-47d3-ae36-0c9b4582e5d4.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-g4C9WkbFHTqJt6F1bD+ZSZisnH2I77/l6S03F9IN764="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/f743d8f2-c7cf-499d-8d8f-d1fbbacd2bdf.g3cg0whi8x.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\f743d8f2-c7cf-499d-8d8f-d1fbbacd2bdf.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "306456"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"PLHs28CsWfVy6x0Uaxd0HqD6vEMpCjE/8Vl8NONXJnI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "g3cg0whi8x"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/f743d8f2-c7cf-499d-8d8f-d1fbbacd2bdf.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-PLHs28CsWfVy6x0Uaxd0HqD6vEMpCjE/8Vl8NONXJnI="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/f743d8f2-c7cf-499d-8d8f-d1fbbacd2bdf.jpg",
+      "AssetFile": "C:\\Users\\Admin\\OneDrive\\Documents\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\wwwroot\\uploads\\f743d8f2-c7cf-499d-8d8f-d1fbbacd2bdf.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "306456"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"PLHs28CsWfVy6x0Uaxd0HqD6vEMpCjE/8Vl8NONXJnI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 22 Dec 2025 22:42:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-PLHs28CsWfVy6x0Uaxd0HqD6vEMpCjE/8Vl8NONXJnI="
+        }
+      ]
+    }
+  ]
+}

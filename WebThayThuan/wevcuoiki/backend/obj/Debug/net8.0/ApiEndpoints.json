@@ -617,6 +617,22 @@
   },
   {
     "ContainingType": "Backend_WebBanHang.Controllers.AuthController",
+    "Method": "UpdateMe",
+    "RelativePath": "api/Auth/me",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Backend_WebBanHang.Controllers.AuthController\u002BUpdateMeRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend_WebBanHang.Controllers.AuthController",
     "Method": "Register",
     "RelativePath": "api/Auth/register",
     "HttpMethod": "POST",
@@ -830,6 +846,32 @@
     "Parameters": [
       {
         "Name": "slug",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend_WebBanHang.Controllers.DiscountCodesController",
+    "Method": "GetAvailableDiscountCodes",
+    "RelativePath": "api/DiscountCodes/available",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend_WebBanHang.Controllers.DiscountCodesController",
+    "Method": "ValidateDiscountCode",
+    "RelativePath": "api/DiscountCodes/validate/{code}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "code",
         "Type": "System.String",
         "IsRequired": true
       }

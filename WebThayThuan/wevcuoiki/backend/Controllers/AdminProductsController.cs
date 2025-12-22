@@ -187,7 +187,7 @@ namespace Backend_WebBanHang.Controllers
             // Add variants if provided
             if (request.Variants != null && request.Variants.Count > 0)
             {
-                var variants = request.Variants.Select(v => new ProductVariant
+                var variants = request.Variants.Select((v, index) => new ProductVariant
                 {
                     IdProducts = product.IdProducts,
                     Color = v.Color,
@@ -195,7 +195,9 @@ namespace Backend_WebBanHang.Controllers
                     StockQuantity = v.StockQuantity,
                     Price = v.Price,
                     SalePrice = v.SalePrice,
-                    Sku = v.Sku,
+                    Sku = string.IsNullOrWhiteSpace(v.Sku) 
+                        ? $"SKU-{product.IdProducts}-{index}-{DateTime.Now.Ticks}" 
+                        : v.Sku,
                     Status = v.Status ?? "active"
                 }).ToList();
 
@@ -251,12 +253,29 @@ namespace Backend_WebBanHang.Controllers
             // Update variants if provided
             if (request.Variants != null)
             {
-                var oldVariants = _context.ProductVariants.Where(pv => pv.IdProducts == id);
-                _context.ProductVariants.RemoveRange(oldVariants);
+                // Lấy danh sách variant IDs cũ
+                var oldVariantIds = await _context.ProductVariants
+                    .Where(pv => pv.IdProducts == id)
+                    .Select(pv => pv.IdProductVariants)
+                    .ToListAsync();
+
+                if (oldVariantIds.Any())
+                {
+                    // Xóa cart_items liên quan đến variants cũ trước
+                    var relatedCartItems = _context.CartItems
+                        .Where(ci => oldVariantIds.Contains(ci.IdProductVariants));
+                    _context.CartItems.RemoveRange(relatedCartItems);
+
+                    // Xóa variants cũ
+                    var oldVariants = _context.ProductVariants.Where(pv => pv.IdProducts == id);
+                    _context.ProductVariants.RemoveRange(oldVariants);
+                    
+                    await _context.SaveChangesAsync();
+                }
 
                 if (request.Variants.Count > 0)
                 {
-                    var newVariants = request.Variants.Select(v => new ProductVariant
+                    var newVariants = request.Variants.Select((v, index) => new ProductVariant
                     {
                         IdProducts = id,
                         Color = v.Color,
@@ -264,7 +283,9 @@ namespace Backend_WebBanHang.Controllers
                         StockQuantity = v.StockQuantity,
                         Price = v.Price,
                         SalePrice = v.SalePrice,
-                        Sku = v.Sku,
+                        Sku = string.IsNullOrWhiteSpace(v.Sku) 
+                            ? $"SKU-{id}-{index}-{DateTime.Now.Ticks}" 
+                            : v.Sku,
                         Status = v.Status ?? "active"
                     }).ToList();
 

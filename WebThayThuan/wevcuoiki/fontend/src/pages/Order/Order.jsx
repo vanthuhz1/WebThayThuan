@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { getCart } from "../../services/CartService";
 import { isLoggedIn, getCurrentUser } from "../../services/AuthService";
 import { getProvinces, getDistricts, getWards } from "../../services/AddressService";
-import { getAvailableDiscountCodes, validateDiscountCode } from "../../services/DiscountCodeService";
+import { validateDiscountCode } from "../../services/DiscountCodeService";
 import { createOrder } from "../../services/OrderService";
 
 const fmtVND = (v) =>
@@ -45,12 +45,10 @@ const Order = () => {
   const [loadingAddress, setLoadingAddress] = useState(false);
 
   // ===== DISCOUNT =====
-  const [availableDiscountCodes, setAvailableDiscountCodes] = useState([]);
-  const [loadingDiscountCodes, setLoadingDiscountCodes] = useState(false);
   const [discountInfo, setDiscountInfo] = useState(null);
   const [discountError, setDiscountError] = useState(null);
   const [checkingDiscount, setCheckingDiscount] = useState(false);
-  const [showDiscountModal, setShowDiscountModal] = useState(false);
+  const [discountCodeInput, setDiscountCodeInput] = useState("");
 
   // ================= INIT =================
   useEffect(() => {
@@ -76,7 +74,6 @@ const Order = () => {
 
     loadCart();
     loadProvinces();
-    loadDiscountCodes();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -119,17 +116,6 @@ const Order = () => {
       setWards(await getWards(districtCode));
     } finally {
       setLoadingAddress(false);
-    }
-  };
-
-  const loadDiscountCodes = async () => {
-    try {
-      setLoadingDiscountCodes(true);
-      setAvailableDiscountCodes(await getAvailableDiscountCodes());
-    } catch {
-      setAvailableDiscountCodes([]);
-    } finally {
-      setLoadingDiscountCodes(false);
     }
   };
 
@@ -208,11 +194,10 @@ const Order = () => {
   };
 
   // ================= DISCOUNT HANDLER =================
-  const handleSelectDiscountCode = async (code) => {
+  const handleApplyDiscountCode = async () => {
+    const code = discountCodeInput.trim();
     if (!code) {
-      setDiscountInfo(null);
-      setFormData(prev => ({ ...prev, discountCode: "" }));
-      setDiscountError(null);
+      setDiscountError("Vui lòng nhập mã giảm giá");
       return;
     }
 
@@ -220,38 +205,20 @@ const Order = () => {
       setCheckingDiscount(true);
       setDiscountError(null);
       
-      const selectedCode = availableDiscountCodes.find(c => c.code === code);
+      const validateResult = await validateDiscountCode(code);
       
-      if (selectedCode) {
-        try {
-          const validateResult = await validateDiscountCode(code);
-          
-          if (validateResult.isValid) {
-            setDiscountInfo({
-              idDiscountCodes: selectedCode.idDiscountCodes,
-              code: selectedCode.code,
-              discountType: selectedCode.discountType,
-              discountValue: selectedCode.discountValue,
-              minOrderAmount: selectedCode.minOrderAmount,
-            });
-            setFormData(prev => ({ ...prev, discountCode: code }));
-            setDiscountError(null);
-          } else {
-            throw new Error(validateResult.message || "Mã giảm giá không hợp lệ");
-          }
-        } catch (validateErr) {
-          setDiscountInfo({
-            idDiscountCodes: selectedCode.idDiscountCodes,
-            code: selectedCode.code,
-            discountType: selectedCode.discountType,
-            discountValue: selectedCode.discountValue,
-            minOrderAmount: selectedCode.minOrderAmount,
-          });
-          setFormData(prev => ({ ...prev, discountCode: code }));
-          setDiscountError(null);
-        }
+      if (validateResult.isValid) {
+        setDiscountInfo({
+          idDiscountCodes: validateResult.idDiscountCodes,
+          code: validateResult.code || code,
+          discountType: validateResult.discountType,
+          discountValue: validateResult.discountValue,
+          minOrderAmount: validateResult.minOrderAmount,
+        });
+        setFormData(prev => ({ ...prev, discountCode: code }));
+        setDiscountError(null);
       } else {
-        throw new Error("Mã giảm giá không tồn tại");
+        throw new Error(validateResult.message || "Mã giảm giá không hợp lệ");
       }
     } catch (err) {
       setDiscountError(err?.message || "Mã giảm giá không hợp lệ hoặc đã hết hạn");
@@ -260,6 +227,13 @@ const Order = () => {
     } finally {
       setCheckingDiscount(false);
     }
+  };
+
+  const handleRemoveDiscountCode = () => {
+    setDiscountInfo(null);
+    setDiscountCodeInput("");
+    setFormData(prev => ({ ...prev, discountCode: "" }));
+    setDiscountError(null);
   };
 
   // ================= UTILS =================
@@ -717,36 +691,51 @@ const Order = () => {
 
             {/* Mã giảm giá */}
             <div className="mb-4 border-b border-neutral-200 pb-4">
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-neutral-600">Mã giảm giá</span>
-                {discountInfo ? (
-                  <div className="flex items-center gap-2">
+              <label className="mb-2 block text-sm font-semibold text-neutral-700">
+                Mã giảm giá
+              </label>
+              {discountInfo ? (
+                <div className="flex items-center justify-between rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2">
+                  <div>
                     <span className="text-sm font-semibold text-emerald-600">
                       {discountInfo.code}
                     </span>
-                    <button
-                      type="button"
-                      onClick={() => handleSelectDiscountCode(null)}
-                      className="text-xs text-red-500 hover:text-red-600"
-                    >
-                      Xóa
-                    </button>
+                    <span className="ml-2 text-xs text-emerald-600">
+                      {discountInfo.discountType === "percentage" 
+                        ? `(-${discountInfo.discountValue}%)`
+                        : `(-${fmtVND(discountInfo.discountValue)})`}
+                    </span>
                   </div>
-                ) : (
                   <button
                     type="button"
-                    onClick={() => setShowDiscountModal(true)}
-                    className="text-sm font-semibold text-neutral-900 hover:text-neutral-600"
+                    onClick={handleRemoveDiscountCode}
+                    className="text-xs font-semibold text-red-500 hover:text-red-600"
                   >
-                    Chọn mã
+                    Xóa
                   </button>
-                )}
-              </div>
-              {discountInfo && (
-                <div className="mt-1 text-xs text-emerald-600">
-                  {discountInfo.discountType === "percentage" 
-                    ? `Giảm ${discountInfo.discountValue}%`
-                    : `Giảm ${fmtVND(discountInfo.discountValue)}`}
+                </div>
+              ) : (
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    value={discountCodeInput}
+                    onChange={(e) => setDiscountCodeInput(e.target.value.toUpperCase())}
+                    placeholder="Nhập mã giảm giá"
+                    className="flex-1 rounded-lg border border-neutral-300 px-3 py-2 text-sm text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-1 focus:ring-neutral-900/10"
+                  />
+                  <button
+                    type="button"
+                    onClick={handleApplyDiscountCode}
+                    disabled={checkingDiscount}
+                    className="rounded-lg bg-black px-4 py-2 text-sm font-semibold text-white transition hover:opacity-90 disabled:cursor-not-allowed disabled:bg-neutral-400"
+                  >
+                    {checkingDiscount ? "..." : "Áp dụng"}
+                  </button>
+                </div>
+              )}
+              {discountError && (
+                <div className="mt-2 text-xs text-red-500">
+                  {discountError}
                 </div>
               )}
             </div>
@@ -976,111 +965,6 @@ const Order = () => {
         </div>
       )}
 
-      {/* Discount Code Modal */}
-      {showDiscountModal && (
-        <>
-          {/* Backdrop */}
-          <div
-            className="fixed inset-0 z-[9998] bg-black/50 backdrop-blur-sm"
-            onClick={() => setShowDiscountModal(false)}
-          />
-          
-          {/* Modal */}
-          <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
-            <div className="w-full max-w-md rounded-2xl border border-neutral-200 bg-white shadow-xl">
-              {/* Header */}
-              <div className="flex items-center justify-between border-b border-neutral-200 px-6 py-4">
-                <h2 className="text-lg font-bold text-neutral-900">
-                  Chọn mã giảm giá
-                </h2>
-                <button
-                  type="button"
-                  onClick={() => setShowDiscountModal(false)}
-                  className="grid h-8 w-8 place-items-center rounded-full text-neutral-500 hover:bg-neutral-100"
-                >
-                  ×
-                </button>
-              </div>
-
-              {/* Content */}
-              <div className="max-h-[60vh] overflow-y-auto px-6 py-4">
-                {loadingDiscountCodes ? (
-                  <div className="py-8 text-center text-sm text-neutral-500">
-                    Đang tải mã giảm giá...
-                  </div>
-                ) : availableDiscountCodes.length > 0 ? (
-                  <div className="space-y-3">
-                    {availableDiscountCodes.map((code) => {
-                      const isSelected = discountInfo?.code === code.code;
-                      
-                      return (
-                        <button
-                          key={code.idDiscountCodes}
-                          type="button"
-                          onClick={() => {
-                            handleSelectDiscountCode(code.code);
-                            setShowDiscountModal(false);
-                          }}
-                          className={`w-full rounded-xl border p-4 text-left transition ${
-                            isSelected
-                              ? "border-emerald-500 bg-emerald-50"
-                              : "border-neutral-200 bg-white hover:border-neutral-300 hover:bg-neutral-50"
-                          }`}
-                        >
-                          <div className="flex items-start justify-between gap-2">
-                            <div className="flex-1">
-                              <div className="flex items-center gap-2">
-                                <span className="text-base font-bold text-neutral-900">
-                                  {code.code}
-                                </span>
-                                {isSelected && (
-                                  <span className="text-xs font-semibold text-emerald-600">
-                                    ✓ Đã chọn
-                                  </span>
-                                )}
-                              </div>
-                              {code.description && (
-                                <div className="mt-1 text-sm text-neutral-600">
-                                  {code.description}
-                                </div>
-                              )}
-                              <div className="mt-2 text-sm font-semibold text-emerald-600">
-                                {code.discountType === "percentage"
-                                  ? `Giảm ${code.discountValue}%`
-                                  : `Giảm ${fmtVND(code.discountValue)}`}
-                                {code.minOrderAmount && code.minOrderAmount > 0 && (
-                                  <span className="ml-2 text-xs text-neutral-500">
-                                    (Đơn tối thiểu {fmtVND(code.minOrderAmount)})
-                                  </span>
-                                )}
-                              </div>
-                              {code.validTo && (
-                                <div className="mt-1 text-xs text-neutral-500">
-                                  HSD: {new Date(code.validTo).toLocaleDateString("vi-VN")}
-                                </div>
-                              )}
-                            </div>
-                          </div>
-                        </button>
-                      );
-                    })}
-                  </div>
-                ) : (
-                  <div className="py-8 text-center text-sm text-neutral-500">
-                    Hiện không có mã giảm giá nào
-                  </div>
-                )}
-
-                {discountError && (
-                  <div className="mt-4 rounded-xl border border-red-200 bg-red-50 px-4 py-2 text-sm text-red-700">
-                    {discountError}
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        </>
-      )}
     </div>
   );
 };
