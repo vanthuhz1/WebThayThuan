@@ -3,10 +3,12 @@ import { useEffect, useMemo, useState, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar as faStarRegular, faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons";
-import { faCartShopping, faEye, faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons";
-import { getProductDetailsBySlugOrId } from "../../services/ProductService";
+import { faCartShopping, faEye, faHeart as faHeartSolid, faStar as faStarSolid } from "@fortawesome/free-solid-svg-icons";
+import { getProductDetailsBySlugOrId, getRelatedProducts } from "../../services/ProductService";
 import { addToCart as addToCartAPI } from "../../services/CartService";
 import { addToWishlist, removeFromWishlistByProductId, checkProductInWishlist } from "../../services/WishlistService";
+import { getProductReviews } from "../../services/ReviewService";
+import ProductCard from "../../components/Product/ProductCard";
 import CartDrawer from "../../components/Cart/CartDrawer";
 import { isLoggedIn } from "../../services/AuthService";
 
@@ -19,7 +21,7 @@ const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
 
 const Star = ({ filled }) => (
   <FontAwesomeIcon
-    icon={faStarRegular}
+    icon={filled ? faStarSolid : faStarRegular}
     className={filled ? "text-yellow-500" : "text-neutral-300"}
   />
 );
@@ -41,6 +43,13 @@ export default function ProductDetails() {
   const [isWished, setIsWished] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartItem, setCartItem] = useState(null);
+  const [activeTab, setActiveTab] = useState("description");
+  const [reviewFilter, setReviewFilter] = useState("all"); // all, 5, 4, 3, 2, 1, withComment, withMedia, domestic
+  const [reviews, setReviews] = useState([]);
+  const [allReviews, setAllReviews] = useState([]); // Store all reviews for filtering
+  const [reviewsLoading, setReviewsLoading] = useState(false);
+  const [relatedProducts, setRelatedProducts] = useState([]);
+  const [relatedLoading, setRelatedLoading] = useState(false);
 
   useEffect(() => {
     let mounted = true;
@@ -102,6 +111,67 @@ export default function ProductDetails() {
       } catch (err) {
         // Ignore errors
         if (mounted) setIsWished(false);
+      }
+    })();
+
+    return () => {
+      mounted = false;
+    };
+  }, [p]);
+
+  // Fetch reviews when product changes
+  useEffect(() => {
+    if (!p) return;
+
+    let mounted = true;
+    (async () => {
+      try {
+        setReviewsLoading(true);
+        const productId = p?.idProducts ?? p?.IdProducts;
+        const reviewsData = await getProductReviews(productId);
+        if (mounted) {
+          const reviews = Array.isArray(reviewsData) ? reviewsData : [];
+          setAllReviews(reviews);
+        }
+      } catch (err) {
+        console.error("Lỗi tải đánh giá", err);
+        if (mounted) {
+          setAllReviews([]);
+        }
+      } finally {
+        if (mounted) {
+          setReviewsLoading(false);
+        }
+      }
+    })();
+
+    return () => {
+      mounted = false;
+    };
+  }, [p]);
+
+  // Fetch related products when product changes
+  useEffect(() => {
+    if (!p) return;
+
+    let mounted = true;
+    (async () => {
+      try {
+        setRelatedLoading(true);
+        const productId = p?.idProducts ?? p?.IdProducts;
+        const related = await getRelatedProducts(productId, 4);
+        if (mounted) {
+          setRelatedProducts(Array.isArray(related) ? related : []);
+        }
+      } catch (err) {
+        console.error("Lỗi tải sản phẩm liên quan", err);
+        if (mounted) {
+          setRelatedProducts([]);
+        }
+      } finally {
+        if (mounted) {
+          setRelatedLoading(false);
+        }
       }
     })();
 
@@ -195,6 +265,57 @@ export default function ProductDetails() {
   const rating = Number(p?.averageRating ?? p?.AverageRating ?? 0);
   const reviewCount = Number(p?.reviewCount ?? p?.ReviewCount ?? 0);
   const soldQuantity = Number(p?.soldQuantity ?? p?.SoldQuantity ?? 0);
+
+  // Filter reviews based on selected filter
+  const filteredReviews = useMemo(() => {
+    if (!allReviews.length) return [];
+    
+    let filtered = [...allReviews];
+    
+    if (reviewFilter === "all") {
+      // Show all
+    } else if (["5", "4", "3", "2", "1"].includes(reviewFilter)) {
+      filtered = filtered.filter(r => r.rating === Number(reviewFilter));
+    }
+    
+    return filtered;
+  }, [allReviews, reviewFilter]);
+
+  // Calculate review counts by rating
+  const reviewCountsByRating = useMemo(() => {
+    const counts = { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
+    allReviews.forEach(r => {
+      if (r.rating >= 1 && r.rating <= 5) {
+        counts[r.rating]++;
+      }
+    });
+    return counts;
+  }, [allReviews]);
+
+
+  // Format username to hide part of it
+  const formatUsername = (email) => {
+    if (!email) return "Người dùng";
+    const parts = email.split("@");
+    if (parts[0].length <= 2) return parts[0] + "*****";
+    return parts[0].substring(0, 1) + "*****" + parts[0].substring(parts[0].length - 1);
+  };
+
+  // Format date
+  const formatDate = (dateStr) => {
+    if (!dateStr) return "";
+    try {
+      const date = new Date(dateStr);
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      const hours = String(date.getHours()).padStart(2, '0');
+      const minutes = String(date.getMinutes()).padStart(2, '0');
+      return `${year}-${month}-${day} ${hours}:${minutes}`;
+    } catch {
+      return dateStr;
+    }
+  };
 
   const inStock = stock > 0;
 
@@ -662,16 +783,6 @@ export default function ProductDetails() {
             {isWished ? "Đã yêu thích" : "Thêm vào yêu thích"}
           </button>
 
-          {/* Description */}
-          {p.description && (
-            <div className="rounded-2xl border border-neutral-200 bg-white p-4">
-              <div className="text-sm font-bold text-neutral-900">Mô tả sản phẩm</div>
-              <div className="mt-2 whitespace-pre-wrap text-sm text-neutral-700">
-                {p.description}
-              </div>
-            </div>
-          )}
-
           {/* Meta */}
           <div className="rounded-2xl border border-neutral-200 bg-white p-4 text-sm text-neutral-600">
             <div>Mã SKU: <span className="font-semibold text-neutral-900">{matchedVariant?.sku || p.sku}</span></div>
@@ -692,6 +803,467 @@ export default function ProductDetails() {
           </Link>
         </div>
       </div>
+
+      {/* Product Tabs - Moved below product info */}
+      <div className="mt-8">
+        <div className="rounded-2xl border border-neutral-200 bg-white overflow-hidden">
+            {/* Tab Headers */}
+            <div className="flex flex-wrap border-b border-neutral-200">
+              <button
+                type="button"
+                onClick={() => setActiveTab("description")}
+                className={`px-4 py-3 text-sm font-semibold transition-colors ${
+                  activeTab === "description"
+                    ? "border-b-2 border-neutral-900 text-neutral-900"
+                    : "text-neutral-500 hover:text-neutral-700"
+                }`}
+              >
+                Mô tả sản phẩm
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveTab("reviews")}
+                className={`px-4 py-3 text-sm font-semibold transition-colors ${
+                  activeTab === "reviews"
+                    ? "border-b-2 border-neutral-900 text-neutral-900"
+                    : "text-neutral-500 hover:text-neutral-700"
+                }`}
+              >
+                Đánh Giá - Nhận Xét Từ Khách Hàng
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveTab("return")}
+                className={`px-4 py-3 text-sm font-semibold transition-colors ${
+                  activeTab === "return"
+                    ? "border-b-2 border-neutral-900 text-neutral-900"
+                    : "text-neutral-500 hover:text-neutral-700"
+                }`}
+              >
+                Chính sách đổi trả
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveTab("privacy")}
+                className={`px-4 py-3 text-sm font-semibold transition-colors ${
+                  activeTab === "privacy"
+                    ? "border-b-2 border-neutral-900 text-neutral-900"
+                    : "text-neutral-500 hover:text-neutral-700"
+                }`}
+              >
+                Chính sách bảo mật
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveTab("faq")}
+                className={`px-4 py-3 text-sm font-semibold transition-colors ${
+                  activeTab === "faq"
+                    ? "border-b-2 border-neutral-900 text-neutral-900"
+                    : "text-neutral-500 hover:text-neutral-700"
+                }`}
+              >
+                Câu hỏi thường gặp
+              </button>
+            </div>
+
+            {/* Tab Content */}
+            <div className="p-6">
+              {/* Description Tab */}
+              {activeTab === "description" && (
+                <div className="space-y-4">
+                  <div className="flex items-start gap-2">
+                    
+                    <h3 className="text-base font-bold text-neutral-900">THÔNG TIN SẢN PHẨM:</h3>
+                  </div>
+                  <div className="space-y-2 pl-7">
+                    <div className="flex items-start gap-2">
+                     
+                      <div className="text-sm text-neutral-700">
+                        <span className="font-semibold">Tên sản phẩm:</span> {p.name || "Chưa có thông tin"}
+                      </div>
+                    </div>
+                    {p.material && (
+                      <div className="flex items-start gap-2">
+                       
+                        <div className="text-sm text-neutral-700">
+                          <span className="font-semibold">Chất liệu:</span> {p.material}
+                        </div>
+                      </div>
+                    )}
+                    {p.fit && (
+                      <div className="flex items-start gap-2">
+                       
+                        <div className="text-sm text-neutral-700">
+                          <span className="font-semibold">Phom dáng:</span> {p.fit}
+                        </div>
+                      </div>
+                    )}
+                    {sizesForColor.length > 0 && (
+                      <div className="flex items-start gap-2">
+                      
+                        <div className="text-sm text-neutral-700">
+                          <span className="font-semibold">Size:</span> {sizesForColor.map(s => s.size).join(", ")}
+                        </div>
+                      </div>
+                    )}
+                    <div className="flex items-start gap-2">
+                   
+                      <div className="text-sm text-neutral-700">
+                        <span className="font-semibold">Xuất xứ:</span> Việt Nam
+                      </div>
+                    </div>
+                  </div>
+                  {p.description && (
+                    <div className="mt-4 whitespace-pre-wrap text-sm text-neutral-700">
+                      {p.description}
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Reviews Tab */}
+              {activeTab === "reviews" && (
+                <div className="space-y-6">
+                  {/* Header */}
+                  <div>
+                    <h3 className="text-xl font-bold text-neutral-800 mb-6">
+                      ĐÁNH GIÁ SẢN PHẨM
+                    </h3>
+                   
+                    
+                    {/* Rating Summary */}
+                    <div className="flex items-center gap-6 mb-6 pb-6 border-b border-neutral-200">
+                      <div className="text-center">
+                        <div className="text-5xl font-bold text-orange-600 mb-2">
+                          {rating ? rating.toFixed(1) : "0.0"}
+                          
+                        </div>
+                        <div className="flex items-center justify-center gap-1">
+                          {Array.from({ length: 5 }).map((_, i) => (
+                            <FontAwesomeIcon
+                              key={i}
+                              icon={rating >= i + 1 ? faStarSolid : faStarRegular}
+                              className={rating >= i + 1 ? "text-orange-600" : "text-neutral-300"}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Filter Buttons */}
+                    <div className="space-y-3 mb-6">
+                      {/* Star Rating Filters */}
+                      <div className="flex flex-wrap gap-2">
+                        <button
+                          type="button"
+                          onClick={() => setReviewFilter("all")}
+                          className={`px-4 py-2 text-sm font-semibold rounded-lg border transition ${
+                            reviewFilter === "all"
+                              ? "bg-red-600 text-white border-red-600"
+                              : "bg-white text-neutral-700 border-neutral-300 hover:border-neutral-400"
+                          }`}
+                        >
+                          Tất Cả
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setReviewFilter("5")}
+                          className={`px-4 py-2 text-sm font-semibold rounded-lg border transition ${
+                            reviewFilter === "5"
+                              ? "bg-red-600 text-white border-red-600"
+                              : "bg-white text-neutral-700 border-neutral-300 hover:border-neutral-400"
+                          }`}
+                        >
+                          5 Sao ({reviewCountsByRating[5]})
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setReviewFilter("4")}
+                          className={`px-4 py-2 text-sm font-semibold rounded-lg border transition ${
+                            reviewFilter === "4"
+                              ? "bg-red-600 text-white border-red-600"
+                              : "bg-white text-neutral-700 border-neutral-300 hover:border-neutral-400"
+                          }`}
+                        >
+                          4 Sao ({reviewCountsByRating[4]})
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setReviewFilter("3")}
+                          className={`px-4 py-2 text-sm font-semibold rounded-lg border transition ${
+                            reviewFilter === "3"
+                              ? "bg-red-600 text-white border-red-600"
+                              : "bg-white text-neutral-700 border-neutral-300 hover:border-neutral-400"
+                          }`}
+                        >
+                          3 Sao ({reviewCountsByRating[3]})
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setReviewFilter("2")}
+                          className={`px-4 py-2 text-sm font-semibold rounded-lg border transition ${
+                            reviewFilter === "2"
+                              ? "bg-red-600 text-white border-red-600"
+                              : "bg-white text-neutral-700 border-neutral-300 hover:border-neutral-400"
+                          }`}
+                        >
+                          2 Sao ({reviewCountsByRating[2]})
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setReviewFilter("1")}
+                          className={`px-4 py-2 text-sm font-semibold rounded-lg border transition ${
+                            reviewFilter === "1"
+                              ? "bg-red-600 text-white border-red-600"
+                              : "bg-white text-neutral-700 border-neutral-300 hover:border-neutral-400"
+                          }`}
+                        >
+                          1 Sao ({reviewCountsByRating[1]})
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Reviews List */}
+                    {reviewsLoading ? (
+                      <div className="text-center py-12 border-t border-neutral-200">
+                        <p className="text-sm text-neutral-500">Đang tải đánh giá...</p>
+                      </div>
+                    ) : allReviews.length === 0 ? (
+                      <div className="text-center py-12 border-t border-neutral-200">
+                        <p className="text-sm text-neutral-500 mb-2">
+                          Chưa có đánh giá nào cho sản phẩm này.
+                        </p>
+                        <p className="text-sm text-neutral-500">
+                          Hãy là người đầu tiên đánh giá!
+                        </p>
+                      </div>
+                    ) : filteredReviews.length === 0 ? (
+                      <div className="text-center py-12 border-t border-neutral-200">
+                        <p className="text-sm text-neutral-500">
+                          Không có đánh giá nào phù hợp với bộ lọc đã chọn.
+                        </p>
+                      </div>
+                    ) : (
+                      <div className="space-y-6 border-t border-neutral-200 pt-6">
+                        {filteredReviews.map((review) => {
+                          const userName = review.userName || formatUsername(review.userEmail);
+                          
+                          return (
+                            <div key={review.idProductReviews} className="border-b border-neutral-100 pb-6 last:border-b-0">
+                              <div className="flex gap-4">
+                                {/* Avatar */}
+                                <div className="w-10 h-10 rounded-full bg-neutral-200 flex items-center justify-center shrink-0">
+                                  <svg className="w-6 h-6 text-neutral-400" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+                                  </svg>
+                                </div>
+                                
+                                {/* Review Content */}
+                                <div className="flex-1">
+                                  {/* User Info & Rating */}
+                                  <div className="mb-2">
+                                    <div className="flex items-center gap-2 mb-1">
+                                      <span className="font-semibold text-neutral-900">{userName}</span>
+                                      <div className="flex items-center gap-0.5">
+                                        {Array.from({ length: 5 }).map((_, i) => (
+                                          <FontAwesomeIcon
+                                            key={i}
+                                            icon={i < review.rating ? faStarSolid : faStarRegular}
+                                            className={i < review.rating ? "text-red-600 text-sm" : "text-neutral-300 text-sm"}
+                                          />
+                                        ))}
+                                      </div>
+                                    </div>
+                                    <div className="text-xs text-neutral-500 mb-2">
+                                      {formatDate(review.createdAt)}
+                                    </div>
+                                  </div>
+
+                                  {/* Review Text */}
+                                  {review.review && (
+                                    <p className="text-sm text-neutral-700 mb-3 leading-relaxed">
+                                      {review.review}
+                                    </p>
+                                  )}
+                                </div>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* Return Policy Tab */}
+              {activeTab === "return" && (
+                <div className="space-y-6 text-sm text-neutral-700">
+                  <div>
+                    <h3 className="text-base font-bold text-neutral-900 mb-3">CHÍNH SÁCH ÁP DỤNG</h3>
+                    <ul className="space-y-2 list-disc list-inside">
+                      <li>Áp dụng từ ngày 01/09/2018.</li>
+                      <li>Trong vòng 30 ngày kể từ ngày mua sản phẩm với các sản phẩm Atino.</li>
+                      <li>Áp dụng đối với sản phẩm nguyên giá và sản phẩm giảm giá ít hơn 50%.</li>
+                      <li>Sản phẩm nguyên giá chỉ được đổi 01 lần duy nhất sang sản phẩm nguyên giá khác và không thấp hơn giá trị sản phẩm đã mua.</li>
+                      <li>Sản phẩm giảm giá/khuyến mại ít hơn 50% được đổi 01 lần sang màu khác hoặc size khác trên cùng 1 mã trong điều kiện còn sản phẩm hoặc theo quy chế chương trình (nếu có). Nếu sản phẩm đổi đã hết hàng khi đó KH sẽ được đổi sang sản phẩm khác có giá trị ngang bằng hoặc cao hơn. Khách hàng sẽ thanh toán phần tiền chênh lệch nếu sản phẩm đổi có giá trị cao hơn sản phẩm đã mua.</li>
+                      <li>Chính sách chỉ áp dụng khi sản phẩm còn hóa đơn mua hàng, còn nguyên nhãn mác, thẻ bài đính kèm sản phẩm và sản phẩm không bị dơ bẩn, hư hỏng bởi những tác nhân bên ngoài cửa hàng sau khi mua sản phẩm.</li>
+                      <li>Sản phẩm đồ lót và phụ kiện không được đổi trả.</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="text-base font-bold text-neutral-900 mb-3">ĐIỀU KIỆN ĐỔI SẢN PHẨM</h3>
+                    <ul className="space-y-2 list-disc list-inside">
+                      <li>Đổi hàng trong vòng 07 ngày kể từ ngày khách hàng nhận được sản phẩm.</li>
+                      <li>Sản phẩm còn nguyên tem, mác và chưa qua sử dụng.</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="text-base font-bold text-neutral-900 mb-3">THỰC HIỆN ĐỔI SẢN PHẨM</h3>
+                    <p className="mb-2">Quý khách có thể đổi hàng Online tại hệ thống cửa hàng và đại lý Atino trên toàn quốc. Lưu ý: vui lòng mang theo sản phẩm và phiếu giao hàng.</p>
+                    <p className="mb-2">Nếu tại khu vực bạn không có cửa hàng Atino hoặc sản phẩm bạn muốn đổi thì vui lòng làm theo các bước sau:</p>
+                    <ol className="space-y-2 list-decimal list-inside ml-4">
+                      <li><strong>Bước 1:</strong> Gọi đến Tổng đài: <a href="tel:0964942121" className="text-primary hover:underline">0964942121</a> các ngày trong tuần (trừ ngày lễ), cung cấp mã đơn hàng và mã sản phẩm cần đổi.</li>
+                      <li><strong>Bước 2:</strong> Vui lòng gửi hàng đổi về địa chỉ: Kho Online Atino - 1165 Giải Phóng, Thịnh Liệt, Q. Hoàng Mai, Hà Nội.</li>
+                      <li><strong>Bước 3:</strong> Atino gửi đổi sản phẩm mới khi nhận được hàng. Trong trường hợp hết hàng, Atino sẽ liên hệ xác nhận.</li>
+                    </ol>
+                  </div>
+                </div>
+              )}
+
+              {/* Privacy Policy Tab */}
+              {activeTab === "privacy" && (
+                <div className="space-y-6 text-sm text-neutral-700">
+                  <div>
+                    <h3 className="text-base font-bold text-neutral-900 mb-3">Thu thập và sử dụng thông tin của Atino</h3>
+                    <p className="mb-2">
+                      Atino chỉ thu thập các loại thông tin cơ bản liên quan đến đơn đặt hàng gồm:……
+                    </p>
+                    <p className="mb-2">
+                      Các thông tin này được sử dụng nhằm mục đích xử lý đơn hàng, nâng cao chất lượng dịch vụ, nghiên cứu thị trường, các hoạt động marketing, chăm sóc khách hàng, quản lý nội bộ hoặc theo yêu cầu của pháp luật. Khách hàng tùy từng thời điểm có thể chỉnh sửa lại các thông tin đã cung cấp để đảm bảo được hưởng đầy đủ các quyền mà Atino dành cho Khách hàng của mình.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-base font-bold text-neutral-900 mb-3">Atino cam kết:</h3>
+                    <ul className="space-y-2 list-disc list-inside">
+                      <li>Thông tin cá nhân của khách hàng được sử dụng đúng vào mục đích của việc thu thập và cung cấp;</li>
+                      <li>Mọi việc thu thập và sử dụng thông tin đã thu thập được của Khách hàng đều được thông qua ý kiến của Khách hàng;</li>
+                      <li>Chỉ sử dụng các thông tin được Khách hàng đã cung cấp cho Atino, không sử dụng các thông tin của Khách hàng được biết đến theo các phương thức khác;</li>
+                      <li>Thời gian lưu trữ và bảo mật thông tin;</li>
+                      <li>Chỉ cho phép các đối tượng sau được tiếp cận với thông tin của Khách hàng:</li>
+                    </ul>
+                    <ul className="space-y-1 list-disc list-inside ml-6 mt-2">
+                      <li>Người thực hiện việc cung cấp hàng hóa, dịch vụ từ Atino theo yêu cầu của Khách hàng;</li>
+                      <li>Người thực hiện việc chăm sóc Khách hàng đã sử dụng hàng hóa, dịch vụ của Atino;</li>
+                      <li>Người tiếp nhận và xử lý các thắc mắc của Khách hàng trong quá trình sử dụng hàng hóa, dịch vụ của Atino;</li>
+                      <li>Cơ quan Nhà nước có thẩm quyền.</li>
+                    </ul>
+                    <p className="mt-2">
+                      Trong quá trình chào hàng, quảng cáo và chăm sóc Khách hàng, Khách hàng hoàn toàn có thể gửi yêu cầu dừng việc sử dụng thông tin theo cách thức tương ứng mà hoạt động chào hàng, quảng cáo và chăm sóc khách hàng gửi tới Khách hàng.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-base font-bold text-neutral-900 mb-3">Cách thức bảo mật thông tin khách hàng</h3>
+                    <p className="mb-2">
+                      Việc bảo mật các thông tin do Khách hàng cung cấp được dựa trên sự đảm bảo việc tuân thủ của từng cán bộ, nhân viên Atino, đối tác và hệ thống lưu trữ dữ liệu. Trong trường hợp máy chủ lưu trữ thông tin bị hacker tấn công dẫn đến mất mát dữ liệu cá nhân Khách hàng, Atino sẽ có trách nhiệm thông báo vụ việc cho cơ quan chức năng điều tra xử lý kịp thời và thông báo cho Khách hàng được biết. Tuy nhiên, do đặc điểm của môi trường internet, không một dữ liệu nào trên môi trường mạng cũng có thể được bảo mật 100%. Vì vậy, Atino không cam kết chắc chắn rằng các thông tin tiếp nhận từ Khách hàng được bảo mật tuyệt đối.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-base font-bold text-neutral-900 mb-3">Trách nhiệm bảo mật thông tin Khách hàng</h3>
+                    <p className="mb-2">
+                      Khách hàng vui lòng chỉ cung cấp đúng và đủ các thông tin theo yêu cầu của Atino đặc biệt tránh cung cấp các thông tin liên quan đến tài khoản ngân hàng khi chưa được mã hóa thông tin trong các giao dịch thanh toán trực tuyến hoặc các thông tin nhạy cảm khác. Khách hàng hoàn toàn chịu trách nhiệm về tính trung thực và chính xác đối với các thông tin đã cung cấp cũng như tự chịu trách nhiệm nếu cung cấp các thông tin ngoài yêu cầu.
+                    </p>
+                    <p className="mb-2">
+                      Trong trường hợp Khách hàng cung cấp thông tin cá nhân của mình cho nhiều tổ chức, cá nhân khác nhau, Khách hàng phải yêu cầu các bên liên quan cùng bảo mật. Mọi thông tin cá nhân của Khách hàng khi bị tiết lộ gây thiệt hại đến Khách hàng, Khách hàng phải tự xác định được nguồn tiết lộ thông tin. Atino không chịu trách nhiệm khi thông tin Khách hàng bị tiết lộ mà không có căn cứ xác đáng thể hiện Atino là bên tiết lộ thông tin.
+                    </p>
+                    <p>
+                      Atino không chịu trách nhiệm về việc tiết lộ thông tin của Khách hàng nếu Khách hàng không tuân thủ các yêu cầu trên.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-base font-bold text-neutral-900 mb-3">Luật áp dụng khi xảy ra tranh chấp</h3>
+                    <p>
+                      Mọi tranh chấp xảy ra giữa Khách hàng và Atino sẽ được hòa giải. Nếu hòa giải không thành sẽ được giải quyết tại Tòa án có thẩm quyền và tuân theo pháp luật Việt Nam.
+                    </p>
+                  </div>
+                </div>
+              )}
+
+              {/* FAQ Tab */}
+              {activeTab === "faq" && (
+                <div className="space-y-4">
+                  <h3 className="text-base font-bold text-neutral-900 mb-4">Câu hỏi thường gặp</h3>
+                  <div className="space-y-4">
+                    <div className="border-b border-neutral-200 pb-4">
+                      <h4 className="font-semibold text-neutral-900 mb-2">Sản phẩm có được đổi trả không?</h4>
+                      <p className="text-sm text-neutral-700">
+                        Có, bạn có thể đổi trả sản phẩm trong vòng 7 ngày kể từ ngày nhận hàng với điều kiện sản phẩm còn nguyên tem, mác và chưa qua sử dụng. Xem chi tiết tại tab "Chính sách đổi trả".
+                      </p>
+                    </div>
+                    <div className="border-b border-neutral-200 pb-4">
+                      <h4 className="font-semibold text-neutral-900 mb-2">Làm sao để chọn size phù hợp?</h4>
+                      <p className="text-sm text-neutral-700">
+                        Bạn có thể tham khảo bảng size trong phần mô tả sản phẩm hoặc liên hệ hotline 0964942121 để được tư vấn chọn size phù hợp nhất.
+                      </p>
+                    </div>
+                    <div className="border-b border-neutral-200 pb-4">
+                      <h4 className="font-semibold text-neutral-900 mb-2">Thời gian giao hàng là bao lâu?</h4>
+                      <p className="text-sm text-neutral-700">
+                        Thời gian giao hàng từ 2-5 ngày làm việc tùy thuộc vào khu vực. Đối với các đơn hàng tại Hà Nội và TP.HCM, thời gian giao hàng có thể nhanh hơn.
+                      </p>
+                    </div>
+                    <div className="pb-4">
+                      <h4 className="font-semibold text-neutral-900 mb-2">Có hỗ trợ thanh toán khi nhận hàng không?</h4>
+                      <p className="text-sm text-neutral-700">
+                        Có, chúng tôi hỗ trợ thanh toán COD (Cash on Delivery) cho tất cả các đơn hàng trên toàn quốc.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+
+      {/* Related Products */}
+      {relatedProducts.length > 0 && (
+        <div className="mt-12">
+          <div className="mb-6">
+            <h2 className="text-2xl font-bold text-neutral-900">Sản phẩm liên quan</h2>
+          </div>
+          <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide">
+            {relatedProducts.map((product) => {
+              const productId = product.idProducts ?? product.IdProducts;
+              const slug = product.slug ?? product.Slug;
+              const thumbnail = product.thumbnailUrl ?? product.ThumbnailUrl ?? "/assets/img/no-image.jpg";
+              
+              return (
+                <div key={productId} className="flex-shrink-0">
+                  <ProductCard
+                    id={productId}
+                    slug={slug}
+                    name={product.name ?? product.Name}
+                    price={product.price ?? product.Price}
+                    salePrice={product.salePrice ?? product.SalePrice}
+                    images={thumbnail ? [thumbnail] : []}
+                    rating={product.averageRating ?? product.AverageRating}
+                    reviewCount={product.reviewCount ?? product.ReviewCount}
+                    colors={product.availableColors ?? product.AvailableColors ?? []}
+                    sizes={product.availableSizes ?? product.AvailableSizes ?? []}
+                    stockQuantity={product.stockQuantity ?? product.StockQuantity ?? 0}
+                  />
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {/* Cart Drawer */}
       <CartDrawer

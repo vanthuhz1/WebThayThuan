@@ -79,3 +79,20 @@ export async function getProductDetailsBySlugOrId(slugOrId) {
   return getProductDetailsBySlug(slugOrId);
 }
 
+// Lấy sản phẩm liên quan
+export async function getRelatedProducts(productId, limit = 4) {
+  try {
+    const qs = new URLSearchParams();
+    if (limit) qs.set("limit", limit);
+
+    const res = await fetch(`${API_BASE_URL}/Products/${productId}/related?${qs.toString()}`);
+    if (!res.ok) {
+      throw new Error("Không tải được sản phẩm liên quan");
+    }
+    return await res.json();
+  } catch (err) {
+    console.error("Lỗi tải sản phẩm liên quan", err);
+    throw err;
+  }
+}
+

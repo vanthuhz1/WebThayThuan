@@ -1,16 +1,17 @@
-import Header from '../Header/Header'
-import Footer from '../Footer/Footer'
+import { Outlet } from "react-router-dom";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
-const Layout = ({ children }) => {
+const Layout = () => {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
-      <main className="flex-1">{children}</main>
+      <main className="flex-1">
+        <Outlet />
+      </main>
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default Layout
-
-
+export default Layout;

@@ -111,5 +111,36 @@ namespace Backend_WebBanHang.Controllers
 
             return Ok(Build(rootId.Value));
         }
+
+        // GET: api/Categories/featured
+        [AllowAnonymous]
+        [HttpGet("featured")]
+        public async Task<IActionResult> GetFeaturedCategories([FromQuery] int limit = 4)
+        {
+            try
+            {
+                var categories = await _context.Categories
+                    .AsNoTracking()
+                    .Where(c => c.ParentIdCategories == null && (c.Status == "active" || c.Status == null))
+                    .OrderBy(c => c.Name)
+                    .Take(limit)
+                    .Select(c => new CategoryDto
+                    {
+                        IdCategories = c.IdCategories,
+                        ParentIdCategories = c.ParentIdCategories,
+                        Name = c.Name,
+                        Slug = c.Slug,
+                        Status = c.Status,
+                        Img = c.img
+                    })
+                    .ToListAsync();
+
+                return Ok(categories);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Lỗi khi lấy danh mục nổi bật", error = ex.Message });
+            }
+        }
     }
 }

@@ -42,8 +42,12 @@ builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
 // Đăng ký HttpClientFactory cho OAuth
 builder.Services.AddHttpClient();
 
-// 3. Đăng ký controller
-builder.Services.AddControllers();
+// 3. Đăng ký controller + JSON camelCase để khớp frontend
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy.CamelCase;
+    });
 
 // 4. CORS cho frontend gọi REST API
 builder.Services.AddCors(options =>

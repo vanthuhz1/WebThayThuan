@@ -111,12 +111,12 @@ const Navigation = ({ isScrolled = true, isMobile = false }) => {
               {/* ROOT CLICK => /collections/:slug */}
               <Link
                 to={href}
-                className={`no-underline text-[13px] font-semibold py-2 px-2 flex items-center gap-1 transition-colors relative group ${
+                className={`no-underline text-xs font-semibold py-2 px-2 flex items-center gap-1 transition-colors relative group ${
                   isActive ? "text-gray-900" : "text-gray-800 hover:text-gray-900"
                 }`}
               >
                 {item.label}
-                {hasChildren && <i className="fa-solid fa-chevron-down text-[10px]"></i>}
+                {hasChildren && <i className="fa-solid fa-chevron-down text-[9px]"></i>}
                 <span
                   className={`absolute bottom-0 left-0 right-0 h-0.5 bg-primary transition-all duration-300 ${
                     isActive ? "w-full" : "w-0 group-hover:w-full"
@@ -148,7 +148,7 @@ const Navigation = ({ isScrolled = true, isMobile = false }) => {
                         >
                           <Link
                             to={`/collections/${child.slug}`}
-                            className="block py-1.5 text-sm text-gray-800 hover:bg-gray-50 hover:text-black rounded"
+                            className="block py-1.5 text-xs text-gray-800 hover:bg-gray-50 hover:text-black rounded"
                           >
                             {child.name}
                           </Link>
@@ -162,7 +162,7 @@ const Navigation = ({ isScrolled = true, isMobile = false }) => {
                                     <li key={grand.id}>
                                       <Link
                                         to={`/collections/${grand.slug}`}
-                                        className="block py-1 text-sm text-gray-800 hover:text-primary"
+                                        className="block py-1 text-xs text-gray-800 hover:text-primary"
                                       >
                                         {grand.name}
                                       </Link>
@@ -178,11 +178,11 @@ const Navigation = ({ isScrolled = true, isMobile = false }) => {
                     {/* Right: preview products of ROOT */}
                     <div className="w-1/2 py-3 px-4">
                       {previewMap[rootSlug]?.loading ? (
-                        <div className="h-full flex items-center justify-center text-gray-500 text-sm">
+                        <div className="h-full flex items-center justify-center text-gray-500 text-xs">
                           Đang tải sản phẩm...
                         </div>
                       ) : (previewMap[rootSlug]?.items || []).length === 0 ? (
-                        <div className="h-full flex items-center justify-center text-gray-500 text-sm">
+                        <div className="h-full flex items-center justify-center text-gray-500 text-xs">
                           Chưa có sản phẩm
                         </div>
                       ) : (
@@ -209,10 +209,10 @@ const Navigation = ({ isScrolled = true, isMobile = false }) => {
                                   />
                                 </div>
                                 <div className="flex-1">
-                                  <p className="text-sm font-semibold text-gray-900 line-clamp-2">
+                                  <p className="text-xs font-semibold text-gray-900 line-clamp-2">
                                     {name}
                                   </p>
-                                  <p className="text-xs text-primary font-bold mt-1">
+                                  <p className="text-[10px] text-primary font-bold mt-1">
                                     {Number(price).toLocaleString("vi-VN")} đ
                                   </p>
                                 </div>

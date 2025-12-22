@@ -35,7 +35,9 @@ namespace Backend_WebBanHang.Controllers
             if (page <= 0) page = 1;
             if (pageSize <= 0 || pageSize > 100) pageSize = 12;
 
-            IQueryable<Product> query = _context.Products.AsNoTracking();
+            IQueryable<Product> query = _context.Products
+                .AsNoTracking()
+                .Where(p => p.Status == "active"); // chỉ hiển thị sản phẩm active cho user
 
             if (!string.IsNullOrWhiteSpace(keyword))
             {
@@ -269,6 +271,7 @@ namespace Backend_WebBanHang.Controllers
         private async Task<IActionResult> GetDetailsDto(System.Linq.Expressions.Expression<Func<Product, bool>> predicate)
         {
             var product = await _context.Products
+                .Where(p => p.Status == "active") // chỉ cho phép xem sản phẩm active
                 .FirstOrDefaultAsync(predicate);
 
             if (product == null) return NotFound();
@@ -352,6 +355,144 @@ namespace Backend_WebBanHang.Controllers
             };
 
             return Ok(dto);
+        }
+
+        // GET: api/Products/{id}/reviews
+        [AllowAnonymous]
+        [HttpGet("{id:long}/reviews")]
+        public async Task<IActionResult> GetReviews(long id, [FromQuery] int? rating = null)
+        {
+            var query = _context.ProductReviews
+                .Where(r => r.IdProducts == id && r.Status == "active")
+                .AsQueryable();
+
+            // Filter by rating if provided
+            if (rating.HasValue && rating.Value >= 1 && rating.Value <= 5)
+            {
+                query = query.Where(r => r.Rating == rating.Value);
+            }
+
+            var reviews = await query
+                .OrderByDescending(r => r.CreatedAt)
+                .Select(r => new DTOs.Products.ProductReviewDto
+                {
+                    IdProductReviews = r.IdProductReviews,
+                    IdProducts = r.IdProducts,
+                    IdUsers = r.IdUsers,
+                    UserName = _context.Users
+                        .Where(u => u.IdUsers == r.IdUsers)
+                        .Select(u => u.FullName)
+                        .FirstOrDefault(),
+                    UserEmail = _context.Users
+                        .Where(u => u.IdUsers == r.IdUsers)
+                        .Select(u => u.Email)
+                        .FirstOrDefault(),
+                    Rating = r.Rating,
+                    Review = r.Review,
+                   
+                    Status = r.Status,
+                    CreatedAt = r.CreatedAt,
+                    UpdatedAt = r.UpdatedAt
+                })
+                .ToListAsync();
+
+            return Ok(reviews);
+        }
+
+        // GET: api/Products/{id}/related
+        [AllowAnonymous]
+        [HttpGet("{id:long}/related")]
+        public async Task<IActionResult> GetRelatedProducts(long id, [FromQuery] int limit = 4)
+        {
+            var product = await _context.Products
+                .FirstOrDefaultAsync(p => p.IdProducts == id);
+
+            if (product == null) return NotFound();
+
+            var categoryId = product.IdCategories;
+
+            // Lấy các sản phẩm cùng category, loại trừ sản phẩm hiện tại
+            var relatedProducts = await _context.Products
+                .Where(p => p.IdCategories == categoryId && p.IdProducts != id && p.Status == "active")
+                .OrderByDescending(p => p.CreatedAt)
+                .Take(limit)
+                .Select(p => new ProductListItemDto
+                {
+                    IdProducts = p.IdProducts,
+                    Name = p.Name,
+                    Slug = p.Slug,
+                    Price = p.Price,
+                    SalePrice = p.SalePrice,
+                    IdCategories = p.IdCategories,
+                    ShortDescription = p.ShortDescription,
+
+                    StockQuantity = 0,
+
+                    ThumbnailUrl = _context.ProductImages
+                        .Where(i => i.IdProducts == p.IdProducts)
+                        .OrderByDescending(i => i.IsPrimary.HasValue && i.IsPrimary.Value)
+                        .ThenBy(i => i.Position ?? 0)
+                        .Select(i => i.Url)
+                        .FirstOrDefault(),
+
+                    AverageRating = _context.ProductReviews
+                        .Where(r => r.IdProducts == p.IdProducts && r.Status == "active")
+                        .Select(r => (double?)r.Rating)
+                        .Average(),
+
+                    ReviewCount = _context.ProductReviews
+                        .Where(r => r.IdProducts == p.IdProducts && r.Status == "active")
+                        .Count(),
+
+                    AvailableColors = new List<string>(),
+                    AvailableSizes = new List<string>(),
+                    ImagesByColor = new Dictionary<string, List<string>>(),
+                    ColorThumbs = new List<ColorThumbDto>()
+                })
+                .ToListAsync();
+
+            // Lấy colors và sizes cho từng sản phẩm
+            var productIds = relatedProducts.Select(p => p.IdProducts).ToList();
+            if (productIds.Count > 0)
+            {
+                var variantRows = await _context.ProductVariants.AsNoTracking()
+                    .Where(v => productIds.Contains(v.IdProducts))
+                    .Select(v => new { v.IdProducts, v.Color, v.Size })
+                    .ToListAsync();
+
+                var imageRows = await _context.ProductImages.AsNoTracking()
+                    .Where(i => productIds.Contains(i.IdProducts))
+                    .Select(i => new { i.IdProducts, i.Url, Color = i.color })
+                    .ToListAsync();
+
+                foreach (var prod in relatedProducts)
+                {
+                    var colors = variantRows
+                        .Where(v => v.IdProducts == prod.IdProducts && !string.IsNullOrEmpty(v.Color))
+                        .Select(v => v.Color!)
+                        .Distinct()
+                        .ToList();
+                    prod.AvailableColors = colors;
+
+                    var sizes = variantRows
+                        .Where(v => v.IdProducts == prod.IdProducts && !string.IsNullOrEmpty(v.Size))
+                        .Select(v => v.Size!)
+                        .Distinct()
+                        .ToList();
+                    prod.AvailableSizes = sizes;
+
+                    var images = imageRows
+                        .Where(i => i.IdProducts == prod.IdProducts)
+                        .Select(i => i.Url)
+                        .ToList();
+                    if (images.Count > 0 && string.IsNullOrEmpty(prod.ThumbnailUrl))
+                    {
+                        prod.ThumbnailUrl = images.First();
+                    }
+                }
+            }
+
+            return Ok(relatedProducts);
         }
 
         // POST: api/Products

@@ -3,28 +3,64 @@
   "WorkspaceRootPath": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|d:\\cntt\\hk 2025\\webthaythuan\\webthaythuan\\wevcuoiki\\backend\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|solutionrelative:controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|d:\\cntt\\hk 2025\\webthaythuan\\webthaythuan\\wevcuoiki\\backend\\controllers\\cartscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|solutionrelative:controllers\\cartscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|d:\\cntt\\hk 2025\\webthaythuan\\webthaythuan\\wevcuoiki\\backend\\controllers\\navigationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|solutionrelative:controllers\\navigationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|d:\\cntt\\hk 2025\\webthaythuan\\webthaythuan\\wevcuoiki\\backend\\controllers\\admindashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|solutionrelative:controllers\\admindashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|d:\\cntt\\hk 2025\\webthaythuan\\webthaythuan\\wevcuoiki\\backend\\controllers\\discountcodescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|solutionrelative:controllers\\discountcodescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|d:\\cntt\\hk 2025\\webthaythuan\\webthaythuan\\wevcuoiki\\backend\\controllers\\wishlistscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|solutionrelative:controllers\\wishlistscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|d:\\cntt\\hk 2025\\webthaythuan\\webthaythuan\\wevcuoiki\\backend\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|solutionrelative:controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|d:\\cntt\\hk 2025\\webthaythuan\\webthaythuan\\wevcuoiki\\backend\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|solutionrelative:controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|d:\\cntt\\hk 2025\\webthaythuan\\webthaythuan\\wevcuoiki\\backend\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|solutionrelative:controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|d:\\cntt\\hk 2025\\webthaythuan\\webthaythuan\\wevcuoiki\\backend\\controllers\\cartscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|solutionrelative:controllers\\cartscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|d:\\cntt\\hk 2025\\webthaythuan\\webthaythuan\\wevcuoiki\\backend\\controllers\\blogscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|solutionrelative:controllers\\blogscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|d:\\cntt\\hk 2025\\webthaythuan\\webthaythuan\\wevcuoiki\\backend\\controllers\\bannerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|solutionrelative:controllers\\bannerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|d:\\cntt\\hk 2025\\webthaythuan\\webthaythuan\\wevcuoiki\\backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|d:\\cntt\\hk 2025\\webthaythuan\\webthaythuan\\wevcuoiki\\backend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|d:\\cntt\\hk 2025\\webthaythuan\\webthaythuan\\wevcuoiki\\backend\\controllers\\adminproductscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|solutionrelative:controllers\\adminproductscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|d:\\cntt\\hk 2025\\webthaythuan\\webthaythuan\\wevcuoiki\\backend\\controllers\\adminorderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|solutionrelative:controllers\\adminorderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|d:\\cntt\\hk 2025\\webthaythuan\\webthaythuan\\wevcuoiki\\backend\\controllers\\navigationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|solutionrelative:controllers\\navigationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|d:\\cntt\\hk 2025\\webthaythuan\\webthaythuan\\wevcuoiki\\backend\\models\\product_review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|solutionrelative:models\\product_review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|d:\\cntt\\hk 2025\\webthaythuan\\webthaythuan\\wevcuoiki\\backend\\dtos\\products\\productreviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|solutionrelative:dtos\\products\\productreviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|d:\\cntt\\hk 2025\\webthaythuan\\webthaythuan\\wevcuoiki\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -39,6 +75,14 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Backend_WebBanHang.csproj.user||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|d:\\cntt\\hk 2025\\webthaythuan\\webthaythuan\\wevcuoiki\\backend\\dtos\\auth\\facebookloginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|solutionrelative:dtos\\auth\\facebookloginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|d:\\cntt\\hk 2025\\webthaythuan\\webthaythuan\\wevcuoiki\\backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|d:\\cntt\\hk 2025\\webthaythuan\\webthaythuan\\wevcuoiki\\backend\\models\\wishlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|solutionrelative:models\\wishlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -49,14 +93,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|d:\\cntt\\hk 2025\\webthaythuan\\webthaythuan\\wevcuoiki\\backend\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|solutionrelative:models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|d:\\cntt\\hk 2025\\webthaythuan\\webthaythuan\\wevcuoiki\\backend\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|solutionrelative:controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|d:\\cntt\\hk 2025\\webthaythuan\\webthaythuan\\wevcuoiki\\backend\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|solutionrelative:controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|d:\\cntt\\hk 2025\\webthaythuan\\webthaythuan\\wevcuoiki\\backend\\dtos\\products\\productdetailsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -115,20 +151,12 @@
       "RelativeMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|d:\\cntt\\hk 2025\\webthaythuan\\webthaythuan\\wevcuoiki\\backend\\models\\product_review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|solutionrelative:models\\product_review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|d:\\cntt\\hk 2025\\webthaythuan\\webthaythuan\\wevcuoiki\\backend\\dtos\\cart\\cartitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|solutionrelative:dtos\\cart\\cartitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|d:\\cntt\\hk 2025\\webthaythuan\\webthaythuan\\wevcuoiki\\backend\\dtos\\cart\\addcartitemrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|solutionrelative:dtos\\cart\\addcartitemrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|d:\\cntt\\hk 2025\\webthaythuan\\webthaythuan\\wevcuoiki\\backend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{926A64A2-46CB-4944-BE00-0115F0B755DD}|Backend_WebBanHang.csproj|d:\\cntt\\hk 2025\\webthaythuan\\webthaythuan\\wevcuoiki\\backend\\dtos\\auth\\registerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -194,7 +222,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 22,
           "Children": [
             {
               "$type": "Bookmark",
@@ -234,50 +262,104 @@
             },
             {
               "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{6d4078d1-5951-4ed1-ac0e-0a8099c1cce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{25f7e850-ffa1-11d0-b63f-00a0c922e851}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "OrdersController.cs",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Controllers\\OrdersController.cs",
               "RelativeDocumentMoniker": "Controllers\\OrdersController.cs",
               "ToolTip": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Controllers\\OrdersController.cs",
               "RelativeToolTip": "Controllers\\OrdersController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAF4AAAAzAAAAAAAAAA==",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-21T12:35:28.8Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-21T12:35:28.8Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ProductsController.cs",
+              "ToolTip": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Controllers\\ProductsController.cs",
+              "RelativeToolTip": "Controllers\\ProductsController.cs",
+              "ViewState": "AgIAAAQCAAAAAAAAAAAQwJsBAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T16:39:49.473Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "WishlistsController.cs",
+              "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Controllers\\WishlistsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\WishlistsController.cs",
+              "ToolTip": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Controllers\\WishlistsController.cs",
+              "RelativeToolTip": "Controllers\\WishlistsController.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T17:17:43.121Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "CartsController.cs",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Controllers\\CartsController.cs",
               "RelativeDocumentMoniker": "Controllers\\CartsController.cs",
               "ToolTip": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Controllers\\CartsController.cs",
               "RelativeToolTip": "Controllers\\CartsController.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAQwCMAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAYwCUAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-24T10:24:55.63Z",
+              "WhenOpened": "2025-11-24T10:24:55.63Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AdminDashboardController.cs",
+              "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Controllers\\AdminDashboardController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AdminDashboardController.cs",
+              "ToolTip": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Controllers\\AdminDashboardController.cs",
+              "RelativeToolTip": "Controllers\\AdminDashboardController.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAAAH4AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-22T07:02:26.352Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "BannersController.cs",
-              "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Controllers\\BannersController.cs",
-              "RelativeDocumentMoniker": "Controllers\\BannersController.cs",
-              "ToolTip": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Controllers\\BannersController.cs",
-              "RelativeToolTip": "Controllers\\BannersController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-08T10:57:58.54Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "DiscountCodesController.cs",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Controllers\\DiscountCodesController.cs",
               "RelativeDocumentMoniker": "Controllers\\DiscountCodesController.cs",
@@ -290,7 +372,139 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CategoriesController.cs",
+              "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Controllers\\CategoriesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CategoriesController.cs",
+              "ToolTip": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Controllers\\CategoriesController.cs",
+              "RelativeToolTip": "Controllers\\CategoriesController.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAqwBsAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T10:12:58.037Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "BlogsController.cs",
+              "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Controllers\\BlogsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\BlogsController.cs",
+              "ToolTip": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Controllers\\BlogsController.cs",
+              "RelativeToolTip": "Controllers\\BlogsController.cs",
+              "ViewState": "AgIAANkAAAAAAAAAAAAAAJUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T19:33:14.901Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "BannersController.cs",
+              "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Controllers\\BannersController.cs",
+              "RelativeDocumentMoniker": "Controllers\\BannersController.cs",
+              "ToolTip": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Controllers\\BannersController.cs",
+              "RelativeToolTip": "Controllers\\BannersController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-08T10:57:58.54Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
+              "ToolTip": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Controllers\\AuthController.cs",
+              "ViewState": "AgIAACcBAAAAAAAAAAAAAKMAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T08:22:26.678Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AdminProductsController.cs",
+              "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Controllers\\AdminProductsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AdminProductsController.cs",
+              "ToolTip": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Controllers\\AdminProductsController.cs",
+              "RelativeToolTip": "Controllers\\AdminProductsController.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-22T07:02:27.744Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 11,
+              "Title": "AdminOrdersController.cs",
+              "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Controllers\\AdminOrdersController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AdminOrdersController.cs",
+              "ToolTip": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Controllers\\AdminOrdersController.cs",
+              "RelativeToolTip": "Controllers\\AdminOrdersController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABwAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-22T07:02:27.174Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "NavigationController.cs",
+              "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Controllers\\NavigationController.cs",
+              "RelativeDocumentMoniker": "Controllers\\NavigationController.cs",
+              "ToolTip": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Controllers\\NavigationController.cs",
+              "RelativeToolTip": "Controllers\\NavigationController.cs",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAYwBEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T09:04:35.125Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ProductReviewDto.cs",
+              "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\DTOs\\Products\\ProductReviewDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\Products\\ProductReviewDto.cs",
+              "ToolTip": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\DTOs\\Products\\ProductReviewDto.cs",
+              "RelativeToolTip": "DTOs\\Products\\ProductReviewDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T17:27:12.619Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "product_review.cs",
+              "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Models\\product_review.cs",
+              "RelativeDocumentMoniker": "Models\\product_review.cs",
+              "ToolTip": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Models\\product_review.cs",
+              "RelativeToolTip": "Models\\product_review.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T15:22:23.003Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAmwE8AAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T13:01:12.246Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "FacebookLoginRequest.cs",
+              "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\DTOs\\Auth\\FacebookLoginRequest.cs",
+              "RelativeDocumentMoniker": "DTOs\\Auth\\FacebookLoginRequest.cs",
+              "ToolTip": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\DTOs\\Auth\\FacebookLoginRequest.cs",
+              "RelativeToolTip": "DTOs\\Auth\\FacebookLoginRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T15:30:01.608Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
               "Title": "order.cs",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Models\\order.cs",
               "RelativeDocumentMoniker": "Models\\order.cs",
@@ -302,20 +516,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "NavigationController.cs",
-              "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Controllers\\NavigationController.cs",
-              "RelativeDocumentMoniker": "Controllers\\NavigationController.cs",
-              "ToolTip": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Controllers\\NavigationController.cs",
-              "RelativeToolTip": "Controllers\\NavigationController.cs",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAYwBEAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-09T09:04:35.125Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 21,
               "Title": "wishlist_item.cs",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Models\\wishlist_item.cs",
               "RelativeDocumentMoniker": "Models\\wishlist_item.cs",
@@ -327,7 +528,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 20,
               "Title": "wishlist.cs",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Models\\wishlist.cs",
               "RelativeDocumentMoniker": "Models\\wishlist.cs",
@@ -339,32 +540,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "CategoriesController.cs",
-              "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Controllers\\CategoriesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\CategoriesController.cs",
-              "ToolTip": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Controllers\\CategoriesController.cs",
-              "RelativeToolTip": "Controllers\\CategoriesController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAwFkAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-24T10:12:58.037Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAmwEEAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T13:01:12.246Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 19,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -372,24 +548,11 @@
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAQwAIAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-11-17T13:01:10.06Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T13:01:10.06Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "ProductsController.cs",
-              "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Controllers\\ProductsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ProductsController.cs",
-              "ToolTip": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Controllers\\ProductsController.cs",
-              "RelativeToolTip": "Controllers\\ProductsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEgBAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-23T16:39:49.473Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 26,
               "Title": "PagedResult.cs",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\DTOs\\Common\\PagedResult.cs",
               "RelativeDocumentMoniker": "DTOs\\Common\\PagedResult.cs",
@@ -401,7 +564,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 24,
               "Title": "ProductListItemDto.cs",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\DTOs\\Products\\ProductListItemDto.cs",
               "RelativeDocumentMoniker": "DTOs\\Products\\ProductListItemDto.cs",
@@ -413,7 +576,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 25,
               "Title": "product.cs",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Models\\product.cs",
               "RelativeDocumentMoniker": "Models\\product.cs",
@@ -425,7 +588,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 23,
               "Title": "ProductDetailsDto.cs",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\DTOs\\Products\\ProductDetailsDto.cs",
               "RelativeDocumentMoniker": "DTOs\\Products\\ProductDetailsDto.cs",
@@ -437,7 +600,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 27,
               "Title": "CategoryDto.cs",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\DTOs\\Categories\\CategoryDto.cs",
               "RelativeDocumentMoniker": "DTOs\\Categories\\CategoryDto.cs",
@@ -449,7 +612,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 32,
               "Title": "blog.cs",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Models\\blog.cs",
               "RelativeDocumentMoniker": "Models\\blog.cs",
@@ -461,7 +624,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 28,
               "Title": "CategoryTreeDto.cs",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\DTOs\\Categories\\CategoryTreeDto.cs",
               "RelativeDocumentMoniker": "DTOs\\Categories\\CategoryTreeDto.cs",
@@ -473,7 +636,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 29,
               "Title": "discount_code.cs",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Models\\discount_code.cs",
               "RelativeDocumentMoniker": "Models\\discount_code.cs",
@@ -485,7 +648,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 30,
               "Title": "categorie.cs",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Models\\categorie.cs",
               "RelativeDocumentMoniker": "Models\\categorie.cs",
@@ -497,7 +660,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 31,
               "Title": "cart_item.cs",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Models\\cart_item.cs",
               "RelativeDocumentMoniker": "Models\\cart_item.cs",
@@ -509,7 +672,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 33,
               "Title": "Cart.cs",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Models\\Cart.cs",
               "RelativeDocumentMoniker": "Models\\Cart.cs",
@@ -521,7 +684,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 34,
               "Title": "banner.cs",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Models\\banner.cs",
               "RelativeDocumentMoniker": "Models\\banner.cs",
@@ -533,7 +696,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 35,
               "Title": "ProductImage.cs",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Models\\ProductImage.cs",
               "RelativeDocumentMoniker": "Models\\ProductImage.cs",
@@ -545,7 +708,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 36,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
@@ -557,19 +720,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "product_review.cs",
-              "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Models\\product_review.cs",
-              "RelativeDocumentMoniker": "Models\\product_review.cs",
-              "ToolTip": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Models\\product_review.cs",
-              "RelativeToolTip": "Models\\product_review.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBwAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-23T15:22:23.003Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 37,
               "Title": "CartItemDto.cs",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\DTOs\\Cart\\CartItemDto.cs",
               "RelativeDocumentMoniker": "DTOs\\Cart\\CartItemDto.cs",
@@ -581,7 +732,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 38,
               "Title": "AddCartItemRequest.cs",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\DTOs\\Cart\\AddCartItemRequest.cs",
               "RelativeDocumentMoniker": "DTOs\\Cart\\AddCartItemRequest.cs",
@@ -593,19 +744,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
-              "ToolTip": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKMAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-24T08:22:26.678Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 39,
               "Title": "RegisterRequest.cs",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\DTOs\\Auth\\RegisterRequest.cs",
               "RelativeDocumentMoniker": "DTOs\\Auth\\RegisterRequest.cs",
@@ -617,7 +756,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 40,
               "Title": "LoginRequest.cs",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\DTOs\\Auth\\LoginRequest.cs",
               "RelativeDocumentMoniker": "DTOs\\Auth\\LoginRequest.cs",
@@ -629,7 +768,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 41,
               "Title": "ChangePasswordRequest.cs",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\DTOs\\Auth\\ChangePasswordRequest.cs",
               "RelativeDocumentMoniker": "DTOs\\Auth\\ChangePasswordRequest.cs",
@@ -641,7 +780,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 42,
               "Title": "AuthResponse.cs",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\DTOs\\Auth\\AuthResponse.cs",
               "RelativeDocumentMoniker": "DTOs\\Auth\\AuthResponse.cs",
@@ -653,7 +792,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 43,
               "Title": "UpdateCartItemRequest.cs",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\DTOs\\Cart\\UpdateCartItemRequest.cs",
               "RelativeDocumentMoniker": "DTOs\\Cart\\UpdateCartItemRequest.cs",
@@ -665,7 +804,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 44,
               "Title": "CartResponse.cs",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\DTOs\\Cart\\CartResponse.cs",
               "RelativeDocumentMoniker": "DTOs\\Cart\\CartResponse.cs",
@@ -677,7 +816,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 45,
               "Title": "JwtTokenService.cs",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Services\\JwtTokenService.cs",
               "RelativeDocumentMoniker": "Services\\JwtTokenService.cs",
@@ -689,7 +828,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 46,
               "Title": "IJwtTokenService.cs",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Services\\IJwtTokenService.cs",
               "RelativeDocumentMoniker": "Services\\IJwtTokenService.cs",
@@ -701,7 +840,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 47,
               "Title": "order_item.cs",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Models\\order_item.cs",
               "RelativeDocumentMoniker": "Models\\order_item.cs",
@@ -713,7 +852,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 16,
               "Title": "Backend_WebBanHang.http",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Backend_WebBanHang.http",
               "RelativeDocumentMoniker": "Backend_WebBanHang.http",
@@ -721,12 +860,11 @@
               "RelativeToolTip": "Backend_WebBanHang.http",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2025-11-17T13:03:31.742Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T13:03:31.742Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 48,
               "Title": "ValidateDiscountResponse.cs",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\DTOs\\DiscountCodes\\ValidateDiscountResponse.cs",
               "RelativeDocumentMoniker": "DTOs\\DiscountCodes\\ValidateDiscountResponse.cs",
@@ -738,7 +876,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 49,
               "Title": "DiscountCodeDto.cs",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\DTOs\\DiscountCodes\\DiscountCodeDto.cs",
               "RelativeDocumentMoniker": "DTOs\\DiscountCodes\\DiscountCodeDto.cs",
@@ -750,7 +888,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 50,
               "Title": "launchSettings.json",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "Properties\\launchSettings.json",
@@ -762,7 +900,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 51,
               "Title": "ProductVariant.cs",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Models\\ProductVariant.cs",
               "RelativeDocumentMoniker": "Models\\ProductVariant.cs",
@@ -774,7 +912,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 52,
               "Title": "User.cs",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Models\\User.cs",
               "RelativeDocumentMoniker": "Models\\User.cs",
@@ -786,7 +924,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 17,
               "Title": "Backend_WebBanHang.csproj.user",
               "DocumentMoniker": "D:\\CNTT\\HK 2025\\WebThayThuan\\WebThayThuan\\wevcuoiki\\backend\\Backend_WebBanHang.csproj.user",
               "RelativeDocumentMoniker": "Backend_WebBanHang.csproj.user",
@@ -794,8 +932,7 @@
               "RelativeToolTip": "Backend_WebBanHang.csproj.user",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003464|",
-              "WhenOpened": "2025-11-23T15:00:31.75Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-23T15:00:31.75Z"
             }
           ]
         },

@@ -107,6 +107,7 @@ export default function CollectionPage() {
   const [priceKey, setPriceKey] = useState(null);
   const [category, setCategory] = useState(null);
   const [categories, setCategories] = useState([]);
+  const [expandedCategoryIds, setExpandedCategoryIds] = useState(new Set());
   
   // Collapsible filter states
   const [expandedFilters, setExpandedFilters] = useState({
@@ -133,21 +134,35 @@ export default function CollectionPage() {
         const navData = await getNavigationData();
         if (mounted) {
           const allCategories = [];
-          const getCategoryData = (cat, level = 0) => ({
-            id: cat.id ?? cat.Id ?? cat.idCategories ?? cat.IdCategories,
-            name: cat.name ?? cat.Name,
-            slug: cat.slug ?? cat.Slug,
-            level, // 0 = root, 1 = child, 2 = grandchild
-          });
+          const categoryMap = new Map(); // Map để lưu categories với id làm key
+          
+          const getCategoryData = (cat, level = 0, parentId = null) => {
+            const id = cat.id ?? cat.Id ?? cat.idCategories ?? cat.IdCategories;
+            const categoryData = {
+              id,
+              name: cat.name ?? cat.Name,
+              slug: cat.slug ?? cat.Slug,
+              level, // 0 = root, 1 = child, 2 = grandchild
+              parentId,
+              children: [],
+            };
+            categoryMap.set(id, categoryData);
+            return categoryData;
+          };
           
           navData.forEach((root) => {
-            allCategories.push(getCategoryData(root, 0));
+            const rootData = getCategoryData(root, 0, null);
+            allCategories.push(rootData);
             const children = root.children ?? root.Children ?? [];
             children.forEach((child) => {
-              allCategories.push(getCategoryData(child, 1));
+              const childData = getCategoryData(child, 1, rootData.id);
+              rootData.children.push(childData);
+              allCategories.push(childData);
               const grandChildren = child.children ?? child.Children ?? [];
               grandChildren.forEach((grandchild) => {
-                allCategories.push(getCategoryData(grandchild, 2));
+                const grandchildData = getCategoryData(grandchild, 2, childData.id);
+                childData.children.push(grandchildData);
+                allCategories.push(grandchildData);
               });
             });
           });
@@ -292,6 +307,18 @@ export default function CollectionPage() {
     }));
   };
 
+  const toggleCategory = (categoryId) => {
+    setExpandedCategoryIds((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(categoryId)) {
+        newSet.delete(categoryId);
+      } else {
+        newSet.add(categoryId);
+      }
+      return newSet;
+    });
+  };
+
   // Separate sizes into text and numeric
   const textSizes = useMemo(() => {
     return facetSizes.filter((s) => /^[A-Z]+$/i.test(String(s).trim()));
@@ -331,37 +358,66 @@ export default function CollectionPage() {
         </button>
       </div>
 
-      {/* Danh mục sản phẩm */}
-      <FilterSection
-        title="Danh mục sản phẩm"
-        isExpanded={expandedFilters.categories}
-        onToggle={() => toggleFilter("categories")}
-      >
-        <div className="space-y-1">
-          {categories.length === 0 ? (
-            <div className="text-xs text-neutral-500">Chưa có dữ liệu</div>
-          ) : (
-            categories.map((cat) => {
-              const level = cat.level ?? 0;
-              const paddingLeft = level === 0 ? "pl-2" : level === 1 ? "pl-5" : "pl-8";
-              const fontSize = level === 0 ? "text-xs" : level === 1 ? "text-[11px]" : "text-[10px]";
-              const fontWeight = level === 0 ? "font-semibold" : level === 1 ? "font-medium" : "font-normal";
-              
-              return (
-                <Link
-                  key={cat.id}
-                  to={`/collections/${cat.slug}`}
-                  className={`block rounded pr-2 py-1.5 ${paddingLeft} ${fontSize} ${fontWeight} transition hover:bg-neutral-50 ${
-                    slug === cat.slug ? "bg-neutral-100 text-neutral-900" : "text-neutral-700"
-                  }`}
-                >
-                  {cat.name}
-                </Link>
-              );
-            })
-          )}
-        </div>
-      </FilterSection>
+       {/* Danh mục sản phẩm */}
+       <FilterSection
+         title="Danh mục sản phẩm"
+         isExpanded={expandedFilters.categories}
+         onToggle={() => toggleFilter("categories")}
+       >
+         <div className="space-y-1">
+           {categories.length === 0 ? (
+             <div className="text-xs text-neutral-500">Chưa có dữ liệu</div>
+           ) : (
+             categories
+               .filter((cat) => {
+                 // Chỉ hiển thị root categories hoặc categories có parent đã được expand
+                 if (cat.level === 0) return true;
+                 const parentId = cat.parentId;
+                 return parentId && expandedCategoryIds.has(parentId);
+               })
+               .map((cat) => {
+                 const level = cat.level ?? 0;
+                 const paddingLeft = level === 0 ? "pl-2" : level === 1 ? "pl-5" : "pl-8";
+                 const fontSize = level === 0 ? "text-xs" : level === 1 ? "text-[11px]" : "text-[10px]";
+                 const fontWeight = level === 0 ? "font-semibold" : level === 1 ? "font-medium" : "font-normal";
+                 const hasChildren = (cat.children ?? []).length > 0;
+                 const isExpanded = expandedCategoryIds.has(cat.id);
+                 
+                 return (
+                   <div key={cat.id}>
+                     <div className="flex items-center">
+                       {hasChildren && (
+                         <button
+                           type="button"
+                           onClick={(e) => {
+                             e.preventDefault();
+                             e.stopPropagation();
+                             toggleCategory(cat.id);
+                           }}
+                           className="mr-1 flex h-5 w-5 items-center justify-center text-neutral-600 hover:text-neutral-900"
+                         >
+                           <FontAwesomeIcon
+                             icon={isExpanded ? faChevronDown : faChevronRight}
+                             className="text-[10px]"
+                           />
+                         </button>
+                       )}
+                       {!hasChildren && <div className="mr-1 w-5" />}
+                       <Link
+                         to={`/collections/${cat.slug}`}
+                         className={`flex-1 rounded pr-2 py-1.5 ${paddingLeft} ${fontSize} ${fontWeight} transition hover:bg-neutral-50 ${
+                           slug === cat.slug ? "bg-neutral-100 text-neutral-900" : "text-neutral-700"
+                         }`}
+                       >
+                         {cat.name}
+                       </Link>
+                     </div>
+                   </div>
+                 );
+               })
+           )}
+         </div>
+       </FilterSection>
 
       {/* Khoảng giá */}
       <FilterSection

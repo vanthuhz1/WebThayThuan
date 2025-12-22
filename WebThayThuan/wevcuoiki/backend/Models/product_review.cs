@@ -23,9 +23,6 @@ namespace Backend_WebBanHang.Models
         [Column("review")]
         public string? Review { get; set; }
 
-        [Column("images")]
-        public string? Images { get; set; }
-
         [Column("status")]
         public string? Status { get; set; }
 

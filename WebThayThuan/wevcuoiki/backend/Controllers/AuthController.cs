@@ -82,6 +82,10 @@ namespace Backend_WebBanHang.Controllers
             if (user == null)
                 return Unauthorized("Sai email hoặc mật khẩu");
 
+            // Không cho đăng nhập nếu tài khoản bị khóa
+            if (string.Equals(user.Status, "banned", StringComparison.OrdinalIgnoreCase))
+                return Unauthorized("Tài khoản đã bị khóa");
+
             var hashed = HashPassword(request.Password);
             if (!string.Equals(user.PasswordHash, hashed, StringComparison.OrdinalIgnoreCase))
                 return Unauthorized("Sai email hoặc mật khẩu");
