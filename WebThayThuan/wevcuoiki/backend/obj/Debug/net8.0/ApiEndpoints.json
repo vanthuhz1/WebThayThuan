@@ -400,6 +400,105 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Backend_WebBanHang.Controllers.AdminReviewsController",
+    "Method": "GetReviews",
+    "RelativePath": "api/admin/AdminReviews",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "status",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "rating",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "productId",
+        "Type": "System.Nullable\u00601[[System.Int64, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend_WebBanHang.Controllers.AdminReviewsController",
+    "Method": "GetReview",
+    "RelativePath": "api/admin/AdminReviews/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend_WebBanHang.Controllers.AdminReviewsController",
+    "Method": "UpdateReview",
+    "RelativePath": "api/admin/AdminReviews/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "Backend_WebBanHang.Controllers.UpdateReviewRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend_WebBanHang.Controllers.AdminReviewsController",
+    "Method": "DeleteReview",
+    "RelativePath": "api/admin/AdminReviews/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend_WebBanHang.Controllers.AdminReviewsController",
+    "Method": "GetStats",
+    "RelativePath": "api/admin/AdminReviews/stats",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Backend_WebBanHang.Controllers.AdminUsersController",
     "Method": "GetUsers",
     "RelativePath": "api/admin/AdminUsers",

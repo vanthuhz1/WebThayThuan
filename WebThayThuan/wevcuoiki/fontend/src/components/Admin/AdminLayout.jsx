@@ -9,9 +9,8 @@ import {
   faShoppingCart,
   faUsers,
   faFolder,
-  faNewspaper,
-  faImage,
   faTag,
+  faStar,
   faSignOutAlt,
   faHome,
 } from "@fortawesome/free-solid-svg-icons";
@@ -28,8 +27,7 @@ export default function AdminLayout() {
     { path: "/admin/orders", icon: faShoppingCart, label: "Đơn hàng" },
     { path: "/admin/users", icon: faUsers, label: "Người dùng" },
     { path: "/admin/categories", icon: faFolder, label: "Danh mục" },
-    { path: "/admin/blogs", icon: faNewspaper, label: "Blogs" },
-    { path: "/admin/banners", icon: faImage, label: "Banners" },
+    { path: "/admin/reviews", icon: faStar, label: "Đánh giá" },
     { path: "/admin/discount-codes", icon: faTag, label: "Mã giảm giá" },
   ];
 

@@ -10,9 +10,6 @@ export const NAVIGATION_ITEMS = [
   { path: '/collections/quan', slug: 'quan', label: 'QUẦN', hasDropdown: true, isCollection: true },
   { path: '/collections/phu-kien', slug: 'phu-kien', label: 'PHỤ KIỆN', hasDropdown: true, isCollection: true },
 
-  // Static pages (đã có route trong App)
-  { path: '/news', slug: 'tin-thoi-trang', label: 'TIN THỜI TRANG', hasDropdown: false, isCollection: false },
-  { path: '/not-found', slug: 've-chung-toi', label: 'VỀ CHÚNG TÔI', hasDropdown: false, isCollection: false },
 ]
 
 // Footer links

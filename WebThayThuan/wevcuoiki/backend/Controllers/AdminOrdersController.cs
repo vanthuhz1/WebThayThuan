@@ -262,6 +262,9 @@ namespace Backend_WebBanHang.Controllers
                 _context.OrderStatusHistories.RemoveRange(statusHistories);
             }
 
+            // Save để xóa các items liên quan trước khi xóa order
+            await _context.SaveChangesAsync();
+
             // Xóa order
             _context.Orders.Remove(order);
 

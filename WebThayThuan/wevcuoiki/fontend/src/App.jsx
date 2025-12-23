@@ -31,6 +31,7 @@ import CategoryTree from "./pages/Admin/Categories/CategoryTree";
 import DiscountCodeList from "./pages/Admin/DiscountCodes/DiscountCodeList";
 import DiscountCodeCreate from "./pages/Admin/DiscountCodes/DiscountCodeCreate";
 import DiscountCodeEdit from "./pages/Admin/DiscountCodes/DiscountCodeEdit";
+import ReviewList from "./pages/Admin/Reviews/ReviewList";
 
 function App() {
   return (
@@ -80,6 +81,7 @@ function App() {
           <Route path="discount-codes" element={<DiscountCodeList />} />
           <Route path="discount-codes/new" element={<DiscountCodeCreate />} />
           <Route path="discount-codes/:id/edit" element={<DiscountCodeEdit />} />
+          <Route path="reviews" element={<ReviewList />} />
         </Route>
       </Routes>
     </Router>

@@ -383,6 +383,9 @@ namespace Backend_WebBanHang.Controllers
             if (blogs.Any())
                 _context.Blogs.RemoveRange(blogs);
 
+            // Save để xóa các items liên quan trước khi xóa user
+            await _context.SaveChangesAsync();
+
             // 11. Cuối cùng xóa User
             _context.Users.Remove(user);
 
